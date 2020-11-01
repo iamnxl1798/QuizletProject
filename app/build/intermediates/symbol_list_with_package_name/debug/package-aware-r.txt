@@ -1544,6 +1544,7 @@ drawable btn_radio_on_to_off_mtrl_animation
 drawable chat
 drawable cuong
 drawable cuong2
+drawable custom
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1551,12 +1552,18 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable home
+drawable ic_back
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable icon_add_fill
+drawable icon_add_item
+drawable icon_back
+drawable icon_check
+drawable icon_setting
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
 drawable material_ic_edit_black_24dp
@@ -1661,6 +1668,8 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addBtn
+id addItemBtn
 id alertTitle
 id aligned
 id all
@@ -1692,6 +1701,7 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
+id checkBtn
 id checkbox
 id checked
 id chip
@@ -1717,6 +1727,7 @@ id date_picker_actions
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
+id defRecycle
 id default_activity_button
 id deltaRelative
 id dependency_ordering
@@ -1741,6 +1752,7 @@ id dropdown_menu
 id easeIn
 id easeInOut
 id easeOut
+id edit_category
 id edit_query
 id end
 id end_padder
@@ -1864,6 +1876,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id rcl_view
 id rectangles
 id reverseSawtooth
 id reviewHome
@@ -1972,6 +1985,8 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_definition
+id tv_term
 id unchecked
 id uniform
 id unlabeled
@@ -2063,9 +2078,12 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout fragment_add_course
 layout fragment_chat
 layout fragment_home
 layout fragment_search
+layout item
+layout item_def
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title

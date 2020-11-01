@@ -82,7 +82,7 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Ad
 	android:allowBackup
 		ADDED from C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
-		ADDED from C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:11:9-40
+		ADDED from C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:11:9-65
 activity#com.example.quizlet.StudyActivity
 ADDED from C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:12:9-60
 	android:name

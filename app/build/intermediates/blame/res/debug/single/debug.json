@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_star_click.png.flat",
-        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\star_click.png"
-    },
-    {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_star_click.png.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\star_click.png"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_star.png.flat",
@@ -24,6 +24,14 @@
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\chat.png"
     },
     {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_custom.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable-v24\\custom.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable-v24\\ic_launcher_background.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
@@ -36,12 +44,16 @@
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\layout\\reviewhome.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_chat.png.flat",
-        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\chat.png"
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_back.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable-v24\\ic_back.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_chat.png.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\chat.png"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_search.xml.flat",
@@ -84,20 +96,24 @@
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_review_study.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\layout\\review_study.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_search.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\search.png"
     },
     {
-        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_review_study.xml.flat",
-        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\layout\\review_study.xml"
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_item.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\layout\\item.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
@@ -124,6 +140,10 @@
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\search.png"
     },
     {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_add_item.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable-v24\\icon_add_item.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_chat.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\chat.png"
     },
@@ -134,6 +154,10 @@
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_cuong.jpg.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable\\cuong.jpg"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_check.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable-v24\\icon_check.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
@@ -168,12 +192,16 @@
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\star_click.xml"
     },
     {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_star_click.png.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\star_click.png"
+    },
+    {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_chat.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\chat.png"
     },
     {
-        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_star_click.png.flat",
-        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\star_click.png"
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_add_course.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\layout\\fragment_add_course.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_home.png.flat",
@@ -236,12 +264,24 @@
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
     },
     {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_back.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable-v24\\icon_back.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_star.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\star.png"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_home.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\home.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_def.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\layout\\item_def.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_add_fill.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable-v24\\icon_add_fill.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_study.xml.flat",
@@ -254,6 +294,10 @@
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_star.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\star.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_setting.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable-v24\\icon_setting.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_home.xml.flat",
