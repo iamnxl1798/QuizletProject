@@ -8,11 +8,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.quizlet.Model.Question;
-import com.example.quizlet.Model.ThuMucHoc;
+import com.example.quizlet.model.Question;
 import com.example.quizlet.R;
 
 import java.util.List;

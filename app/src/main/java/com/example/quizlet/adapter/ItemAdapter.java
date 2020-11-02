@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizlet.R;
-import com.example.quizlet.Model.Item;
+import com.example.quizlet.model.Item;
 
 import java.util.ArrayList;
 

@@ -1094,6 +1094,7 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
+color toobar
 color tooltip_background_dark
 color tooltip_background_light
 dimen abc_action_bar_content_inset_material
@@ -1551,6 +1552,8 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable duongvien_goctron
+drawable hoc
 drawable home
 drawable ic_back
 drawable ic_launcher_background
@@ -1564,6 +1567,7 @@ drawable icon_add_item
 drawable icon_back
 drawable icon_check
 drawable icon_setting
+drawable kiemtra
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp
 drawable material_ic_edit_black_24dp
@@ -1685,6 +1689,7 @@ id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id avatar
+id avatarUserCourse
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -1843,6 +1848,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
 id nameQuestion
+id nameUser
 id navi_chat
 id navi_home
 id navi_search
@@ -1970,6 +1976,7 @@ id textinput_suffix_text
 id time
 id title
 id title1
+id titleCourse
 id titleDividerNoCustom
 id title_template
 id title_the

@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.quizlet.Model.ThuMucHoc;
+import com.example.quizlet.model.ThuMucHoc;
 import com.example.quizlet.R;
 import com.example.quizlet.StudyActivity;
 import com.example.quizlet.adapter.HomeAdapter;

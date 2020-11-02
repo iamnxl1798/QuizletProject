@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.quizlet.Model.ThuMucHoc;
+import com.example.quizlet.model.ThuMucHoc;
 import com.example.quizlet.R;
 
 import java.util.List;

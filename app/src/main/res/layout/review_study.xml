@@ -6,7 +6,7 @@
     android:layout_marginLeft="20px"
     android:layout_marginTop="20px"
     android:layout_marginRight="20px"
-    android:background="#DCDCD4"
+    android:background="#ffffff"
     android:padding="10px">
 
     <TextView

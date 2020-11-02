@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.quizlet.Model.Question;
-import com.example.quizlet.Model.ThuMucHoc;
+import com.example.quizlet.model.Question;
 import com.example.quizlet.adapter.StudyAdapter;
 
 import java.util.ArrayList;

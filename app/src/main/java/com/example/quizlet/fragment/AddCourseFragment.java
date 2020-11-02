@@ -10,8 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.quizlet.MainActivity;
-import com.example.quizlet.Model.Item;
+import com.example.quizlet.model.Item;
 import com.example.quizlet.R;
 import com.example.quizlet.adapter.ItemAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
