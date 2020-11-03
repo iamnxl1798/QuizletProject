@@ -1,6 +1,7 @@
 package com.example.quizlet.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,7 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
         holder.answer.setText(question.getAnswer());
         if (question.isGim() == true) {
             holder.star.setImageResource(R.drawable.star_click);
+            holder.star.setBackgroundColor(Color.YELLOW);
         } else {
             holder.star.setImageResource(R.drawable.star);
         }

@@ -13,7 +13,7 @@ public class Answers {
     @ColumnInfo
     private String answer;
     @ColumnInfo
-    private boolean abc;
+    private boolean isTrue;
 
     @ForeignKey(entity = Question.class,
             parentColumns = {"id"},
@@ -27,7 +27,7 @@ public class Answers {
 
     public Answers(String answer, boolean abc, long questionId) {
         this.answer = answer;
-        this.abc = abc;
+        this.isTrue = abc;
         this.questionId = questionId;
     }
 
@@ -48,11 +48,11 @@ public class Answers {
     }
 
     public boolean isAbc() {
-        return abc;
+        return isTrue;
     }
 
     public void setAbc(boolean abc) {
-        this.abc = abc;
+        this.isTrue = abc;
     }
 
     public long getQuestionId() {

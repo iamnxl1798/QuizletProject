@@ -27,6 +27,8 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fade_in
+anim fade_out
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
@@ -1690,6 +1692,7 @@ id autoCompleteToEnd
 id autoCompleteToStart
 id avatar
 id avatarUserCourse
+id back_home
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -1774,7 +1777,6 @@ id filled
 id fitToContents
 id fixed
 id flip
-id float_addThuMuc
 id floating
 id forever
 id frame_home
@@ -1788,6 +1790,8 @@ id group_divider
 id grouping
 id groups
 id hideable
+id hocphan
+id hocphandajoin
 id home
 id homeAsUp
 id honorRequest
@@ -1880,12 +1884,14 @@ id position
 id postLayout
 id progress_circular
 id progress_horizontal
+id quangcao
 id radio
 id ratio
 id rcl_view
 id rectangles
 id reverseSawtooth
 id reviewHome
+id reviewHome2
 id right
 id right_icon
 id right_side
@@ -1926,6 +1932,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id soluongcauhoi
 id spacer
 id spline
 id split_action_bar
@@ -1979,7 +1986,6 @@ id title1
 id titleCourse
 id titleDividerNoCustom
 id title_template
-id title_the
 id toggle
 id top
 id topPanel
@@ -2005,6 +2011,8 @@ id withText
 id withinBounds
 id wrap
 id wrap_content
+id xemtatcahocphan
+id xemtatcahocphandajoin
 id zero_corner_chip
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur

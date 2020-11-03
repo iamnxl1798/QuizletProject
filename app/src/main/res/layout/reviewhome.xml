@@ -3,12 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item_ryce"
     android:layout_width="match_parent"
-    android:layout_height="300px"
+    android:layout_height="350px"
     android:layout_marginLeft="20px"
     android:layout_marginTop="20px"
     android:layout_marginRight="20px"
     android:layout_marginBottom="10px"
-    android:background="#E6E6D4"
     android:padding="10px">
 
     <TextView
@@ -16,19 +15,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20px"
-        android:layout_marginTop="40px"
+        android:layout_marginTop="20px"
         android:text="SWD-Test2"
         android:textColor="#000000"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/soluongcauhoi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40px"
+        android:layout_marginTop="10px"
+        android:text="30 thuật ngữ"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title1" />
+
     <ImageView
         android:id="@+id/avatar"
         android:layout_width="84px"
         android:layout_height="84px"
         android:layout_marginLeft="20px"
-        android:layout_marginTop="40px"
+        android:layout_marginTop="140px"
         android:src="@drawable/cuong"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title1" />
@@ -38,11 +47,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20px"
-        android:layout_marginTop="40px"
+        android:layout_marginTop="140px"
         android:text="Cuongnv"
         android:textColor="#000000"
         android:textSize="15sp"
         app:layout_constraintLeft_toRightOf="@+id/avatar"
         app:layout_constraintTop_toBottomOf="@+id/title1" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

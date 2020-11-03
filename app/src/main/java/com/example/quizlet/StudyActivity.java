@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.quizlet.model.Question;
 import com.example.quizlet.adapter.StudyAdapter;
@@ -17,7 +20,7 @@ public class StudyActivity extends AppCompatActivity {
     StudyAdapter studyAdapter;
     List<Question> questions;
     private RecyclerView recyView_Study;
-
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +44,16 @@ public class StudyActivity extends AppCompatActivity {
         });
         recyView_Study.setLayoutManager(new LinearLayoutManager(this));
         recyView_Study.setAdapter(studyAdapter);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void AnhXa() {
         recyView_Study = findViewById(R.id.ryce_study);
+        back = findViewById(R.id.back_home);
     }
 }

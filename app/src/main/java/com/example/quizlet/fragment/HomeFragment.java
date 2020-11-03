@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ViewFlipper;
 
 import com.example.quizlet.model.ThuMucHoc;
 import com.example.quizlet.R;
@@ -24,9 +27,10 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     private RecyclerView recyView_Home;
     List<ThuMucHoc> thuMucHocList;
-    private FloatingActionButton floatingButtonAdd;
     HomeAdapter homeAdapter;
     private boolean check_Add;
+    ViewFlipper viewFlipper;
+    Animation in, out;
 
     public HomeFragment() {
     }
@@ -54,25 +58,27 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        recyView_Home.setLayoutManager(new LinearLayoutManager(getActivity()));
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager.scrollToPosition(0);
+        recyView_Home.setLayoutManager(layoutManager);
         recyView_Home.setAdapter(homeAdapter);
         if (check_Add == true) {
             homeAdapter.notifyItemInserted(thuMucHocList.size() + 1);
         }
 
-        //Ong Add vao day nhe Lam
-        floatingButtonAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        in = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
+        out = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
+        viewFlipper.setInAnimation(in);
+        viewFlipper.setOutAnimation(out);
+        viewFlipper.setFlipInterval(3000);
+        viewFlipper.setAutoStart(true);
         return view;
     }
 
     public void AnhXa(View view) {
         recyView_Home = view.findViewById(R.id.reviewHome);
-        floatingButtonAdd = view.findViewById(R.id.float_addThuMuc);
+        viewFlipper = view.findViewById(R.id.quangcao);
     }
 
 }

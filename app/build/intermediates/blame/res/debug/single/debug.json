@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
-    },
-    {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_star_click.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\star_click.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_star.png.flat",
@@ -260,6 +260,10 @@
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\search.png"
     },
     {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\anim_fade_in.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\anim\\fade_in.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_home.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\home.png"
     },
@@ -334,6 +338,10 @@
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_kiemtra.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\kiemtra.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\anim_fade_out.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\anim\\fade_out.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_study.xml.flat",
