@@ -4,18 +4,26 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.example.quizlet.dao.AddCourseDAO;
+import com.example.quizlet.database.MyDatabase;
+import com.example.quizlet.model.Courses;
 import com.example.quizlet.model.Item;
 import com.example.quizlet.R;
 import com.example.quizlet.adapter.ItemAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,7 +41,9 @@ public class AddCourseFragment extends Fragment {
     private ItemAdapter adapter;
     private ImageView checkBtn;
     private FloatingActionButton addItemBtn;
-
+    public MyDatabase myDatabase;
+    public AddCourseDAO addCourseDAO;
+    public EditText edit_category;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -74,7 +84,7 @@ public class AddCourseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_add_course, container, false);
+        final View view=inflater.inflate(R.layout.fragment_add_course, container, false);
         items =new ArrayList<>();
         final ArrayList<String> listDef=new ArrayList();
         listDef.add("");
@@ -87,6 +97,12 @@ public class AddCourseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 items=((ItemAdapter)recyclerView.getAdapter()).getItems();
+                myDatabase = Room.databaseBuilder(getContext(),MyDatabase.class,"quizletDB").allowMainThreadQueries().build();
+                addCourseDAO=myDatabase.createCourseDAO();
+                edit_category=view.findViewById(R.id.edit_category);
+                Date currentTime = Calendar.getInstance().getTime();
+                Courses courses=new Courses(edit_category.getText().toString(),currentTime.getTime());
+                addCourseDAO.insertCourse(courses);
             }
         });
         addItemBtn=view.findViewById(R.id.addItemBtn);

@@ -14,4 +14,8 @@ public class Courses {
     @ColumnInfo
     private long createDate;
 
+    public Courses(String name, long createDate) {
+        this.name = name;
+        this.createDate = createDate;
+    }
 }
