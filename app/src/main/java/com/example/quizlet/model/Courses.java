@@ -14,6 +14,7 @@ public class Courses {
     @ColumnInfo
     private long createDate;
 
+
     public Courses(String name, long createDate) {
         this.name = name;
         this.createDate = createDate;
@@ -44,5 +45,14 @@ public class Courses {
 
     public void setCreateDate(long createDate) {
         this.createDate = createDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Courses{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", createDate=" + createDate +
+                '}';
     }
 }

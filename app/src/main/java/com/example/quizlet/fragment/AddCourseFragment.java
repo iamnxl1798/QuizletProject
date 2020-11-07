@@ -20,11 +20,13 @@ import com.example.quizlet.model.Courses;
 import com.example.quizlet.model.Item;
 import com.example.quizlet.R;
 import com.example.quizlet.adapter.ItemAdapter;
+import com.example.quizlet.model.Question;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,13 +100,14 @@ public class AddCourseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
-                myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, "quizletDB").allowMainThreadQueries().build();
+                myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, "quizletDB1").allowMainThreadQueries().build();
                 addCourseDAO = myDatabase.createCourseDAO();
                 edit_category = view.findViewById(R.id.edit_category);
                 Date currentTime = Calendar.getInstance().getTime();
                 Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
                 addCourseDAO.insertCourse(courses);
-                Toast.makeText(getContext(), "thanh cong", Toast.LENGTH_SHORT).show();
+                List<Courses> courses1 = addCourseDAO.getCourses();
+                System.out.println(courses1);
             }
         });
         addItemBtn = view.findViewById(R.id.addItemBtn);

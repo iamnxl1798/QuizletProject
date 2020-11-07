@@ -47,14 +47,6 @@ public class Answers {
         this.answer = answer;
     }
 
-    public boolean isAbc() {
-        return isTrue;
-    }
-
-    public void setAbc(boolean abc) {
-        this.isTrue = abc;
-    }
-
     public long getQuestionId() {
         return questionId;
     }
