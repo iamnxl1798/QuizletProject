@@ -25,9 +25,14 @@ public class Answers {
     public Answers() {
     }
 
-    public Answers(String answer, boolean abc, long questionId) {
+    public Answers(String answer, boolean isTrue) {
         this.answer = answer;
-        this.isTrue = abc;
+        this.isTrue = isTrue;
+    }
+
+    public Answers(String answer, boolean isTrue, long questionId) {
+        this.answer = answer;
+        this.isTrue = isTrue;
         this.questionId = questionId;
     }
 

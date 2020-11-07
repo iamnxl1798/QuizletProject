@@ -22,7 +22,10 @@
         <activity android:name="com.example.quizlet.HocPhanActivity" />
         <activity android:name="com.example.quizlet.StudyActivity" />
         <activity android:name="com.example.quizlet.HomeActivity" />
-        <activity android:name="com.example.quizlet.MainActivity" >
+        <activity
+            android:name="com.example.quizlet.MainActivity"
+            android:windowSoftInputMode="adjustNothing" >
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

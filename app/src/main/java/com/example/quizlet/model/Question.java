@@ -24,6 +24,10 @@ public class Question {
     public Question() {
     }
 
+    public Question(String name) {
+        this.questionName = name;
+    }
+
     public Question(String name, String answer, boolean isGim) {
         this.questionName = name;
         this.answer = answer;

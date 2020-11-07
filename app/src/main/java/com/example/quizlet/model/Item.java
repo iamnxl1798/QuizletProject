@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Item {
     private String term;
-    private ArrayList<String> definition;
+    private ArrayList<Answers> definition;
 
     public String getTerm() {
         return term;
@@ -14,15 +14,15 @@ public class Item {
         this.term = term;
     }
 
-    public ArrayList<String> getDefinition() {
+    public ArrayList<Answers> getDefinition() {
         return definition;
     }
 
-    public void setDefinition(ArrayList<String> definition) {
+    public void setDefinition(ArrayList<Answers> definition) {
         this.definition = definition;
     }
 
-    public Item(String term, ArrayList<String> definition) {
+    public Item(String term, ArrayList<Answers> definition) {
         this.term = term;
         this.definition = definition;
     }
