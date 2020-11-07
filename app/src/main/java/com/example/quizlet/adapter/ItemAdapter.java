@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizlet.R;
+import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Item;
 
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>  {
         final EditText def=holder.getDefValue();
         ImageView addBtn=holder.getAddBtn();
         final RecyclerView defRecycle = holder.getDefRecycle();
+        term.setText(items.get(position).getTerm());
         final ItemDefAdapter adapterr  = new ItemDefAdapter(items.get(position).getDefinition(), context);
         defRecycle.setAdapter(adapterr);
         term.addTextChangedListener(new TextWatcher() {
@@ -63,8 +65,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>  {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<String> listDef=((ItemDefAdapter)defRecycle.getAdapter()).getItems();
-                listDef.add("");
+                ArrayList<Answers> listDef=((ItemDefAdapter)defRecycle.getAdapter()).getItems();
+                listDef.add(new Answers());
                 items.get(position).setDefinition(listDef);
                 defRecycle.setAdapter(adapterr);
             }

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.quizlet.dao.AddCourseDAO;
 import com.example.quizlet.database.MyDatabase;
+import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Courses;
 import com.example.quizlet.model.Item;
 import com.example.quizlet.R;
@@ -89,8 +90,8 @@ public class AddCourseFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_add_course, container, false);
         items = new ArrayList<>();
-        final ArrayList<String> listDef = new ArrayList();
-        listDef.add("");
+        final ArrayList<Answers> listDef = new ArrayList();
+        listDef.add(new Answers());
         items.add(new Item("", listDef));
         recyclerView = view.findViewById(R.id.rcl_view);
         adapter = new ItemAdapter(items, getContext());
@@ -99,15 +100,31 @@ public class AddCourseFragment extends Fragment {
         checkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
-                myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, "quizletDB1").allowMainThreadQueries().build();
-                addCourseDAO = myDatabase.createCourseDAO();
-                edit_category = view.findViewById(R.id.edit_category);
-                Date currentTime = Calendar.getInstance().getTime();
-                Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
-                addCourseDAO.insertCourse(courses);
-                List<Courses> courses1 = addCourseDAO.getCourses();
-                System.out.println(courses1);
+                try {
+                    items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
+                    myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, "quizletDB1").allowMainThreadQueries().build();
+                    addCourseDAO = myDatabase.createCourseDAO();
+                    edit_category = view.findViewById(R.id.edit_category);
+                    Date currentTime = Calendar.getInstance().getTime();
+                    Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
+                    addCourseDAO.insertCourse(courses);
+                    List<Courses> courses1 = addCourseDAO.getCourses();
+                    System.out.println(courses1);
+                    for (Item item : items) {
+                        System.out.println(item);
+
+                        addCourseDAO.insertQuestion(new Question(item.getTerm()));
+                        Question addQuestion = addCourseDAO.getLastesQuestion();
+                        for (Answers answer : item.getDefinition()) {
+                            answer.setQuestionId(addQuestion.getId());
+                            addCourseDAO.insertAnswer(answer);
+                            System.out.println(answer);
+                        }
+                    }
+                    Toast.makeText(getContext(), "Add " + courses.getName() + " course success!", Toast.LENGTH_LONG);
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG);
+                }
             }
         });
         addItemBtn = view.findViewById(R.id.addItemBtn);
@@ -115,8 +132,8 @@ public class AddCourseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
-                ArrayList<String> tempString = new ArrayList<>();
-                tempString.add("");
+                ArrayList<Answers> tempString = new ArrayList<>();
+                tempString.add(new Answers());
                 items.add(new Item("", tempString));
                 recyclerView.setAdapter(adapter);
             }

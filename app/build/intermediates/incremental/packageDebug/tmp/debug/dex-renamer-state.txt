@@ -1,4 +1,7 @@
-#Sat Nov 07 11:14:51 ICT 2020
-base.0=C\:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+#Sat Nov 07 17:35:10 ICT 2020
+base.0=C\:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.1=classes.dex
+renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
+base.1=C\:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex

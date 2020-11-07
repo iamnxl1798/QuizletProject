@@ -32,6 +32,8 @@ anim fade_out
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
+anim rotate_in
+anim rotate_out
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1809,6 +1811,7 @@ id ignoreRequest
 id image
 id info
 id invisible
+id isTrue
 id italic
 id item_ryce
 id item_touch_helper_previous_elevation
@@ -2086,6 +2089,7 @@ layout activity_hoc_phan_da_join
 layout activity_home
 layout activity_main
 layout activity_study
+layout activity_the_ghi_nho
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
