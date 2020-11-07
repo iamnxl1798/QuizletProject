@@ -18,7 +18,11 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+<<<<<<< HEAD
         <activity android:name="com.example.quizlet.TheGhiNhoActivity" />
+=======
+        <activity android:name="com.example.quizlet.MainActivity2" />
+>>>>>>> 1cd2fb19ce0cba849267d76af0c1beca07082d3c
         <activity android:name="com.example.quizlet.HocPhanDaJoinActivity" />
         <activity android:name="com.example.quizlet.HocPhanActivity" />
         <activity android:name="com.example.quizlet.StudyActivity" />
@@ -26,6 +30,10 @@
         <activity
             android:name="com.example.quizlet.MainActivity"
             android:windowSoftInputMode="adjustNothing" >
+<<<<<<< HEAD
+=======
+            />
+>>>>>>> 1cd2fb19ce0cba849267d76af0c1beca07082d3c
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

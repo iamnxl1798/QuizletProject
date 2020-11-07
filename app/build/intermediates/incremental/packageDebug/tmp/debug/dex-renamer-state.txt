@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Sat Nov 07 17:35:10 ICT 2020
+=======
+#Sat Nov 07 17:19:26 ICT 2020
+>>>>>>> 1cd2fb19ce0cba849267d76af0c1beca07082d3c
 base.0=C\:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

@@ -892,6 +892,7 @@ bool abc_action_bar_embed_tabs
 bool abc_allow_stacked_button_bar
 bool abc_config_actionMenuItemAllCaps
 bool mtrl_btn_textappearance_all_caps
+color Black
 color Button
 color Gray
 color NavBar
@@ -1560,6 +1561,7 @@ drawable duongvien_goctron
 drawable hoc
 drawable home
 drawable ic_back
+drawable ic_baseline_add_24
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
@@ -1918,6 +1920,8 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchBar
+id searchCouseRecycle
 id search_badge
 id search_bar
 id search_button
@@ -2008,6 +2012,9 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_CourseName
+id tv_TermNumber
+id tv_creatorName
 id tv_definition
 id tv_term
 id unchecked
@@ -2088,8 +2095,13 @@ layout activity_hoc_phan
 layout activity_hoc_phan_da_join
 layout activity_home
 layout activity_main
+layout activity_main2
 layout activity_study
+<<<<<<< HEAD
 layout activity_the_ghi_nho
+=======
+layout course_item
+>>>>>>> 1cd2fb19ce0cba849267d76af0c1beca07082d3c
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
