@@ -19,11 +19,13 @@ import com.example.quizlet.model.Courses;
 import com.example.quizlet.model.Item;
 import com.example.quizlet.R;
 import com.example.quizlet.adapter.ItemAdapter;
+import com.example.quizlet.model.Question;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -103,6 +105,7 @@ public class AddCourseFragment extends Fragment {
                 Date currentTime = Calendar.getInstance().getTime();
                 Courses courses=new Courses(edit_category.getText().toString(),currentTime.getTime());
                 addCourseDAO.insertCourse(courses);
+//                for(Question)
             }
         });
         addItemBtn=view.findViewById(R.id.addItemBtn);

@@ -47,12 +47,12 @@ public class Answers {
         this.answer = answer;
     }
 
-    public boolean isAbc() {
+    public boolean isTrue() {
         return isTrue;
     }
 
-    public void setAbc(boolean abc) {
-        this.isTrue = abc;
+    public void setTrue(boolean aTrue) {
+        isTrue = aTrue;
     }
 
     public long getQuestionId() {
