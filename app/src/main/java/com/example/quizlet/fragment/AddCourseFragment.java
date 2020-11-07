@@ -25,6 +25,7 @@ import com.example.quizlet.model.Question;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -108,14 +109,16 @@ public class AddCourseFragment extends Fragment {
                     Date currentTime = Calendar.getInstance().getTime();
                     Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
                     addCourseDAO.insertCourse(courses);
-                    List<Courses> courses1 = addCourseDAO.getCourses();
-                    System.out.println(courses1);
+                    items.removeAll(Arrays.asList("",null));
                     for(Item item:items){
-                        addCourseDAO.insertQuestion(new Question(item.getTerm()));
-                        Question addQuestion=addCourseDAO.getLastesQuestion();
-                        for(Answers answer:item.getDefinition()){
-                            answer.setQuestionId(addQuestion.getId());
-                            addCourseDAO.insertAnswer(answer);
+                        item.getDefinition().removeAll(Arrays.asList("",null));
+                        if(item.getDefinition().size()!=0){
+                            addCourseDAO.insertQuestion(new Question(item.getTerm()));
+                            Question addQuestion=addCourseDAO.getLastesQuestion();
+                            for(Answers answer:item.getDefinition()){
+                                answer.setQuestionId(addQuestion.getId());
+                                addCourseDAO.insertAnswer(answer);
+                            }
                         }
                     }
                     Toast.makeText(getContext(),"Add " +courses.getName()+" course success!",Toast.LENGTH_LONG);

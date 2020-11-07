@@ -7,6 +7,7 @@
     <color name="Button">#3ccfcf</color>
     <color name="Gray">#DCDFEC</color>
     <color name="White">#ffffff</color>
+    <color name="Black">#000000</color>
     <color name="toobar">#0035F8</color>
 
 </resources>

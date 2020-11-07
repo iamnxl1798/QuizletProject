@@ -22,6 +22,10 @@ public interface AddCourseDAO {
 
     @Query("SELECT * FROM Courses")
     public List<Courses> getCourses();
+
+    @Query("SELECT * FROM Question")
+    public List<Question> getQuestion();
+
     @Query("SELECT * FROM Question ORDER BY Question.id DESC LIMIT 1;")
     public Question getLastesQuestion();
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/custom"
+    android:gravity="left"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp">
+    <TextView
+        android:id="@+id/tv_CourseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Term"
+        android:textColor="@color/Black"
+        android:textStyle="bold"
+        android:maxLines="1"
+        android:layout_marginBottom="10dp"
+        android:textSize="25dp"
+        />
+    <TextView
+        android:id="@+id/tv_TermNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Term"
+        android:textColor="@color/Gray"
+        android:maxLines="1"
+        android:layout_marginBottom="10dp"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:id="@+id/tv_creatorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Term"
+        android:textStyle="italic"
+        android:textColor="@color/Gray"
+        android:maxLines="1"
+        android:layout_marginBottom="5dp"
+        android:textSize="20dp"
+        />
+
+
+</LinearLayout>
