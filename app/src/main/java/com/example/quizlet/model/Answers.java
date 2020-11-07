@@ -62,4 +62,12 @@ public class Answers {
     public void setQuestionId(long questionId) {
         this.questionId = questionId;
     }
+
+    public boolean isTrue() {
+        return isTrue;
+    }
+
+    public void setTrue(boolean aTrue) {
+        isTrue = aTrue;
+    }
 }

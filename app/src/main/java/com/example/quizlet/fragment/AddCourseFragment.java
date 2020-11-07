@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.quizlet.dao.AddCourseDAO;
 import com.example.quizlet.database.MyDatabase;
@@ -84,35 +85,36 @@ public class AddCourseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view=inflater.inflate(R.layout.fragment_add_course, container, false);
-        items =new ArrayList<>();
-        final ArrayList<String> listDef=new ArrayList();
+        final View view = inflater.inflate(R.layout.fragment_add_course, container, false);
+        items = new ArrayList<>();
+        final ArrayList<String> listDef = new ArrayList();
         listDef.add("");
-        items.add(new Item("",listDef));
+        items.add(new Item("", listDef));
         recyclerView = view.findViewById(R.id.rcl_view);
-        adapter  = new ItemAdapter(items, getContext());
+        adapter = new ItemAdapter(items, getContext());
         recyclerView.setAdapter(adapter);
-        checkBtn=view.findViewById(R.id.checkBtn);
+        checkBtn = view.findViewById(R.id.checkBtn);
         checkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                items=((ItemAdapter)recyclerView.getAdapter()).getItems();
-                myDatabase = Room.databaseBuilder(getContext(),MyDatabase.class,"quizletDB").allowMainThreadQueries().build();
-                addCourseDAO=myDatabase.createCourseDAO();
-                edit_category=view.findViewById(R.id.edit_category);
+                items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
+                myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, "quizletDB").allowMainThreadQueries().build();
+                addCourseDAO = myDatabase.createCourseDAO();
+                edit_category = view.findViewById(R.id.edit_category);
                 Date currentTime = Calendar.getInstance().getTime();
-                Courses courses=new Courses(edit_category.getText().toString(),currentTime.getTime());
+                Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
                 addCourseDAO.insertCourse(courses);
+                Toast.makeText(getContext(), "thanh cong", Toast.LENGTH_SHORT).show();
             }
         });
-        addItemBtn=view.findViewById(R.id.addItemBtn);
+        addItemBtn = view.findViewById(R.id.addItemBtn);
         addItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                items=((ItemAdapter)recyclerView.getAdapter()).getItems();
-                ArrayList<String> tempString= new ArrayList<>();
+                items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
+                ArrayList<String> tempString = new ArrayList<>();
                 tempString.add("");
-                items.add(new Item("",tempString));
+                items.add(new Item("", tempString));
                 recyclerView.setAdapter(adapter);
             }
         });

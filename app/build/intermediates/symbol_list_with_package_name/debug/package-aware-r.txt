@@ -1700,6 +1700,7 @@ id beginning
 id blocking
 id bottom
 id bounce
+id bt_searchHocPhan
 id buttonPanel
 id cache_measures
 id cancel_action
@@ -1710,6 +1711,10 @@ id center_vertical
 id chain
 id chains
 id checkBtn
+id checkHocAll
+id checkHocSao
+id checkHocSaoNgoai
+id checkHocTatCa
 id checkbox
 id checked
 id chip
@@ -1766,6 +1771,7 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id et_search
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1888,6 +1894,7 @@ id quangcao
 id radio
 id ratio
 id rcl_view
+id re_hocphan
 id rectangles
 id reverseSawtooth
 id reviewHome
@@ -2074,6 +2081,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_hoc_phan
+layout activity_hoc_phan_da_join
 layout activity_home
 layout activity_main
 layout activity_study

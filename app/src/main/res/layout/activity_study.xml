@@ -171,29 +171,45 @@
             android:weightSum="2">
 
             <LinearLayout
+                android:id="@+id/checkHocAll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="90px"
                     android:gravity="center"
                     android:text="Học tất cả"
                     android:textSize="20sp" />
+
+                <View
+                    android:id="@+id/checkHocTatCa"
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:background="#1B74D3" />
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/checkHocSaoNgoai"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="90px"
                     android:gravity="center"
                     android:text="Học 8"
                     android:textSize="20sp" />
+
+                <View
+                    android:id="@+id/checkHocSao"
+                    android:layout_width="match_parent"
+                    android:layout_height="20px"
+                    android:background="#E8E8E3" />
             </LinearLayout>
         </LinearLayout>
 

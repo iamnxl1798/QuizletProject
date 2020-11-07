@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.quizlet.model.Question;
 import com.example.quizlet.adapter.StudyAdapter;
@@ -21,6 +23,8 @@ public class StudyActivity extends AppCompatActivity {
     List<Question> questions;
     private RecyclerView recyView_Study;
     ImageView back;
+    LinearLayout checkAll, checkSao;
+    View view1, view2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +54,32 @@ public class StudyActivity extends AppCompatActivity {
                 finish();
             }
         });
+        view1.setBackgroundColor(Color.BLUE);
+        checkAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view1.setBackgroundColor(Color.BLUE);
+                view2.setBackgroundColor(Color.WHITE);
+
+            }
+        });
+
+        checkSao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                view2.setBackgroundColor(Color.BLUE);
+                view1.setBackgroundColor(Color.WHITE);
+                    
+            }
+        });
     }
 
     public void AnhXa() {
         recyView_Study = findViewById(R.id.ryce_study);
         back = findViewById(R.id.back_home);
+        checkAll = findViewById(R.id.checkHocAll);
+        checkSao = findViewById(R.id.checkHocSaoNgoai);
+        view1 = findViewById(R.id.checkHocTatCa);
+        view2 = findViewById(R.id.checkHocSao);
     }
 }
