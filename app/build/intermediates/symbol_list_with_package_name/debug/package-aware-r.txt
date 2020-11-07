@@ -28,6 +28,7 @@ anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
 anim fade_in
+anim fade_in_2
 anim fade_out
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
@@ -1705,6 +1706,7 @@ id blocking
 id bottom
 id bounce
 id bt_searchHocPhan
+id button
 id buttonPanel
 id cache_measures
 id cancel_action
@@ -1800,6 +1802,7 @@ id group_divider
 id grouping
 id groups
 id hideable
+id hienthiganthe
 id hocphan
 id hocphandajoin
 id home
@@ -1893,6 +1896,7 @@ id percent
 id pin
 id position
 id postLayout
+id progressBar
 id progress_circular
 id progress_horizontal
 id quangcao
@@ -1967,6 +1971,7 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
+id switch1
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -1994,6 +1999,8 @@ id textinput_helper_text
 id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
+id theghinho
+id theghinhohihi
 id time
 id title
 id title1
@@ -2096,12 +2103,12 @@ layout activity_hoc_phan_da_join
 layout activity_home
 layout activity_main
 layout activity_main2
+layout activity_main3
+layout activity_main4
+layout activity_main5
 layout activity_study
-<<<<<<< HEAD
 layout activity_the_ghi_nho
-=======
 layout course_item
->>>>>>> 1cd2fb19ce0cba849267d76af0c1beca07082d3c
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

@@ -109,19 +109,7 @@ public class AddCourseFragment extends Fragment {
                     Date currentTime = Calendar.getInstance().getTime();
                     Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
                     addCourseDAO.insertCourse(courses);
-<<<<<<< HEAD
-                    List<Courses> courses1 = addCourseDAO.getCourses();
-                    System.out.println(courses1);
-                    for (Item item : items) {
-                        System.out.println(item);
 
-                        addCourseDAO.insertQuestion(new Question(item.getTerm()));
-                        Question addQuestion = addCourseDAO.getLastesQuestion();
-                        for (Answers answer : item.getDefinition()) {
-                            answer.setQuestionId(addQuestion.getId());
-                            addCourseDAO.insertAnswer(answer);
-                            System.out.println(answer);
-=======
                     items.removeAll(Arrays.asList("",null));
                     for(Item item:items){
                         item.getDefinition().removeAll(Arrays.asList("",null));
@@ -132,7 +120,6 @@ public class AddCourseFragment extends Fragment {
                                 answer.setQuestionId(addQuestion.getId());
                                 addCourseDAO.insertAnswer(answer);
                             }
->>>>>>> 1cd2fb19ce0cba849267d76af0c1beca07082d3c
                         }
                     }
                     Toast.makeText(getContext(), "Add " + courses.getName() + " course success!", Toast.LENGTH_LONG);

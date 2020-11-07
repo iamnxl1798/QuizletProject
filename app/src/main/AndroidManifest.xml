@@ -9,11 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-<<<<<<< HEAD
         <activity android:name=".TheGhiNhoActivity"></activity>
-=======
         <activity android:name=".MainActivity2"></activity>
->>>>>>> 1cd2fb19ce0cba849267d76af0c1beca07082d3c
         <activity android:name=".HocPhanDaJoinActivity" />
         <activity android:name=".HocPhanActivity" />
         <activity android:name=".StudyActivity" />
@@ -21,10 +18,6 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustNothing">
-<<<<<<< HEAD
-
-=======
->>>>>>> 1cd2fb19ce0cba849267d76af0c1beca07082d3c
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
