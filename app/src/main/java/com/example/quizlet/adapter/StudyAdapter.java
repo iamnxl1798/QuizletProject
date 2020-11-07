@@ -38,22 +38,22 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        final Question question = questions.get(position);
-        holder.nameQuestion.setText(question.getName());
-        holder.answer.setText(question.getAnswer());
-        if (question.isGim() == true) {
-            holder.star.setImageResource(R.drawable.star_click);
-            holder.star.setBackgroundColor(Color.YELLOW);
-        } else {
-            holder.star.setImageResource(R.drawable.star);
-        }
-
-        holder.star.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.OnClickMore(position);
-            }
-        });
+//        final Question question = questions.get(position);
+//        holder.nameQuestion.setText(question.getName());
+//        holder.answer.setText(question.getAnswer());
+//        if (question.isGim() == true) {
+//            holder.star.setImageResource(R.drawable.star_click);
+//            holder.star.setBackgroundColor(Color.YELLOW);
+//        } else {
+//            holder.star.setImageResource(R.drawable.star);
+//        }
+//
+//        holder.star.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                listener.OnClickMore(position);
+//            }
+//        });
     }
 
     @Override

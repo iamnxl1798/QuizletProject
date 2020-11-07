@@ -2,6 +2,7 @@ package com.example.quizlet.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -12,14 +13,12 @@ public class Question {
     @ColumnInfo
     private String questionName;
 
-    @ColumnInfo
-    private String answer;
-
-    @ColumnInfo
-    private boolean isGim;
-
-    @ColumnInfo
-    private String image;
+    @ForeignKey(entity = Courses.class,
+            parentColumns = {"id"},
+            childColumns = {"courseId"},
+            onDelete = ForeignKey.CASCADE
+    )
+    private long courseId;
 
     public Question() {
     }
@@ -28,34 +27,9 @@ public class Question {
         this.questionName = name;
     }
 
-    public Question(String name, String answer, boolean isGim) {
-        this.questionName = name;
-        this.answer = answer;
-        this.isGim = isGim;
-    }
-
-    public String getName() {
-        return questionName;
-    }
-
-    public void setName(String name) {
-        this.questionName = name;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
-
-    public boolean isGim() {
-        return isGim;
-    }
-
-    public void setGim(boolean gim) {
-        isGim = gim;
+    public Question(String questionName, long courseId) {
+        this.questionName = questionName;
+        this.courseId = courseId;
     }
 
     public long getId() {
@@ -74,11 +48,11 @@ public class Question {
         this.questionName = questionName;
     }
 
-    public String getImage() {
-        return image;
+    public long getCourseId() {
+        return courseId;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setCourseId(long courseId) {
+        this.courseId = courseId;
     }
 }

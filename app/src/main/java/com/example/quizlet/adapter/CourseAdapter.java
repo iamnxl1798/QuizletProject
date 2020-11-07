@@ -19,18 +19,21 @@ import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Courses;
 import com.example.quizlet.model.customModel.Course_AnswerCount;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> {
-    ArrayList<Course_AnswerCount> items;
+    List<Course_AnswerCount> items;
     Context context;
 
-    public CourseAdapter(ArrayList<Course_AnswerCount> items, Context context) {
+    public CourseAdapter(List<Course_AnswerCount> items, Context context) {
         this.items = items;
         this.context = context;
     }
-    public ArrayList<Course_AnswerCount> getItems() {
+    public List<Course_AnswerCount> getItems() {
         return items;
     }
     @NonNull
@@ -41,12 +44,13 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> {
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, final int position) {
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         TextView course=holder.getCourse();
-        TextView term=holder.termNumber;
-        TextView creator=holder.creatorName;
-        course.setText(items.get(position).getCourses().getName());
-        term.setText(items.get(position).getAnswerNum());
-        course.setText(new Date(items.get(position).getCourses().getCreateDate()*1000).toString());
+        TextView term=holder.getTerm();
+        TextView creator=holder.getCreator();
+        course.setText(items.get(position).getCourseName());
+        term.setText("Terms: "+items.get(position).getAnswerNum());
+        creator.setText("Created date: "+df.format(new Date(items.get(position).getCreatorDate())));
     }
 
     @Override

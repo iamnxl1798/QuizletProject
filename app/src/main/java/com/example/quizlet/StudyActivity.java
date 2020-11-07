@@ -31,19 +31,19 @@ public class StudyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study);
         questions = new ArrayList<>();
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "B", false));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "C", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
+//        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
+//        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "B", false));
+//        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "C", true));
+//        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
+//        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
+//        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
+//        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
+//        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
         AnhXa();
         studyAdapter = new StudyAdapter(this, questions, new StudyAdapter.OnItemClickListener() {
             @Override
             public void OnClickMore(int position) {
-                questions.get(position).setGim(!questions.get(position).isGim());
+//                questions.get(position).setGim(!questions.get(position).isGim());
             }
         });
         recyView_Study.setLayoutManager(new LinearLayoutManager(this));

@@ -4,14 +4,23 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.quizlet.COMMON;
 import com.example.quizlet.R;
-import com.example.quizlet.dao.AddCourseDAO;
+import com.example.quizlet.adapter.CourseAdapter;
+import com.example.quizlet.adapter.ItemAdapter;
+import com.example.quizlet.dao.CourseDAO;
 import com.example.quizlet.database.MyDatabase;
+import com.example.quizlet.model.Courses;
+import com.example.quizlet.model.customModel.Course_AnswerCount;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,9 +33,11 @@ public class SearchFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    public MyDatabase myDatabase;
-    public AddCourseDAO addCourseDAO;
+    private MyDatabase myDatabase;
+    private CourseDAO courseDAO;
     private RecyclerView recyclerView;
+    private List<Course_AnswerCount> items;
+    private CourseAdapter adapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -67,6 +78,14 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        View view= inflater.inflate(R.layout.fragment_search, container, false);
+        myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
+        courseDAO = myDatabase.createCourseDAO();
+        items=courseDAO.getCoursesSearchView();
+        List<Courses> list=courseDAO.getCourses();
+        recyclerView = view.findViewById(R.id.searchCouseRecycle);
+        adapter = new CourseAdapter(items, getContext());
+        recyclerView.setAdapter(adapter);
+        return view;
     }
 }

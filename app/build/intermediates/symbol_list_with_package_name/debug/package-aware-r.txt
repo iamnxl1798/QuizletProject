@@ -2093,7 +2093,6 @@ layout activity_hoc_phan
 layout activity_hoc_phan_da_join
 layout activity_home
 layout activity_main
-layout activity_main2
 layout activity_study
 layout course_item
 layout custom_dialog

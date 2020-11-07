@@ -24,10 +24,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Term"
-        android:textColor="@color/Gray"
+        android:textColor="@color/Black"
         android:maxLines="1"
         android:layout_marginBottom="10dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
         />
     <TextView
         android:id="@+id/tv_creatorName"
@@ -35,10 +35,10 @@
         android:layout_height="wrap_content"
         android:hint="Term"
         android:textStyle="italic"
-        android:textColor="@color/Gray"
+        android:textColor="@color/Black"
         android:maxLines="1"
         android:layout_marginBottom="5dp"
-        android:textSize="20dp"
+        android:textSize="15dp"
         />
 
 

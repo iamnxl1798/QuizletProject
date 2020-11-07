@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-29:12
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-27:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] C:\Users\lamnx\.gradle\caches\transforms-2\files-2.1\8751d594f7901ec13d3c16253d123aac\constraintlayout-2.0.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\lamnx\.gradle\caches\transforms-2\files-2.1\b5cf40796c25367401fbf6ec124658c0\material-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\lamnx\.gradle\caches\transforms-2\files-2.1\be6327719512c19af6e3dfcc948c3a09\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
@@ -45,25 +45,25 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\lamnx\.gradle\
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\lamnx\.gradle\caches\transforms-2\files-2.1\6e0bbf23856e3e10e3514a4e9cc95fa1\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\lamnx\.gradle\caches\transforms-2\files-2.1\6a6af4ea2fadaa66c773f3ffe79910a7\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\lamnx\.gradle\caches\transforms-2\files-2.1\faa46d3172606436a70f4954c4fe88af\jetified-annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
-INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-27:12
 	package
 		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-29:12
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-27:12
 		INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-29:12
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:1-27:12
 		INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:5:5-27:19
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:5:5-25:19
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] C:\Users\lamnx\.gradle\caches\transforms-2\files-2.1\8751d594f7901ec13d3c16253d123aac\constraintlayout-2.0.2\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.2] C:\Users\lamnx\.gradle\caches\transforms-2\files-2.1\8751d594f7901ec13d3c16253d123aac\constraintlayout-2.0.2\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.2.1] C:\Users\lamnx\.gradle\caches\transforms-2\files-2.1\b5cf40796c25367401fbf6ec124658c0\material-1.2.1\AndroidManifest.xml:22:5-20
@@ -88,42 +88,38 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\la
 		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:11:9-65
-activity#com.example.quizlet.MainActivity2
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:12:9-60
-	android:name
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:12:19-48
 activity#com.example.quizlet.HocPhanDaJoinActivity
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:13:9-59
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:12:9-59
 	android:name
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:13:19-56
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:12:19-56
 activity#com.example.quizlet.HocPhanActivity
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:14:9-53
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:13:9-53
 	android:name
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:14:19-50
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:13:19-50
 activity#com.example.quizlet.StudyActivity
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:15:9-51
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:14:9-51
 	android:name
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:15:19-48
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:14:19-48
 activity#com.example.quizlet.HomeActivity
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:16:9-50
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:15:9-50
 	android:name
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:16:19-47
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:15:19-47
 activity#com.example.quizlet.MainActivity
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:17:9-26:20
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:16:9-24:20
 	android:windowSoftInputMode
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:19:13-56
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:18:13-56
 	android:name
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:18:13-41
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:17:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:21:13-25:29
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:19:13-23:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:22:17-69
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:22:25-66
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:24:17-77
+ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:24:27-74
+		ADDED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:22:27-74
 uses-sdk
 INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml
