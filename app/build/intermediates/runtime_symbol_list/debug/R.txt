@@ -2102,7 +2102,7 @@ int layout activity_hoc_phan_da_join 0x7f0b001d
 int layout activity_home 0x7f0b001e
 int layout activity_main 0x7f0b001f
 int layout activity_study 0x7f0b0020
-int layout activity_study 0x7f0b0021
+int layout activity_the_ghi_nho 0x7f0b0021
 int layout course_item 0x7f0b0022
 int layout custom_dialog 0x7f0b0023
 int layout design_bottom_navigation_item 0x7f0b0024
@@ -2189,10 +2189,6 @@ int layout text_view_with_line_height_from_layout 0x7f0b0074
 int layout text_view_with_line_height_from_style 0x7f0b0075
 int layout text_view_with_theme_line_height 0x7f0b0076
 int layout text_view_without_line_height 0x7f0b0077
-int layout text_view_with_line_height_from_layout 0x7f0b0078
-int layout text_view_with_line_height_from_style 0x7f0b0079
-int layout text_view_with_theme_line_height 0x7f0b007a
-int layout text_view_without_line_height 0x7f0b007b
 int menu navigation 0x7f0c0000
 int mipmap ic_launcher 0x7f0d0000
 int mipmap ic_launcher_round 0x7f0d0001

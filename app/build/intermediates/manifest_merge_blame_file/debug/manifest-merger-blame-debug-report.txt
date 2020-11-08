@@ -28,28 +28,30 @@
 19        android:testOnly="true"
 20        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
 20-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:11:9-65
-21        <activity android:name="com.example.quizlet.MainActivity2" />
-21-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:12:9-60
-21-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:12:19-48
-22        <activity android:name="com.example.quizlet.HocPhanDaJoinActivity" />
-22-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:13:9-59
-22-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:13:19-56
-23        <activity android:name="com.example.quizlet.HocPhanActivity" />
-23-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:14:9-53
-23-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:14:19-50
-24        <activity android:name="com.example.quizlet.StudyActivity" />
-24-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:15:9-51
-24-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:15:19-48
-25        <activity android:name="com.example.quizlet.HomeActivity" />
-25-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:16:9-50
-25-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:16:19-47
-26        <activity
-26-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:17:9-26:20
-27            android:name="com.example.quizlet.MainActivity"
-27-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:18:13-41
-28            android:windowSoftInputMode="adjustNothing" >
-28-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:19:13-56
-29            />
+21        <activity android:name="com.example.quizlet.TheGhiNhoActivity" />
+21-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:12:9-64
+21-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:12:19-52
+22        <activity android:name="com.example.quizlet.MainActivity2" />
+22-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:13:9-60
+22-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:13:19-48
+23        <activity android:name="com.example.quizlet.HocPhanDaJoinActivity" />
+23-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:14:9-59
+23-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:14:19-56
+24        <activity android:name="com.example.quizlet.HocPhanActivity" />
+24-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:15:9-53
+24-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:15:19-50
+25        <activity android:name="com.example.quizlet.StudyActivity" />
+25-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:16:9-51
+25-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:16:19-48
+26        <activity android:name="com.example.quizlet.HomeActivity" />
+26-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:17:9-50
+26-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:17:19-47
+27        <activity
+27-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:18:9-26:20
+28            android:name="com.example.quizlet.MainActivity"
+28-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:19:13-41
+29            android:windowSoftInputMode="adjustNothing" >
+29-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:20:13-56
 30            <intent-filter>
 30-->C:\Users\lamnx\Desktop\QuizletProject6\app\src\main\AndroidManifest.xml:21:13-25:29
 31                <action android:name="android.intent.action.MAIN" />

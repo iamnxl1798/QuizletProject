@@ -40,14 +40,12 @@ public class TheGhiNhoActivity extends AppCompatActivity {
 
         questions = new ArrayList<>();
 
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "B", false));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "C", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
 
 
         Toast.makeText(TheGhiNhoActivity.this, "test", Toast.LENGTH_SHORT).show();
@@ -105,7 +103,7 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                         animator.setDuration(1000);  // set thời gian để chạy từ 0f - 1f
                         animator.start();
                         if (!check[0]) {
-                            textView.setText(questions.get(count[0]).getAnswer() + "");
+//                            textView.setText(questions.get(count[0]).getAnswer() + "");
                         } else {
                             textView.setText(questions.get(count[0]).getQuestionName() + "");
 

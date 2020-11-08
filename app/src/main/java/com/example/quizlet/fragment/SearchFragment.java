@@ -9,6 +9,7 @@ import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SearchView;
 
 import com.example.quizlet.COMMON;
 import com.example.quizlet.R;
@@ -17,6 +18,7 @@ import com.example.quizlet.adapter.ItemAdapter;
 import com.example.quizlet.dao.CourseDAO;
 import com.example.quizlet.database.MyDatabase;
 import com.example.quizlet.model.Courses;
+import com.example.quizlet.model.Question;
 import com.example.quizlet.model.customModel.Course_AnswerCount;
 
 import java.util.ArrayList;
@@ -38,6 +40,7 @@ public class SearchFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<Course_AnswerCount> items;
     private CourseAdapter adapter;
+    private SearchView searchView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -82,10 +85,23 @@ public class SearchFragment extends Fragment {
         myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         courseDAO = myDatabase.createCourseDAO();
         items=courseDAO.getCoursesSearchView();
-        List<Courses> list=courseDAO.getCourses();
+        List<Question> list=courseDAO.getQuestion();
         recyclerView = view.findViewById(R.id.searchCouseRecycle);
         adapter = new CourseAdapter(items, getContext());
         recyclerView.setAdapter(adapter);
+        searchView=view.findViewById(R.id.searchBar);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ((CourseAdapter)recyclerView.getAdapter()).getFilter().filter(newText);
+                return false;
+            }
+        });
         return view;
     }
 }

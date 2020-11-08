@@ -34,6 +34,6 @@ public interface CourseDAO {
     @Query("SELECT * FROM Courses ORDER BY Courses.id DESC LIMIT 1;")
     public Courses getLastesCourse();
 
-    @Query("SELECT Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id")
+    @Query("SELECT Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id Group by Question.courseId")
     public List<Course_AnswerCount> getCoursesSearchView();
 }

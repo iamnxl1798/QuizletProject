@@ -2102,9 +2102,6 @@ layout activity_hoc_phan
 layout activity_hoc_phan_da_join
 layout activity_home
 layout activity_main
-layout activity_main3
-layout activity_main4
-layout activity_main5
 layout activity_study
 layout activity_the_ghi_nho
 layout course_item
