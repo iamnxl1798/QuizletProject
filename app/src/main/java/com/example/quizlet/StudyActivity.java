@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -23,7 +25,7 @@ public class StudyActivity extends AppCompatActivity {
     List<Question> questions;
     private RecyclerView recyView_Study;
     ImageView back;
-    LinearLayout checkAll, checkSao;
+    LinearLayout checkAll, checkSao,theghinho;
     View view1, view2;
 
     @Override
@@ -69,7 +71,15 @@ public class StudyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 view2.setBackgroundColor(Color.BLUE);
                 view1.setBackgroundColor(Color.WHITE);
-                    
+
+            }
+        });
+
+        theghinho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudyActivity.this, TheGhiNhoActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -81,5 +91,6 @@ public class StudyActivity extends AppCompatActivity {
         checkSao = findViewById(R.id.checkHocSaoNgoai);
         view1 = findViewById(R.id.checkHocTatCa);
         view2 = findViewById(R.id.checkHocSao);
+        theghinho = findViewById(R.id.theghinho);
     }
 }

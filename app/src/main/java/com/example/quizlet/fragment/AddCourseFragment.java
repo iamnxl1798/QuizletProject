@@ -100,7 +100,7 @@ public class AddCourseFragment extends Fragment {
         checkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try{
+                try {
                     items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
                     myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
                     addCourseDAO = myDatabase.createCourseDAO();
@@ -108,6 +108,7 @@ public class AddCourseFragment extends Fragment {
                     Date currentTime = Calendar.getInstance().getTime();
                     Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
                     addCourseDAO.insertCourse(courses);
+
                     items.removeAll(Arrays.asList("",null));
                     for(Item item:items){
                         item.getDefinition().removeAll(Arrays.asList("",null));
@@ -121,9 +122,9 @@ public class AddCourseFragment extends Fragment {
                             }
                         }
                     }
-                    Toast.makeText(getContext(),"Add " +courses.getName()+" course success!",Toast.LENGTH_LONG);
-                }catch (Exception e){
-                    Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_LONG);
+                    Toast.makeText(getContext(), "Add " + courses.getName() + " course success!", Toast.LENGTH_LONG);
+                } catch (Exception e) {
+                    Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG);
                 }
             }
         });
