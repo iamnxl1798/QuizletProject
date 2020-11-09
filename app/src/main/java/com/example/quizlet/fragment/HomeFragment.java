@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import android.widget.ViewFlipper;
 
 import com.example.quizlet.HocPhanActivity;
 import com.example.quizlet.HocPhanDaJoinActivity;
+import com.example.quizlet.dao.AddCourseDAO;
+import com.example.quizlet.database.MyDatabase;
 import com.example.quizlet.model.ThuMucHoc;
 import com.example.quizlet.R;
 import com.example.quizlet.StudyActivity;
@@ -37,6 +40,8 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyView_Home2;
     List<ThuMucHoc> thuMucHocDaJoin;
     TextView xemtat1, xemtat2;
+    public MyDatabase myDatabase;
+    public AddCourseDAO addCourseDAO;
 
     public HomeFragment() {
     }
@@ -46,7 +51,8 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, "quizletDB1").allowMainThreadQueries().build();
+        addCourseDAO = myDatabase.createCourseDAO();
         thuMucHocList = new ArrayList<>();
         thuMucHocList.add(new ThuMucHoc("HCI301", "Cuongnv", R.drawable.cuong));
         thuMucHocList.add(new ThuMucHoc("SWR201", "Cuongnv2", R.drawable.cuong2));
