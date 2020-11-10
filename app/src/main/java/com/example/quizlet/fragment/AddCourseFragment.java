@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
-import androidx.room.RoomDatabase;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.quizlet.dao.AddCourseDAO;
+import com.example.quizlet.COMMON;
+import com.example.quizlet.dao.CourseDAO;
 import com.example.quizlet.database.MyDatabase;
 import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Courses;
@@ -28,7 +28,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,7 +46,7 @@ public class AddCourseFragment extends Fragment {
     private ImageView checkBtn;
     private FloatingActionButton addItemBtn;
     public MyDatabase myDatabase;
-    public AddCourseDAO addCourseDAO;
+    public CourseDAO addCourseDAO;
     public EditText edit_category;
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -103,7 +102,7 @@ public class AddCourseFragment extends Fragment {
             public void onClick(View v) {
                 try {
                     items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
-                    myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, "quizletDB1").allowMainThreadQueries().build();
+                    myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
                     addCourseDAO = myDatabase.createCourseDAO();
                     edit_category = view.findViewById(R.id.edit_category);
                     Date currentTime = Calendar.getInstance().getTime();
@@ -114,7 +113,8 @@ public class AddCourseFragment extends Fragment {
                     for(Item item:items){
                         item.getDefinition().removeAll(Arrays.asList("",null));
                         if(item.getDefinition().size()!=0){
-                            addCourseDAO.insertQuestion(new Question(item.getTerm()));
+                            courses= addCourseDAO.getLastesCourse();
+                            addCourseDAO.insertQuestion(new Question(item.getTerm(), courses.getId()));
                             Question addQuestion=addCourseDAO.getLastesQuestion();
                             for(Answers answer:item.getDefinition()){
                                 answer.setQuestionId(addQuestion.getId());

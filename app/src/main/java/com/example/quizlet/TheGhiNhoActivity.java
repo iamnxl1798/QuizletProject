@@ -40,14 +40,12 @@ public class TheGhiNhoActivity extends AppCompatActivity {
 
         questions = new ArrayList<>();
 
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "B", false));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "C", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", true));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaa", "A", false));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
 
 
         Toast.makeText(TheGhiNhoActivity.this, "test", Toast.LENGTH_SHORT).show();
@@ -55,7 +53,7 @@ public class TheGhiNhoActivity extends AppCompatActivity {
         final boolean[] check = {false};
         textView.setText(questions.get(count[0]).getQuestionName() + "");
         progressBar.setMin(0);
-        progressBar.setMax(questions.size()-1);
+        progressBar.setMax(questions.size() - 1);
         progressBar.setProgress(2);
 
         linearLayout.setOnTouchListener(new View.OnTouchListener() {
@@ -69,7 +67,7 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                     x2 = event.getX();
                     y2 = event.getY();
                     if (x2 - x1 < 0) {
-                        if (count[0] <= questions.size()-1) {
+                        if (count[0] <= questions.size() - 1) {
                             count[0]++;
                             textView.setText(questions.get(count[0]).getQuestionName() + "");
                             progressBar.setProgress(count[0]);
@@ -105,7 +103,7 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                         animator.setDuration(1000);  // set thời gian để chạy từ 0f - 1f
                         animator.start();
                         if (!check[0]) {
-                            textView.setText(questions.get(count[0]).getAnswer() + "");
+//                            textView.setText(questions.get(count[0]).getAnswer() + "");
                         } else {
                             textView.setText(questions.get(count[0]).getQuestionName() + "");
 

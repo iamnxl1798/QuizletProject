@@ -3,7 +3,9 @@ package com.example.quizlet.database;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
-import com.example.quizlet.dao.AddCourseDAO;
+import com.example.quizlet.dao.AnswerDAO;
+import com.example.quizlet.dao.CourseDAO;
+import com.example.quizlet.dao.QuesstionDAO;
 import com.example.quizlet.dao.UserDAO;
 import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Courses;
@@ -17,5 +19,11 @@ import com.example.quizlet.model.User;
 public abstract class MyDatabase extends RoomDatabase {
     public abstract UserDAO createUserDAO();
 
-    public abstract AddCourseDAO createCourseDAO();
+    public abstract CourseDAO createCourseDAO();
+
+    public abstract QuesstionDAO createQuesstionDAO();
+
+    public abstract AnswerDAO createAnswerDAO();
+
+
 }

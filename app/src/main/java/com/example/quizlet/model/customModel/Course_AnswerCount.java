@@ -3,15 +3,25 @@ package com.example.quizlet.model.customModel;
 import com.example.quizlet.model.Courses;
 
 public class Course_AnswerCount {
-    private Courses courses;
+    private long id;
+    private String courseName;
     private int answerNum;
+    private long creatorDate;
 
-    public Courses getCourses() {
-        return courses;
+    public long getId() {
+        return id;
     }
 
-    public void setCourses(Courses courses) {
-        this.courses = courses;
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
     }
 
     public int getAnswerNum() {
@@ -22,8 +32,17 @@ public class Course_AnswerCount {
         this.answerNum = answerNum;
     }
 
-    public Course_AnswerCount(Courses courses, int answerNum) {
-        this.courses = courses;
+    public long getCreatorDate() {
+        return creatorDate;
+    }
+
+    public void setCreatorDate(long creatorDate) {
+        this.creatorDate = creatorDate;
+    }
+
+    public Course_AnswerCount(String courseName, int answerNum, long creatorDate) {
+        this.courseName = courseName;
         this.answerNum = answerNum;
+        this.creatorDate = creatorDate;
     }
 }

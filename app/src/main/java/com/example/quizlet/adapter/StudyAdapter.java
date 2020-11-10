@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.quizlet.model.Answers;
+import com.example.quizlet.model.Item;
 import com.example.quizlet.model.Question;
 import com.example.quizlet.R;
 
@@ -19,12 +21,12 @@ import java.util.List;
 public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> {
 
     private Context context;
-    private List<Question> questions;
+    private List<Item> items;
     private StudyAdapter.OnItemClickListener listener;
 
-    public StudyAdapter(Context context, List<Question> questions, StudyAdapter.OnItemClickListener listener) {
+    public StudyAdapter(Context context, List<Item> questions, StudyAdapter.OnItemClickListener listener) {
         this.context = context;
-        this.questions = questions;
+        this.items = questions;
         this.listener = listener;
 
     }
@@ -38,15 +40,35 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        final Question question = questions.get(position);
-        holder.nameQuestion.setText(question.getName());
-        holder.answer.setText(question.getAnswer());
-        if (question.isGim() == true) {
-            holder.star.setImageResource(R.drawable.star_click);
-            holder.star.setBackgroundColor(Color.YELLOW);
-        } else {
-            holder.star.setImageResource(R.drawable.star);
+        final Item item = items.get(position);
+
+        List<Answers> answers = item.getDefinition();
+        String quesstionName = item.getTerm();
+        String s = "";
+        String anwserTrue = "";
+        int a = 97;
+        for (int i = 0; i < answers.size(); i++) {
+
+            if (answers.get(i).isTrue()) {
+                anwserTrue = answers.get(i).getAnswer();
+            }
+            char b = (char) a;
+            String c = b + " : " + answers.get(i).getAnswer();
+            a++;
+            s += c + "/n";
         }
+
+        quesstionName += "/n" + s;
+        holder.nameQuestion.setText(quesstionName);
+
+        holder.answer.setText(anwserTrue);
+
+//        if (question.isGim() == true) {
+//            holder.star.setImageResource(R.drawable.star_click);
+//            holder.star.setBackgroundColor(Color.YELLOW);
+//        } else {
+//            holder.star.setImageResource(R.drawable.star);
+//        }
 
         holder.star.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +80,7 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
 
     @Override
     public int getItemCount() {
-        return questions.size();
+        return items.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

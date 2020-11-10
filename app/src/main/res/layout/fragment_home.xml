@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E8E8E3"
     tools:context=".fragment.HomeFragment">
 
 
@@ -39,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="400px"
             android:layout_marginTop="10px"
-            android:background="#FFFFFF"
+            android:background="#ffffff"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/hocphan" />
 
@@ -83,12 +82,12 @@
             app:layout_constraintTop_toBottomOf="@+id/reviewHome2" >
             <ImageView
                 android:scaleType="centerCrop"
-                android:src="@drawable/cuong"
+                android:src="@drawable/quiz"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
             <ImageView
                 android:scaleType="centerCrop"
-                android:src="@drawable/cuong2"
+                android:src="@drawable/quiz2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </ViewFlipper>
