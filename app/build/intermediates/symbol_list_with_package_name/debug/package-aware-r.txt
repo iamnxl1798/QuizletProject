@@ -1569,6 +1569,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_remove
 drawable icon_add_fill
 drawable icon_add_item
 drawable icon_back
@@ -1905,6 +1906,7 @@ id ratio
 id rcl_view
 id re_hocphan
 id rectangles
+id removeBtn
 id reverseSawtooth
 id reviewHome
 id reviewHome2

@@ -25,14 +25,26 @@ public interface CourseDAO {
     @Query("SELECT * FROM Courses")
     public List<Courses> getCourses();
 
+    @Query("SELECT * FROM Courses ORDER BY Courses.id DESC LIMIT 1;")
+    public Courses getLastCourses();
+
+    @Query("SELECT * FROM Question Where Question.courseId=(Select MAX(id) from Courses);")
+    public List<Question> getQuestionOfLastCourse();
+
     @Query("SELECT * FROM Question")
     public List<Question> getQuestion();
 
     @Query("SELECT * FROM Question ORDER BY Question.id DESC LIMIT 1;")
-    public Question getLastesQuestion();
+    public Question getLastQuestion();
+
+    @Query("DELETE FROM Question Where Question.id=(Select MAX(id) from Question);")
+    public int delLastQuestion();
+
+    @Query("DELETE FROM Courses Where Courses.id=(Select MAX(id) from Courses);")
+    public int delLastCourse();
 
     @Query("SELECT * FROM Courses ORDER BY Courses.id DESC LIMIT 1;")
-    public Courses getLastesCourse();
+    public Courses getLastCourse();
 
     @Query("SELECT Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id Group by Question.courseId")
     public List<Course_AnswerCount> getCoursesSearchView();

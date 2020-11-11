@@ -40,7 +40,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>  {
     @Override
     public void onBindViewHolder(@NonNull final Holder holder, final int position) {
         final EditText term=holder.getTermValue();
-        final EditText def=holder.getDefValue();
+        ImageView removeBtn=holder.getRemoveBtn();
         ImageView addBtn=holder.getAddBtn();
         final RecyclerView defRecycle = holder.getDefRecycle();
         term.setText(items.get(position).getTerm());
@@ -71,6 +71,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>  {
                 defRecycle.setAdapter(adapterr);
             }
         });
+        removeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                items.remove(position);
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -80,7 +87,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>  {
 
     public class Holder extends RecyclerView.ViewHolder {
         EditText tvTerm, tvDefinition;
-        ImageView addBtn;
+        ImageView addBtn, removeBtn;
         RecyclerView defRecycle;
         public Holder(@NonNull View itemView) {
             super(itemView);
@@ -88,6 +95,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>  {
             tvDefinition = itemView.findViewById(R.id.tv_definition);
             defRecycle=itemView.findViewById(R.id.defRecycle);
             addBtn=itemView.findViewById(R.id.addBtn);
+            removeBtn=itemView.findViewById(R.id.removeBtn);
         }
         public EditText getTermValue(){
             return tvTerm;
@@ -100,6 +108,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>  {
         }
         public ImageView getAddBtn(){
             return addBtn;
+        }
+        public ImageView getRemoveBtn(){
+            return removeBtn;
         }
     }
 }
