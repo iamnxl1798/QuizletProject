@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +14,21 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.example.quizlet.COMMON;
 import com.example.quizlet.HocPhanActivity;
 import com.example.quizlet.HocPhanDaJoinActivity;
+import com.example.quizlet.adapter.CourseAdapter;
+import com.example.quizlet.dao.CourseDAO;
+import com.example.quizlet.database.MyDatabase;
+import com.example.quizlet.model.Courses;
 import com.example.quizlet.model.ThuMucHoc;
 import com.example.quizlet.R;
 import com.example.quizlet.StudyActivity;
 import com.example.quizlet.adapter.HomeAdapter;
+import com.example.quizlet.model.customModel.Course_AnswerCount;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -29,14 +37,15 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
     private RecyclerView recyView_Home;
-    List<ThuMucHoc> thuMucHocList;
-    HomeAdapter homeAdapter, homeAdapter1;
-    private boolean check_Add;
     ViewFlipper viewFlipper;
     Animation in, out;
     private RecyclerView recyView_Home2;
     List<ThuMucHoc> thuMucHocDaJoin;
     TextView xemtat1, xemtat2;
+    public MyDatabase myDatabase;
+    public CourseDAO courseDAO;
+    CourseAdapter courseAdapter;
+    List<Course_AnswerCount> coursesList;
 
     public HomeFragment() {
     }
@@ -46,14 +55,8 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-        thuMucHocList = new ArrayList<>();
-        thuMucHocList.add(new ThuMucHoc("HCI301", "Cuongnv", R.drawable.cuong));
-        thuMucHocList.add(new ThuMucHoc("SWR201", "Cuongnv2", R.drawable.cuong2));
-        thuMucHocList.add(new ThuMucHoc("SWR201", "Cuongnv2", R.drawable.cuong));
-        thuMucHocList.add(new ThuMucHoc("SWR201123", "Cuongnv2", R.drawable.cuong2));
-        thuMucHocList.add(new ThuMucHoc("SWR2023211", "Cuongnv2", R.drawable.cuong));
-        thuMucHocList.add(new ThuMucHoc("SWR202311", "Cuongnv2", R.drawable.cuong2));
+        myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
+        courseDAO = myDatabase.createCourseDAO();
 
         thuMucHocDaJoin = new ArrayList<>();
         thuMucHocDaJoin.add(new ThuMucHoc("HCI301", "Cuongnv", R.drawable.cuong));
@@ -62,40 +65,37 @@ public class HomeFragment extends Fragment {
         thuMucHocDaJoin.add(new ThuMucHoc("SWR201123", "Cuongnv2", R.drawable.cuong2));
         thuMucHocDaJoin.add(new ThuMucHoc("SWR2023211", "Cuongnv2", R.drawable.cuong));
         thuMucHocDaJoin.add(new ThuMucHoc("SWR202311", "Cuongnv2", R.drawable.cuong2));
-        AnhXa(view);
+        coursesList = new ArrayList<>();
+        coursesList = courseDAO.getCoursesSearchView();
 
-        homeAdapter = new HomeAdapter(getActivity(), thuMucHocList, new HomeAdapter.OnItemClickListener() {
+        courseAdapter = new CourseAdapter(coursesList, getActivity(), new CourseAdapter.OnItemClickListener() {
             @Override
-            public void OnClickMore(int position, ThuMucHoc doanhthu) {
-                Intent intent = new Intent(getActivity(), StudyActivity.class);
+            public void OnClickMore(Course_AnswerCount course_AnswerCount) {
+                Intent intent = new Intent(getContext(), StudyActivity.class);
+                intent.putExtra("idCourse", course_AnswerCount.getId());
+                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum());
                 startActivity(intent);
+                Toast.makeText(getContext(), "" + course_AnswerCount.getAnswerNum(), Toast.LENGTH_SHORT).show();
             }
         });
+        AnhXa(view);
         LinearLayoutManager layoutManager =
                 new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         layoutManager.scrollToPosition(0);
         recyView_Home.setLayoutManager(layoutManager);
-        recyView_Home.setAdapter(homeAdapter);
-        if (check_Add == true) {
-            homeAdapter.notifyItemInserted(thuMucHocList.size() + 1);
-        }
+        recyView_Home.setAdapter(courseAdapter);
 
-        homeAdapter1 = new HomeAdapter(getActivity(), thuMucHocDaJoin, new HomeAdapter.OnItemClickListener() {
-            @Override
-            public void OnClickMore(int position, ThuMucHoc doanhthu) {
-                Intent intent = new Intent(getActivity(), StudyActivity.class);
-                startActivity(intent);
-            }
-        });
         LinearLayoutManager layoutManager1 =
                 new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         layoutManager1.scrollToPosition(0);
         recyView_Home2.setLayoutManager(layoutManager1);
-        recyView_Home2.setAdapter(homeAdapter);
+        recyView_Home2.setAdapter(courseAdapter);
+
+
         in = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
         out = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
-        viewFlipper.setInAnimation(in);
         viewFlipper.setOutAnimation(out);
+        viewFlipper.setInAnimation(in);
         viewFlipper.setFlipInterval(3000);
         viewFlipper.setAutoStart(true);
 

@@ -3,10 +3,18 @@ package com.example.quizlet.model.customModel;
 import com.example.quizlet.model.Courses;
 
 public class Course_AnswerCount {
+    private long id;
     private String courseName;
     private int answerNum;
     private long creatorDate;
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getCourseName() {
         return courseName;

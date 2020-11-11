@@ -4,36 +4,32 @@
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_hoc.png.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\hoc.png"
-    },
-    {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_setting.xml.flat",
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\src\\main\\res\\drawable-v24\\icon_setting.xml"
     },
     {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\anim_fade_out.xml.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\src\\main\\res\\anim\\fade_out.xml"
+        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_hoc.png.flat",
+        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\hoc.png"
     },
     {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
     },
     {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_custom.xml.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\src\\main\\res\\drawable-v24\\custom.xml"
+        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\anim_fade_out.xml.flat",
+        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\src\\main\\res\\anim\\fade_out.xml"
     },
     {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_star.png.flat",
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\star.png"
     },
     {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_custom.xml.flat",
+        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\src\\main\\res\\drawable-v24\\custom.xml"
     },
     {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_remove.png.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_remove.png"
+        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
     },
     {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_home.xml.flat",
@@ -84,10 +80,6 @@
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\kiemtra.png"
     },
     {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_remove.xml.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_remove.xml"
-    },
-    {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
     },
@@ -112,10 +104,6 @@
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\src\\main\\res\\layout\\fragment_add_course.xml"
     },
     {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_remove.png.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_remove.png"
-    },
-    {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_hoc.png.flat",
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\hoc.png"
     },
@@ -136,16 +124,8 @@
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\hoc.png"
     },
     {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_remove.png.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_remove.png"
-    },
-    {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_kiemtra.png.flat",
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\kiemtra.png"
-    },
-    {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_remove.png.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_remove.png"
     },
     {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\layout_item.xml.flat",
@@ -328,10 +308,6 @@
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\search.png"
     },
     {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_remove.png.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_remove.png"
-    },
-    {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_chat.xml.flat",
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\src\\main\\res\\layout\\fragment_chat.xml"
     },
@@ -386,10 +362,6 @@
     {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_back.xml.flat",
         "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\src\\main\\res\\drawable-v24\\icon_back.xml"
-    },
-    {
-        "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_remove.png.flat",
-        "source": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_remove.png"
     },
     {
         "merged": "C:\\Users\\lamnx\\Desktop\\QuizletProject6\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_icon_check.xml.flat",

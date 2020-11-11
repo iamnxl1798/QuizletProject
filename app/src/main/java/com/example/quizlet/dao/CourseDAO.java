@@ -17,8 +17,10 @@ import java.util.List;
 public interface CourseDAO {
     @Insert
     public void insertCourse(Courses course);
+
     @Insert
     public void insertQuestion(Question question);
+
     @Insert
     public void insertAnswer(Answers course);
 
@@ -46,6 +48,9 @@ public interface CourseDAO {
     @Query("SELECT * FROM Courses ORDER BY Courses.id DESC LIMIT 1;")
     public Courses getLastCourse();
 
-    @Query("SELECT Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id Group by Question.courseId")
+    @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id Group by Question.courseId")
     public List<Course_AnswerCount> getCoursesSearchView();
+
+//    @Query("select * from Courses where ")
+//    public List<Courses> getAllCoursesByUser(int idUser);
 }
