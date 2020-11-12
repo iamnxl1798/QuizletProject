@@ -208,6 +208,10 @@
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dobong_vien.xml.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable\\dobong_vien.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_star.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\star.png"
     },
@@ -374,6 +378,10 @@
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_delete.png.flat",
         "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\delete.png"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable_saovangtheghinho.jpg.flat",
+        "source": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\src\\main\\res\\drawable\\saovangtheghinho.jpg"
     },
     {
         "merged": "C:\\Users\\Admin\\Desktop\\ProjectAndroid\\QuizletProject\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_delete2.png.flat",

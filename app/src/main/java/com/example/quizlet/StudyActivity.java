@@ -30,6 +30,7 @@ import com.example.quizlet.model.Question;
 import com.example.quizlet.adapter.StudyAdapter;
 import com.example.quizlet.receiver.AlarmReceiver;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -58,51 +59,28 @@ public class StudyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_study);
         questions = new ArrayList<>();
         AnhXa();
-//        myDatabase = Room.databaseBuilder(StudyActivity.this, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
-//
-//        quesstionDAO = myDatabase.createQuesstionDAO();
-//        answerDAO = myDatabase.createAnswerDAO();
-//
-//        Intent intent = this.getIntent();
-//        String totalQ = intent.getStringExtra("totalQuestion");
-//        long courseId = Long.parseLong(intent.getStringExtra("idCourse"));
-//
-//        questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
-//
-//        totalQuestion.setText(totalQ + " thuật ngữ");
-//        Toast.makeText(StudyActivity.this, "" + totalQ, Toast.LENGTH_SHORT).show();
-//
-//        List<Item> items = new ArrayList<>();
-//
-//        for (int i = 0; i < questions.size(); i++) {
-//            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
-//
-//            items.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
-//
-//        }
+        myDatabase = Room.databaseBuilder(StudyActivity.this, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
 
-        List<Item> items = new ArrayList<>();
-        Question question = new Question();
-        question.setQuestionName("aaa");
-        ArrayList<Answers> answers = new ArrayList<>();
-        answers.add(new Answers("a", false));
-        answers.add(new Answers("b", false));
-        answers.add(new Answers("c", false));
-        answers.add(new Answers("d", true));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
+        quesstionDAO = myDatabase.createQuesstionDAO();
+        answerDAO = myDatabase.createAnswerDAO();
 
-        items.add(new Item(question.getQuestionName(), answers));
+        Intent intent = this.getIntent();
+        String totalQ = intent.getStringExtra("totalQuestion");
+        final long courseId = Long.parseLong(intent.getStringExtra("idCourse"));
 
-        items.add(new Item(question.getQuestionName(), answers));
+        questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
 
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
+        totalQuestion.setText(totalQ + " thuật ngữ");
+        Toast.makeText(StudyActivity.this, "" + totalQ, Toast.LENGTH_SHORT).show();
 
+        final List<Item> items = new ArrayList<>();
+
+        for (int i = 0; i < questions.size(); i++) {
+            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
+
+            items.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
+
+        }
 
         studyAdapter = new StudyAdapter(this, items, new StudyAdapter.OnItemClickListener() {
             @Override
@@ -141,6 +119,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StudyActivity.this, TheGhiNhoActivity.class);
+                intent.putExtra("QuestionListExtra", courseId + "");
                 startActivity(intent);
             }
         });

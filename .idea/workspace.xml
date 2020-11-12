@@ -11,38 +11,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00f1ede5-7bba-4242-8c07-990774c0dfb9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml.orig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml.orig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/COMMON.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileContent/fileContent.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/gc.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/example/quizlet/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/example/quizlet/BuildConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/bundle-manifest/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/bundle-manifest/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/bundle-manifest/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/bundle_manifest/debug/bundle-manifest/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/compatible_screen_manifest/debug/out/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compatible_screen_manifest/debug/out/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex/debug/mergeDexDebug/classes.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/dex_archive_input_jar_hashes/debug/out" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/dex_archive_input_jar_hashes/debug/out" afterDir="false" />
@@ -50,76 +28,40 @@
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/instant_app_manifest/debug/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/MainActivity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/MainActivity$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/MainActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/MainActivity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/Model/Question.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/Model/Question.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/StudyActivity$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/StudyActivity$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/StudyActivity.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/StudyActivity.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/adapter/HomeAdapter$ViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/adapter/HomeAdapter$ViewHolder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/adapter/HomeAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/adapter/HomeAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/adapter/StudyAdapter$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/adapter/StudyAdapter$ViewHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/adapter/StudyAdapter$ViewHolder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/adapter/StudyAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/adapter/StudyAdapter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/fragment/ChatFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/fragment/ChatFragment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/fragment/HomeFragment$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/fragment/HomeFragment$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/fragment/HomeFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/fragment/HomeFragment.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/fragment/SearchFragment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/javac/debug/classes/com/example/quizlet/fragment/SearchFragment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_java_res/debug/out.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_java_res/debug/out.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/merged_manifests/debug/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/metadata_feature_manifest/debug/metadata-feature/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/metadata_feature_manifest/debug/metadata-feature/output.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/output.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/processed_res/debug/out/resources-debug.ap_" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/MainActivity$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/MainActivity$1.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/MainActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/MainActivity.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/Model/Question.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/Model/Question.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/StudyActivity$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/StudyActivity$1.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/StudyActivity.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/StudyActivity.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/adapter/HomeAdapter$ViewHolder.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/adapter/HomeAdapter$ViewHolder.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/adapter/HomeAdapter.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/adapter/HomeAdapter.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/adapter/StudyAdapter$1.dex" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/adapter/StudyAdapter$ViewHolder.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/adapter/StudyAdapter$ViewHolder.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/adapter/StudyAdapter.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/adapter/StudyAdapter.dex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/fragment/ChatFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/fragment/ChatFragment.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/fragment/HomeFragment$1.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/fragment/HomeFragment$1.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/fragment/HomeFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/fragment/HomeFragment.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/fragment/SearchFragment.dex" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/project_dex_archive/debug/out/com/example/quizlet/fragment/SearchFragment.dex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_study.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_activity_study.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_home.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_fragment_home.xml.flat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_review_study.xml.flat" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/layout_review_study.xml.flat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/runtime_symbol_list/debug/R.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/apk/debug/output-metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/apk/debug/output-metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/MainActivity2.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/StudyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/StudyActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/TheGhiNhoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/TheGhiNhoActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/adapter/CourseAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/adapter/CourseAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/adapter/StudyAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/adapter/StudyAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/dao/AddCourseDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/dao/CourseDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/database/MyDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/database/MyDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/fragment/AddCourseFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/fragment/AddCourseFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/fragment/HomeFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/fragment/HomeFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/fragment/SearchFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/fragment/SearchFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/model/Question.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/model/Question.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/model/customModel/Course_AnswerCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/model/customModel/Course_AnswerCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/duongvien_goctron.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/duongvien_goctron.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/quizlet/model/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_study.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_study.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_the_ghi_nho.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_the_ghi_nho.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/course_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/course_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/review_study.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/review_study.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,10 +90,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="resourceFile" />
         <option value="layoutResourceFile" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -175,15 +117,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="show.do.not.copy.http.proxy.settings.to.gradle" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\res\drawable" />
-      <recent name="C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\res\raw" />
-      <recent name="C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\res\drawable-v24" />
-    </key>
     <key name="android.template.1105004364">
       <recent name="com.example.quizlet" />
     </key>
@@ -195,6 +133,11 @@
     </key>
     <key name="android.template.1511565855">
       <recent name="com.example.quizlet" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\res\drawable" />
+      <recent name="C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\res\raw" />
+      <recent name="C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\res\drawable-v24" />
     </key>
   </component>
   <component name="RunManager" selected="Android App.Quizlet-app">
@@ -373,6 +316,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="275" y="22" key="#Auto_Import" timestamp="1605150928976">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="22" key="#Auto_Import/0.0.1366.728@0.0.1366.728" timestamp="1605150928976" />
     <state x="465" y="12" key="#QuizletProject6-app" timestamp="1604889698038">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -407,87 +354,88 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="263" y="119" key="AndroidCreateResourceDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1604386035435" />
-    <state x="370" y="170" key="AndroidCreateResourceFileDialog" timestamp="1604742127807">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="263" y="119" key="AndroidCreateResourceFileDialog" timestamp="1605086290260">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="263" y="119" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1604386100507" />
+    <state x="263" y="119" key="AndroidCreateResourceFileDialog/0.0.1366.728@0.0.1366.728" timestamp="1605086290260" />
     <state x="370" y="170" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604742127807" />
     <state width="424" height="466" key="DebuggerActiveHint" timestamp="1604812510671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="424" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1604812510671" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1604993924573">
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1605149708403">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604993924573" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605149708403" />
     <state x="651" y="170" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604817101909" />
-    <state width="1323" height="31" key="GridCell.Tab.0.bottom" timestamp="1605003145694">
+    <state width="1323" height="24" key="GridCell.Tab.0.bottom" timestamp="1605176080297">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="31" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605003145694" />
+    <state width="1323" height="24" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605176080297" />
     <state width="1877" height="346" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604817507270" />
-    <state width="1323" height="31" key="GridCell.Tab.0.center" timestamp="1605003145693">
+    <state width="1323" height="24" key="GridCell.Tab.0.center" timestamp="1605176080296">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="31" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605003145693" />
+    <state width="1323" height="24" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605176080296" />
     <state width="1877" height="346" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604817507270" />
-    <state width="1323" height="31" key="GridCell.Tab.0.left" timestamp="1605003145693">
+    <state width="1323" height="24" key="GridCell.Tab.0.left" timestamp="1605176080296">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="31" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605003145693" />
+    <state width="1323" height="24" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605176080296" />
     <state width="1877" height="346" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604817507269" />
-    <state width="1323" height="31" key="GridCell.Tab.0.right" timestamp="1605003145694">
+    <state width="1323" height="24" key="GridCell.Tab.0.right" timestamp="1605176080296">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="31" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605003145693" />
+    <state width="1323" height="24" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605176080296" />
     <state width="1877" height="346" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604817507270" />
-    <state width="1323" height="164" key="GridCell.Tab.1.bottom" timestamp="1604916835867">
+    <state width="1323" height="164" key="GridCell.Tab.1.bottom" timestamp="1605109794331">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1604916835867" />
+    <state width="1323" height="164" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605109794331" />
     <state width="1877" height="346" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604817507270" />
-    <state width="1323" height="164" key="GridCell.Tab.1.center" timestamp="1604916835867">
+    <state width="1323" height="164" key="GridCell.Tab.1.center" timestamp="1605109794331">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1604916835867" />
+    <state width="1323" height="164" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1605109794331" />
     <state width="1877" height="346" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604817507270" />
-    <state width="1323" height="164" key="GridCell.Tab.1.left" timestamp="1604916835867">
+    <state width="1323" height="164" key="GridCell.Tab.1.left" timestamp="1605109794331">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1604916835867" />
+    <state width="1323" height="164" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1605109794331" />
     <state width="1877" height="346" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604817507270" />
-    <state width="1323" height="164" key="GridCell.Tab.1.right" timestamp="1604916835867">
+    <state width="1323" height="164" key="GridCell.Tab.1.right" timestamp="1605109794331">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1604916835867" />
+    <state width="1323" height="164" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1605109794331" />
     <state width="1877" height="346" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604817507270" />
     <state x="427" y="74" key="RollbackChangesDialog" timestamp="1603013012597">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="427" y="74" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1603013012597" />
-    <state x="184" y="6" key="SettingsEditor" timestamp="1602496679269">
+    <state x="184" y="6" key="SettingsEditor" timestamp="1605078730326">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1602496679269" />
-    <state x="499" y="142" key="chooseDestDirectoryDialog" timestamp="1605020851341">
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605078730326" />
+    <state x="499" y="142" key="chooseDestDirectoryDialog" timestamp="1605087531422">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="499" y="142" key="chooseDestDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1605020851341" />
-    <state x="99" y="162" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1605020153241">
+    <state x="499" y="142" key="chooseDestDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1605087531422" />
+    <state x="99" y="162" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1605162650458">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="99" y="162" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1605020153241" />
-    <state x="378" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1604932212240">
+    <state x="99" y="162" width="1182" height="544" key="com.android.tools.idea.avdmanager.AvdListDialog/0.0.1366.728@0.0.1366.728" timestamp="1605162650458" />
+    <state x="378" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1605149064149">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="378" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1604932212240" />
+    <state x="378" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1605149064149" />
     <state x="656" y="253" width="607" height="534" key="find.popup" timestamp="1604734431031">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="253" width="607" height="534" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604734431031" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604812836647">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup" timestamp="1605171657951">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="443" y="158" width="672" height="475" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1605171657951" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604812836647" />
   </component>
   <component name="XDebuggerManager">
@@ -497,6 +445,16 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/quizlet/fragment/SearchFragment.java</url>
           <line>91</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/quizlet/StudyActivity.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/quizlet/StudyActivity.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

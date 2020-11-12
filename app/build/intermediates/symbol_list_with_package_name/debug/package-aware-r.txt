@@ -1564,6 +1564,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dobong_vien
 drawable duongvien_goctron
 drawable edit
 drawable ghepthe
@@ -1615,6 +1616,7 @@ drawable notify_panel_notification_icon_bg
 drawable quiz
 drawable quiz2
 drawable saogim
+drawable saovangtheghinho
 drawable search
 drawable star
 drawable star_click
@@ -1674,6 +1676,7 @@ id action0
 id action_bar
 id action_bar_activity_content
 id action_bar_container
+id action_bar_ghinho
 id action_bar_root
 id action_bar_spinner
 id action_bar_study
@@ -1713,13 +1716,13 @@ id avatarUserCourse
 id back_home
 id barrier
 id baseline
+id bat_dau
 id beginOnFirstDraw
 id beginning
 id blocking
 id bottom
 id bounce
 id bt_searchHocPhan
-id button
 id buttonPanel
 id cache_measures
 id cancel_action
@@ -1792,6 +1795,7 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id et_nhap_sl
 id et_search
 id exitUntilCollapsed
 id expand_activities_button
@@ -1987,9 +1991,10 @@ id staticPostLayout
 id status_bar_latest_event_content
 id stop
 id stretch
+id sttghinho
 id submenuarrow
 id submit_area
-id switch1
+id switch_gansao
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans

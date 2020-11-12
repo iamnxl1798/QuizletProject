@@ -2,34 +2,53 @@ package com.example.quizlet;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.quizlet.dao.AnswerDAO;
+import com.example.quizlet.dao.QuesstionDAO;
+import com.example.quizlet.database.MyDatabase;
+import com.example.quizlet.model.Answers;
+import com.example.quizlet.model.Item;
 import com.example.quizlet.model.Question;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TheGhiNhoActivity extends AppCompatActivity {
 
     List<Question> questions;
     LinearLayout linearLayout;
-    TextView textView;
+    TextView textView, sttghinho;
     private float x1, y1, x2, y2;
     private float radio = 1;
     ProgressBar progressBar;
+    MyDatabase myDatabase;
+    private QuesstionDAO quesstionDAO;
+    AnswerDAO answerDAO;
+    ImageView back_home;
+    Button bat_dau;
+    Switch aSwitch;
+    EditText et_nhap_sl;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -37,28 +56,117 @@ public class TheGhiNhoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_ghi_nho);
         AnhXa();
+        myDatabase = Room.databaseBuilder(TheGhiNhoActivity.this, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
+        quesstionDAO = myDatabase.createQuesstionDAO();
+        answerDAO = myDatabase.createAnswerDAO();
+        Intent intent = this.getIntent();
+        final long courseId = Long.parseLong(intent.getStringExtra("QuestionListExtra"));
+        questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
+        final List<Item> items = new ArrayList<>();
+        final List<Item> items1 = new ArrayList<>();
 
-        questions = new ArrayList<>();
+        for (int i = 0; i < questions.size(); i++) {
+            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
 
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
-        questions.add(new Question("aaaaaaaaaaaaaaaaaaaaaaaaqweeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+            items.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
+            items1.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
+
+        }
+
+        back_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
         Toast.makeText(TheGhiNhoActivity.this, "test", Toast.LENGTH_SHORT).show();
         final int[] count = {0};
         final boolean[] check = {false};
-        textView.setText(questions.get(count[0]).getQuestionName() + "");
+        bat_dau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                count[0] = 0;
+                int soLuong = Integer.parseInt(et_nhap_sl.getText().toString());
+                boolean check = false;
+                if (soLuong > items.size()) {
+                    Toast.makeText(TheGhiNhoActivity.this, "Nhập số quá lơn", Toast.LENGTH_LONG).show();
+                } else {
+                    for (int i = items1.size() - 1; i >= 0; i--) {
+                        items1.remove(i);
+                    }
+                    int counttt = 0;
+
+                    while (counttt < soLuong) {
+                        boolean checkTrung = false;
+                        Item item3 = items.get(new Random().nextInt(items.size()));
+                        if(items1.isEmpty()) items1.add(item3);
+                        else{
+                            for (int j = 0; j < items1.size(); j++) {
+                                if (items1.get(j).equals(item3)) {
+                                    checkTrung = true;
+                                }
+                            }
+                            if (!checkTrung) {
+                                items1.add(item3);
+                                counttt++;
+                            }
+                        }
+
+                    }
+
+                }
+                final List<Answers> answers = items1.get(count[0]).getDefinition();
+                String quesstionName = items1.get(count[0]).getTerm() + "\n";
+                String s = "";
+                String anwserTrue = "";
+                int a = 97;
+                for (int i = 0; i < answers.size(); i++) {
+                    char b = (char) a;
+                    if (answers.get(i).isTrue()) {
+                        anwserTrue += b;
+                    }
+                    String c = b + " : " + answers.get(i).getAnswer();
+                    a++;
+                    s += c + "\n";
+                }
+
+                quesstionName += "\n" + s;
+                textView.setText(quesstionName);
+                progressBar.setMin(0);
+                progressBar.setMax(items1.size() - 1);
+
+                sttghinho.setText("1/" + (items1.size()));
+
+            }
+        });
+        final List<Answers> answers = items1.get(count[0]).getDefinition();
+        String quesstionName = items1.get(count[0]).getTerm() + "\n";
+        String s = "";
+        String anwserTrue = "";
+        int a = 97;
+        for (int i = 0; i < answers.size(); i++) {
+            char b = (char) a;
+            if (answers.get(i).isTrue()) {
+                anwserTrue += b;
+            }
+            String c = b + " : " + answers.get(i).getAnswer();
+            a++;
+            s += c + "\n";
+        }
+
+        quesstionName += "\n" + s;
+        textView.setText(quesstionName);
         progressBar.setMin(0);
-        progressBar.setMax(questions.size() - 1);
-        progressBar.setProgress(2);
+        progressBar.setMax(items1.size() - 1);
+
+        sttghinho.setText("1/" + (items1.size()));
 
         linearLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+
                 if (event.getAction() == event.ACTION_DOWN) {
                     x1 = event.getX();
                     y1 = event.getY();
@@ -69,8 +177,30 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                     if (x2 - x1 < 0) {
                         if (count[0] <= questions.size() - 1) {
                             count[0]++;
-                            textView.setText(questions.get(count[0]).getQuestionName() + "");
+                            if (count[0] > items1.size() - 1) count[0] = items1.size() - 1;
+
+                            String quesstionName = items1.get(count[0]).getTerm() + "\n";
+                            final List<Answers> answers = items1.get(count[0]).getDefinition();
+
+                            String s = "";
+                            String anwserTrue = "";
+                            int a = 97;
+                            for (int i = 0; i < answers.size(); i++) {
+
+                                char b = (char) a;
+
+                                if (answers.get(i).isTrue()) {
+                                    anwserTrue += b;
+                                }
+                                String c = b + " : " + answers.get(i).getAnswer();
+                                a++;
+                                s += c + "\n";
+                            }
+                            quesstionName += "\n" + s;
+                            textView.setText(quesstionName);
                             progressBar.setProgress(count[0]);
+                            sttghinho.setText((count[0] + 1) + "/" + (items1.size()));
+
                             ObjectAnimator animator1 = ObjectAnimator.ofFloat(linearLayout, "translationX", 300, 0);
                             animator1.setDuration(1000);  // set thời gian để chạy từ 0f - 1f
                             animator1.setRepeatMode(ValueAnimator.REVERSE); // alpha chạy ngược lại từ 1f - 0f
@@ -85,7 +215,29 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                     } else if (x2 - x1 > 0) {
                         if (count[0] > 0) {
                             count[0]--;
-                            textView.setText(questions.get(count[0]).getQuestionName() + "");
+                            if (count[0] < 0) count[0] = 0;
+
+                            String quesstionName = items1.get(count[0]).getTerm() + "\n";
+                            final List<Answers> answers = items1.get(count[0]).getDefinition();
+
+                            String s = "";
+                            String anwserTrue = "";
+                            int a = 97;
+                            for (int i = 0; i < answers.size(); i++) {
+
+                                char b = (char) a;
+
+                                if (answers.get(i).isTrue()) {
+                                    anwserTrue += b;
+                                }
+                                String c = b + " : " + answers.get(i).getAnswer();
+                                a++;
+                                s += c + "\n";
+                            }
+                            sttghinho.setText((count[0] + 1) + "/" + (items1.size()));
+
+                            quesstionName += "\n" + s;
+                            textView.setText(quesstionName);
                             progressBar.setProgress(count[0]);
                             ObjectAnimator animator1 = ObjectAnimator.ofFloat(linearLayout, "translationX", -300, 0);
                             animator1.setDuration(1000);  // set thời gian để chạy từ 0f    - 1f
@@ -99,16 +251,31 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                             animator2.start();
                         }
                     } else {
+                        String quesstionName = items1.get(count[0]).getTerm() + "\n";
+                        final List<Answers> answers = items1.get(count[0]).getDefinition();
+                        String s = "";
+                        String anwserTrue = "";
+                        int a = 97;
+                        for (int i = 0; i < answers.size(); i++) {
+
+                            char b = (char) a;
+
+                            if (answers.get(i).isTrue()) {
+                                anwserTrue += b;
+                            }
+                            String c = b + " : " + answers.get(i).getAnswer();
+                            a++;
+                            s += c + "\n";
+                        }
+                        quesstionName += "\n" + s;
                         ObjectAnimator animator = ObjectAnimator.ofFloat(linearLayout, "alpha", 1f, 0f);
                         animator.setDuration(1000);  // set thời gian để chạy từ 0f - 1f
                         animator.start();
                         if (!check[0]) {
-//                            textView.setText(questions.get(count[0]).getAnswer() + "");
+                            textView.setText(anwserTrue);
                         } else {
-                            textView.setText(questions.get(count[0]).getQuestionName() + "");
-
+                            textView.setText(quesstionName);
                         }
-
                         ObjectAnimator animator1 = ObjectAnimator.ofFloat(linearLayout, "alpha", 0f, 1f);
                         animator1.setDuration(1000);  // alpha chạy ngược lại từ 1f - 0f
                         animator1.start();
@@ -124,5 +291,10 @@ public class TheGhiNhoActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.theghinhohihi);
         textView = findViewById(R.id.hienthiganthe);
         progressBar = findViewById(R.id.progressBar);
+        sttghinho = findViewById(R.id.sttghinho);
+        back_home = findViewById(R.id.back_home);
+        bat_dau = findViewById(R.id.bat_dau);
+        aSwitch = findViewById(R.id.switch_gansao);
+        et_nhap_sl = findViewById(R.id.et_nhap_sl);
     }
 }

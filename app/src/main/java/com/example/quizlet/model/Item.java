@@ -1,8 +1,9 @@
 package com.example.quizlet.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Item {
+public class Item implements Serializable {
     private String term;
     private ArrayList<Answers> definition;
 

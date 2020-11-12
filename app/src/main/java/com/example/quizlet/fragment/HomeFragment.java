@@ -68,12 +68,12 @@ public class HomeFragment extends Fragment {
         coursesList = new ArrayList<>();
         coursesList = courseDAO.getCoursesSearchView();
 
-        courseAdapter = new CourseAdapter(coursesList, getActivity(), new CourseAdapter.OnItemClickListener() {
+        courseAdapter = new CourseAdapter(coursesList, getContext(), new CourseAdapter.OnItemClickListener() {
             @Override
             public void OnClickMore(Course_AnswerCount course_AnswerCount) {
                 Intent intent = new Intent(getContext(), StudyActivity.class);
-                intent.putExtra("idCourse", course_AnswerCount.getId());
-                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum());
+                intent.putExtra("idCourse", course_AnswerCount.getId() + "");
+                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum() + "");
                 startActivity(intent);
                 Toast.makeText(getContext(), "" + course_AnswerCount.getAnswerNum(), Toast.LENGTH_SHORT).show();
             }

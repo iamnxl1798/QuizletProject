@@ -49,27 +49,20 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
         int a = 97;
         for (int i = 0; i < answers.size(); i++) {
 
-            if (answers.get(i).isTrue()) {
-                anwserTrue = answers.get(i).getAnswer();
-            }
             char b = (char) a;
+
+            if (answers.get(i).isTrue()) {
+                anwserTrue += b;
+            }
             String c = b + " : " + answers.get(i).getAnswer();
             a++;
-            s += c + "/n";
+            s += c + "\n";
         }
 
-        quesstionName += "/n" + s;
+        quesstionName += "\n" + s;
         holder.nameQuestion.setText(quesstionName);
 
         holder.answer.setText(anwserTrue);
-
-//        if (question.isGim() == true) {
-//            holder.star.setImageResource(R.drawable.star_click);
-//            holder.star.setBackgroundColor(Color.YELLOW);
-//        } else {
-//            holder.star.setImageResource(R.drawable.star);
-//        }
-
         holder.star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
