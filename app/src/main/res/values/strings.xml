@@ -1,5 +1,28 @@
 <resources>
-    <string name="app_name">Quizlet</string>
+    <string name="app_name">Study Support</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txtLogin">Login</string>
+    <string name="txtEmail">Email</string>
+    <string name="txtPass">Password</string>
+    <string name="txtForgot">Forgot Password?</string>
+    <string name="txtRegister">New here Register?</string>
+    <string name="txtIntroduce">Study Support is the leading app in Vietnam to support and help students with their studies.</string>
+    <string name="txtStart">Get Started</string>
+    <string name="txtRegisterTitle">Register</string>
+    <string name="txtAccount">Account</string>
+    <string name="txtCfPass">Password-egain</string>
+    <string name="txtChangePass">Change Password</string>
+    <string name="txtSwitch">Background night</string>
+    <string name="txtContact">Contact help</string>
+    <string name="txtLogOut">Logout</string>
+    <string name="txtLoginMember">Already a member? Login</string>
+    <string name="txtMemmory">Remember Password</string>
+    <string name="txtbtnChangeAvatar">Change Avatar</string>
+    <string name="txtbtnTakeAphoto">Camera</string>
+    <string name="txtbtnTakePicture">Take a picture</string>
+
+
+
+
 </resources>

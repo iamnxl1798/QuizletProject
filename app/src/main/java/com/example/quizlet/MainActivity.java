@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.quizlet.fragment.AccountFragment;
 import com.example.quizlet.fragment.AddCourseFragment;
 import com.example.quizlet.fragment.ChatFragment;
 import com.example.quizlet.fragment.HomeFragment;
@@ -46,7 +47,12 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new AddCourseFragment();
                     loadFragment(fragment);
                     return true;
+                case R.id.navi_account:
+                    fragment = new AccountFragment();
+                    loadFragment(fragment);
+                    return true;
             }
+
             return false;
         }
     };

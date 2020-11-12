@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Quizlet.iml" filepath="$PROJECT_DIR$/.idea/modules/Quizlet.iml" group="Quizlet" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Quizlet-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Quizlet-app.iml" group="Quizlet/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/QuizletProject6-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/QuizletProject6-app.iml" group="Quizlet/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Quizlet.iml" filepath="$PROJECT_DIR$/.idea/modules/Quizlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Quizlet.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Quizlet.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Quizlet/app" />
     </modules>
   </component>
