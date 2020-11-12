@@ -53,7 +53,7 @@ public class TheGhiNhoActivity extends AppCompatActivity {
         final boolean[] check = {false};
         textView.setText(questions.get(count[0]).getQuestionName() + "");
         progressBar.setMin(0);
-        progressBar.setMax(questions.size()-1);
+        progressBar.setMax(questions.size() - 1);
         progressBar.setProgress(2);
 
         linearLayout.setOnTouchListener(new View.OnTouchListener() {
@@ -67,7 +67,7 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                     x2 = event.getX();
                     y2 = event.getY();
                     if (x2 - x1 < 0) {
-                        if (count[0] <= questions.size()-1) {
+                        if (count[0] <= questions.size() - 1) {
                             count[0]++;
                             textView.setText(questions.get(count[0]).getQuestionName() + "");
                             progressBar.setProgress(count[0]);

@@ -1,5 +1,6 @@
 package com.example.quizlet.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.quizlet.COMMON;
 import com.example.quizlet.R;
+import com.example.quizlet.StudyActivity;
 import com.example.quizlet.adapter.CourseAdapter;
 import com.example.quizlet.adapter.ItemAdapter;
 import com.example.quizlet.dao.CourseDAO;
@@ -81,15 +84,24 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_search, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
         myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         courseDAO = myDatabase.createCourseDAO();
-        items=courseDAO.getCoursesSearchView();
-        List<Question> list=courseDAO.getQuestion();
+        items = courseDAO.getCoursesSearchView();
+        List<Question> list = courseDAO.getQuestion();
         recyclerView = view.findViewById(R.id.searchCouseRecycle);
-        adapter = new CourseAdapter(items, getContext());
+        adapter = new CourseAdapter(items, getContext(), new CourseAdapter.OnItemClickListener() {
+            @Override
+            public void OnClickMore(Course_AnswerCount course_AnswerCount) {
+                Intent intent = new Intent(getContext(), StudyActivity.class);
+                intent.putExtra("idCourse", course_AnswerCount.getId());
+                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum());
+                startActivity(intent);
+                Toast.makeText(getContext(), "" + course_AnswerCount.getId(), Toast.LENGTH_SHORT).show();
+            }
+        });
         recyclerView.setAdapter(adapter);
-        searchView=view.findViewById(R.id.searchBar);
+        searchView = view.findViewById(R.id.searchBar);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -98,7 +110,7 @@ public class SearchFragment extends Fragment {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                ((CourseAdapter)recyclerView.getAdapter()).getFilter().filter(newText);
+                ((CourseAdapter) recyclerView.getAdapter()).getFilter().filter(newText);
                 return false;
             }
         });

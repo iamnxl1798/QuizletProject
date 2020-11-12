@@ -11,6 +11,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.quizlet.R;
 import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Courses;
+import com.example.quizlet.model.ThuMucHoc;
 import com.example.quizlet.model.customModel.Course_AnswerCount;
 
 import java.text.DateFormat;
@@ -32,30 +34,47 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> im
     private List<Course_AnswerCount> items;
     private List<Course_AnswerCount> allItems;
     private Context context;
+    private CourseAdapter.OnItemClickListener listener;
 
     public CourseAdapter(List<Course_AnswerCount> items, Context context) {
         this.items = items;
-        allItems=new ArrayList<>(items);
+        allItems = new ArrayList<>(items);
         this.context = context;
     }
+
+    public CourseAdapter(List<Course_AnswerCount> items, Context context, CourseAdapter.OnItemClickListener listener) {
+        this.items = items;
+        allItems = new ArrayList<>(items);
+        this.context = context;
+        this.listener = listener;
+    }
+
     public List<Course_AnswerCount> getItems() {
         return items;
     }
+
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new CourseAdapter.Holder(LayoutInflater.from(context).inflate(R.layout.course_item,parent, false));
+        return new CourseAdapter.Holder(LayoutInflater.from(context).inflate(R.layout.course_item, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, final int position) {
         DateFormat df = new SimpleDateFormat("hh:mm dd/MM/yyyy");
-        TextView course=holder.getCourse();
-        TextView term=holder.getTerm();
-        TextView creator=holder.getCreator();
+        TextView course = holder.getCourse();
+        TextView term = holder.getTerm();
+        TextView creator = holder.getCreator();
         course.setText(items.get(position).getCourseName());
-        term.setText("Terms: "+items.get(position).getAnswerNum());
-        creator.setText("Created date: "+df.format(new Date(items.get(position).getCreatorDate())));
+        term.setText("Terms: " + items.get(position).getAnswerNum());
+        creator.setText("Created date: " + df.format(new Date(items.get(position).getCreatorDate())));
+
+        holder.getLine().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.OnClickMore(items.get(position));
+            }
+        });
     }
 
     @Override
@@ -67,6 +86,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> im
     public Filter getFilter() {
         return myFilter;
     }
+
     Filter myFilter = new Filter() {
 
         //Automatic on background thread
@@ -78,7 +98,7 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> im
             if (charSequence == null || charSequence.length() == 0) {
                 filteredList.addAll(allItems);
             } else {
-                for (Course_AnswerCount item: allItems) {
+                for (Course_AnswerCount item : allItems) {
                     if (item.getCourseName().toLowerCase().contains(charSequence.toString().toLowerCase())) {
                         filteredList.add(item);
                     }
@@ -98,22 +118,37 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> im
             notifyDataSetChanged();
         }
     };
+
     public class Holder extends RecyclerView.ViewHolder {
-        TextView courseName,termNumber,creatorName;
+        TextView courseName, termNumber, creatorName;
+        LinearLayout linearLayout;
+
         public Holder(@NonNull View itemView) {
             super(itemView);
-            courseName=itemView.findViewById(R.id.tv_CourseName);
-            termNumber=itemView.findViewById(R.id.tv_TermNumber);
-            creatorName=itemView.findViewById(R.id.tv_creatorName);
+            courseName = itemView.findViewById(R.id.tv_CourseName);
+            termNumber = itemView.findViewById(R.id.tv_TermNumber);
+            creatorName = itemView.findViewById(R.id.tv_creatorName);
+            linearLayout = itemView.findViewById(R.id.item_course);
         }
-        public TextView getCourse(){
+
+        public LinearLayout getLine() {
+            return linearLayout;
+        }
+
+        public TextView getCourse() {
             return courseName;
         }
-        public TextView getTerm(){
+
+        public TextView getTerm() {
             return termNumber;
         }
-        public TextView getCreator(){
+
+        public TextView getCreator() {
             return creatorName;
         }
+    }
+
+    public interface OnItemClickListener {
+        void OnClickMore(Course_AnswerCount course_AnswerCount);
     }
 }
