@@ -21,6 +21,8 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity android:name="com.example.quizlet.MainActivity" />
         <activity android:name="com.example.quizlet.LoginActivity" />
+        <activity android:name="com.example.quizlet.ghepTheChiTietActivity" />
+        <activity android:name="com.example.quizlet.ghepTheActivity" />
         <activity android:name="com.example.quizlet.TheGhiNhoActivity" />
         <activity android:name="com.example.quizlet.RegisterActivity" />
         <activity android:name="com.example.quizlet.HocPhanDaJoinActivity" />

@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,9 +45,9 @@ public class AddCourseFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private RecyclerView recyclerView;
-    private ArrayList<Item> items;
+    private List<Item> items;
     private ItemAdapter adapter;
-    private ImageView checkBtn;
+    private Button checkBtn;
     private FloatingActionButton addItemBtn;
     public MyDatabase myDatabase;
     public CourseDAO addCourseDAO;
@@ -92,7 +94,7 @@ public class AddCourseFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_add_course, container, false);
         items = new ArrayList<>();
-        final ArrayList<Answers> listDef = new ArrayList();
+        final List<Answers> listDef = new ArrayList();
         listDef.add(new Answers());
         items.add(new Item("", listDef));
         recyclerView = view.findViewById(R.id.rcl_view);
@@ -118,6 +120,7 @@ public class AddCourseFragment extends Fragment {
             }
         });
         checkBtn = view.findViewById(R.id.checkBtn);
+        checkBtn.setEnabled(true);
         checkBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,27 +138,33 @@ public class AddCourseFragment extends Fragment {
                             if (!item.getTerm().isEmpty()) {
                                 courses = addCourseDAO.getLastCourse();
                                 addCourseDAO.insertQuestion(new Question(item.getTerm(), courses.getId()));
-                                Question addQuestion = addCourseDAO.getLastQuestion();
-                                for (Answers answer : item.getDefinition()) {
-                                    if (answer.getAnswer() == null || answer.getAnswer().isEmpty()) {
-                                        item.getDefinition().remove(answer);
-                                    } else {
+                                Question addQuestion=addCourseDAO.getLastQuestion();
+                                List<Answers> temp= new ArrayList<>();
+                                for(Answers answer:item.getDefinition()){
+                                    if(answer.getAnswer()==null||answer.getAnswer().isEmpty()){
+                                        temp.add(answer);
+                                    }
+                                    else {
                                         answer.setQuestionId(addQuestion.getId());
                                         addCourseDAO.insertAnswer(answer);
                                     }
                                 }
-                                if (item.getDefinition().size() == 0) {
+                                if(item.getDefinition().size()==temp.size()){
                                     addCourseDAO.delLastQuestion();
                                 }
                             }
                         }
                         if (addCourseDAO.getQuestionOfLastCourse().size() == 0) {
                             addCourseDAO.delLastCourse();
+                            throw new Exception("Course cannot be blank");
                         }
                         Toast.makeText(getActivity(), "Add " + courses.getName() + " course success!", Toast.LENGTH_LONG).show();
-                    } else {
-                        edit_category.setBackgroundColor(Color.rgb(251, 227, 228));
+                        checkBtn.setEnabled(false);
+                        checkBtn.setBackground(null);
+                    }else{
+                        edit_category.setBackgroundColor(Color.rgb(251,227,228));
                         Toast.makeText(getActivity(), "Add course failed!", Toast.LENGTH_LONG).show();
+                        addCourseDAO.delLastCourse();
                     }
                 } catch (Exception e) {
                     Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -167,10 +176,12 @@ public class AddCourseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
-                ArrayList<Answers> tempString = new ArrayList<>();
+                List<Answers> tempString = new ArrayList<>();
                 tempString.add(new Answers());
                 items.add(new Item("", tempString));
                 recyclerView.setAdapter(adapter);
+                recyclerView.smoothScrollToPosition(items.size()-1);
+
             }
         });
         return view;

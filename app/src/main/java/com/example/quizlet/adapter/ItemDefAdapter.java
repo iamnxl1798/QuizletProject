@@ -17,16 +17,17 @@ import com.example.quizlet.R;
 import com.example.quizlet.model.Answers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItemDefAdapter extends RecyclerView.Adapter<ItemDefAdapter.Holder> {
-    ArrayList<Answers> items;
+    List<Answers> items;
     Context context;
 
-    public ItemDefAdapter(ArrayList<Answers> items, Context context) {
+    public ItemDefAdapter(List<Answers> items, Context context) {
         this.items = items;
         this.context = context;
     }
-    public ArrayList<Answers> getItems() {
+    public List<Answers> getItems() {
         return items;
     }
     @NonNull

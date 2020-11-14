@@ -11,6 +11,8 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".ghepTheChiTietActivity"></activity>
+        <activity android:name=".ghepTheActivity" />
         <activity android:name=".TheGhiNhoActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HocPhanDaJoinActivity" />

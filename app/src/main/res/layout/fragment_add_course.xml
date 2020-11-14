@@ -25,12 +25,12 @@
             android:textSize="25dp"
             android:textStyle="bold" />
 
-        <ImageView
+        <Button
             android:id="@+id/checkBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="225dp"
-            android:src="@drawable/icon_check" />
+            android:background="@drawable/icon_check" />
 
     </LinearLayout>
 
@@ -63,6 +63,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
+                app:stackFromEnd="true"
+
                 android:layout_marginTop="10dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintRight_toRightOf="parent"

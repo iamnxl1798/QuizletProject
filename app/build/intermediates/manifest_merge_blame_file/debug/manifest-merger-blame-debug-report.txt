@@ -11,7 +11,7 @@
 9-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:5:5-30:19
+11-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:5:5-32:19
 12        android:allowBackup="true"
 12-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -34,50 +34,56 @@
 22        <activity android:name="com.example.quizlet.LoginActivity" />
 22-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:13:9-51
 22-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:13:19-48
-23        <activity android:name="com.example.quizlet.TheGhiNhoActivity" />
-23-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:14:9-55
-23-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:14:19-52
-24        <activity android:name="com.example.quizlet.RegisterActivity" />
-24-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:15:9-54
-24-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:15:19-51
-25        <activity android:name="com.example.quizlet.HocPhanDaJoinActivity" />
-25-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:16:9-59
-25-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:16:19-56
-26        <activity android:name="com.example.quizlet.HocPhanActivity" />
-26-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:17:9-53
-26-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:17:19-50
-27        <activity android:name="com.example.quizlet.StudyActivity" />
-27-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:18:9-51
-27-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:18:19-48
-28        <activity android:name="com.example.quizlet.HomeActivity" />
-28-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:19:9-50
-28-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:19:19-47
-29        <activity
-29-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:20:9-28:20
-30            android:name="com.example.quizlet.NewHomeActivity"
-30-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:21:13-44
-31            android:windowSoftInputMode="adjustNothing" >
-31-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:22:13-56
-32            <intent-filter>
-32-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:23:13-27:29
-33                <action android:name="android.intent.action.MAIN" />
-33-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:24:17-69
-33-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:24:25-66
-34
-35                <category android:name="android.intent.category.LAUNCHER" />
-35-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:26:17-77
-35-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:26:27-74
-36            </intent-filter>
-37        </activity>
-38
-39        <service
-39-->[androidx.room:room-runtime:2.2.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\57ade3515fffbc13a2f3ad4e023a6ec6\room-runtime-2.2.5\AndroidManifest.xml:25:9-28:40
-40            android:name="androidx.room.MultiInstanceInvalidationService"
-40-->[androidx.room:room-runtime:2.2.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\57ade3515fffbc13a2f3ad4e023a6ec6\room-runtime-2.2.5\AndroidManifest.xml:26:13-74
-41            android:directBootAware="true"
-41-->[androidx.room:room-runtime:2.2.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\57ade3515fffbc13a2f3ad4e023a6ec6\room-runtime-2.2.5\AndroidManifest.xml:27:13-43
-42            android:exported="false" />
-42-->[androidx.room:room-runtime:2.2.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\57ade3515fffbc13a2f3ad4e023a6ec6\room-runtime-2.2.5\AndroidManifest.xml:28:13-37
-43    </application>
-44
-45</manifest>
+23        <activity android:name="com.example.quizlet.ghepTheChiTietActivity" />
+23-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:14:9-69
+23-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:14:19-57
+24        <activity android:name="com.example.quizlet.ghepTheActivity" />
+24-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:15:9-53
+24-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:15:19-50
+25        <activity android:name="com.example.quizlet.TheGhiNhoActivity" />
+25-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:16:9-55
+25-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:16:19-52
+26        <activity android:name="com.example.quizlet.RegisterActivity" />
+26-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:17:9-54
+26-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:17:19-51
+27        <activity android:name="com.example.quizlet.HocPhanDaJoinActivity" />
+27-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:18:9-59
+27-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:18:19-56
+28        <activity android:name="com.example.quizlet.HocPhanActivity" />
+28-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:19:9-53
+28-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:19:19-50
+29        <activity android:name="com.example.quizlet.StudyActivity" />
+29-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:20:9-51
+29-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:20:19-48
+30        <activity android:name="com.example.quizlet.HomeActivity" />
+30-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:21:9-50
+30-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:21:19-47
+31        <activity
+31-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:22:9-30:20
+32            android:name="com.example.quizlet.NewHomeActivity"
+32-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:23:13-44
+33            android:windowSoftInputMode="adjustNothing" >
+33-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:24:13-56
+34            <intent-filter>
+34-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:25:13-29:29
+35                <action android:name="android.intent.action.MAIN" />
+35-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:26:17-69
+35-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:26:25-66
+36
+37                <category android:name="android.intent.category.LAUNCHER" />
+37-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:28:17-77
+37-->C:\Users\Admin\Desktop\ProjectAndroid\QuizletProject\app\src\main\AndroidManifest.xml:28:27-74
+38            </intent-filter>
+39        </activity>
+40
+41        <service
+41-->[androidx.room:room-runtime:2.2.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\57ade3515fffbc13a2f3ad4e023a6ec6\room-runtime-2.2.5\AndroidManifest.xml:25:9-28:40
+42            android:name="androidx.room.MultiInstanceInvalidationService"
+42-->[androidx.room:room-runtime:2.2.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\57ade3515fffbc13a2f3ad4e023a6ec6\room-runtime-2.2.5\AndroidManifest.xml:26:13-74
+43            android:directBootAware="true"
+43-->[androidx.room:room-runtime:2.2.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\57ade3515fffbc13a2f3ad4e023a6ec6\room-runtime-2.2.5\AndroidManifest.xml:27:13-43
+44            android:exported="false" />
+44-->[androidx.room:room-runtime:2.2.5] C:\Users\Admin\.gradle\caches\transforms-2\files-2.1\57ade3515fffbc13a2f3ad4e023a6ec6\room-runtime-2.2.5\AndroidManifest.xml:28:13-37
+45    </application>
+46
+47</manifest>

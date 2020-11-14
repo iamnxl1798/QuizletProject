@@ -40,7 +40,7 @@ public class StudyActivity extends AppCompatActivity {
     List<Question> questions;
     private RecyclerView recyView_Study;
     ImageView back, henGio, closeHenGio, acceptHenGio;
-    LinearLayout checkAll, checkSao, theghinho;
+    LinearLayout checkAll, checkSao, theghinho, ghepThe;
     View view1, view2;
     MyDatabase myDatabase;
     private QuesstionDAO quesstionDAO;
@@ -63,8 +63,9 @@ public class StudyActivity extends AppCompatActivity {
 //        quesstionDAO = myDatabase.createQuesstionDAO();
 //        answerDAO = myDatabase.createAnswerDAO();
 //
-//        Intent intent = this.getIntent();
-//        String totalQ = intent.getStringExtra("totalQuestion");
+        Intent intent = getIntent();
+        final long totalQuestion = intent.getLongExtra("totalQuestion",-1);
+        final long idCourse = intent.getLongExtra("idCourse",-1);
 //        long courseId = Long.parseLong(intent.getStringExtra("idCourse"));
 //
 //        questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
@@ -77,14 +78,14 @@ public class StudyActivity extends AppCompatActivity {
 //        for (int i = 0; i < questions.size(); i++) {
 //            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
 //
-//            items.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
+//            items.add(new Item(questions.get(i).getQuestionName(), (List<Answers>) answers));
 //
 //        }
 
         List<Item> items = new ArrayList<>();
         Question question = new Question();
         question.setQuestionName("aaa");
-        ArrayList<Answers> answers = new ArrayList<>();
+        List<Answers> answers = new ArrayList<>();
         answers.add(new Answers("a", false));
         answers.add(new Answers("b", false));
         answers.add(new Answers("c", false));
@@ -145,6 +146,17 @@ public class StudyActivity extends AppCompatActivity {
             }
         });
 
+        ghepThe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudyActivity.this, ghepTheActivity.class);
+                if(idCourse!=-1){
+                    intent.putExtra("idCourse",idCourse);
+                    intent.putExtra("totalQuestion",totalQuestion);
+                    startActivity(intent);
+                }
+            }
+        });
         closeHenGio.setVisibility(View.INVISIBLE);
         acceptHenGio.setVisibility(View.INVISIBLE);
 
@@ -159,6 +171,7 @@ public class StudyActivity extends AppCompatActivity {
         view1 = findViewById(R.id.checkHocTatCa);
         view2 = findViewById(R.id.checkHocSao);
         theghinho = findViewById(R.id.theghinho);
+        ghepThe = findViewById(R.id.ghepthe);
         totalQuestion = findViewById(R.id.total_question);
         henGio = findViewById(R.id.hengio);
         displayTime = findViewById(R.id.display_time);
