@@ -58,13 +58,6 @@ public class HomeFragment extends Fragment {
         myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         courseDAO = myDatabase.createCourseDAO();
 
-        thuMucHocDaJoin = new ArrayList<>();
-        thuMucHocDaJoin.add(new ThuMucHoc("HCI301", "Cuongnv", R.drawable.cuong));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR201", "Cuongnv2", R.drawable.cuong2));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR201", "Cuongnv2", R.drawable.cuong));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR201123", "Cuongnv2", R.drawable.cuong2));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR2023211", "Cuongnv2", R.drawable.cuong));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR202311", "Cuongnv2", R.drawable.cuong2));
         coursesList = new ArrayList<>();
         coursesList = courseDAO.getCoursesSearchView();
 

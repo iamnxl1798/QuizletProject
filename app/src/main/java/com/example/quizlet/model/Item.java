@@ -2,10 +2,11 @@ package com.example.quizlet.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Item implements Serializable {
     private String term;
-    private ArrayList<Answers> definition;
+    private List<Answers> definition;
 
     public String getTerm() {
         return term;
@@ -15,18 +16,16 @@ public class Item implements Serializable {
         this.term = term;
     }
 
-    public ArrayList<Answers> getDefinition() {
+    public List<Answers> getDefinition() {
         return definition;
     }
 
-    public void setDefinition(ArrayList<Answers> definition) {
+    public void setDefinition(List<Answers> definition) {
         this.definition = definition;
     }
 
-    public Item(String term, ArrayList<Answers> definition) {
+    public Item(String term, List<Answers> definition) {
         this.term = term;
         this.definition = definition;
     }
-
-
 }

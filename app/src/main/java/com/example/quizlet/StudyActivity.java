@@ -41,7 +41,7 @@ public class StudyActivity extends AppCompatActivity {
     List<Question> questions;
     private RecyclerView recyView_Study;
     ImageView back, henGio, closeHenGio, acceptHenGio;
-    LinearLayout checkAll, checkSao, theghinho;
+    LinearLayout checkAll, checkSao, theghinho, ghepThe;
     View view1, view2;
     MyDatabase myDatabase;
     private QuesstionDAO quesstionDAO;
@@ -59,7 +59,6 @@ public class StudyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_study);
         questions = new ArrayList<>();
         AnhXa();
-        myDatabase = Room.databaseBuilder(StudyActivity.this, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
 
         quesstionDAO = myDatabase.createQuesstionDAO();
         answerDAO = myDatabase.createAnswerDAO();
@@ -124,6 +123,17 @@ public class StudyActivity extends AppCompatActivity {
             }
         });
 
+//        ghepThe.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(StudyActivity.this, ghepTheActivity.class);
+//                if(idCourse!=-1){
+//                    intent.putExtra("idCourse",idCourse);
+//                    intent.putExtra("totalQuestion",totalQuestion);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
         closeHenGio.setVisibility(View.INVISIBLE);
         acceptHenGio.setVisibility(View.INVISIBLE);
 
@@ -138,6 +148,7 @@ public class StudyActivity extends AppCompatActivity {
         view1 = findViewById(R.id.checkHocTatCa);
         view2 = findViewById(R.id.checkHocSao);
         theghinho = findViewById(R.id.theghinho);
+        ghepThe = findViewById(R.id.ghepthe);
         totalQuestion = findViewById(R.id.total_question);
         henGio = findViewById(R.id.hengio);
         displayTime = findViewById(R.id.display_time);
