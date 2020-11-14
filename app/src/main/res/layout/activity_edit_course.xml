@@ -17,16 +17,20 @@
         >
 
         <TextView
-            android:id="@+id/listAllCourseTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="All courses"
+            android:text="Edit course"
             android:textColor="@color/White"
             android:textSize="25dp"
             android:textStyle="bold" />
 
-
+        <Button
+            android:id="@+id/checkBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="215dp"
+            android:background="@drawable/icon_check" />
 
     </LinearLayout>
 
@@ -44,8 +48,8 @@
             android:layout_height="match_parent"
             tools:context=".MainActivity">
 
-            <SearchView
-                android:id="@+id/searchBar"
+            <EditText
+                android:id="@+id/edit_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
@@ -55,14 +59,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/searchCouseRecycle"
+                android:id="@+id/rcl_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
+                app:stackFromEnd="true"
+
                 android:layout_marginTop="10dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/searchBar" />
+                app:layout_constraintTop_toBottomOf="@id/edit_category" />
 
 
             <!--    <EditText-->

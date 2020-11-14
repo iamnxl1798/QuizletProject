@@ -62,7 +62,7 @@ public class ghepTheChiTietActivity extends AppCompatActivity {
             txtA.setText(courseDAO.getCourseByID(id_A).getName());
             for (Question item:termA){
                 listA.add(new Item(
-                        item.getQuestionName(),
+                        item,
                         courseDAO.getAnswerByQuestionID(item.getId())
                 ));
             }
@@ -73,7 +73,7 @@ public class ghepTheChiTietActivity extends AppCompatActivity {
             txtB.setText(courseDAO.getCourseByID(id_B).getName());
             for (Question item:termB){
                 listB.add(new Item(
-                        item.getQuestionName(),
+                        item,
                         courseDAO.getAnswerByQuestionID(item.getId())
                 ));
             }
@@ -87,7 +87,7 @@ public class ghepTheChiTietActivity extends AppCompatActivity {
                 listB = ((ItemAdapter) rcl_courseB.getAdapter()).getItems();
                 List<Answers> tempString = new ArrayList<>();
                 tempString.add(new Answers());
-                listB.add(new Item("", tempString));
+                listB.add(new Item(new Question(), tempString));
                 rcl_courseB.setAdapter(courseB);
                 rcl_courseB.smoothScrollToPosition(listB.size()-1);
             }
@@ -106,9 +106,9 @@ public class ghepTheChiTietActivity extends AppCompatActivity {
                         Courses courses = new Courses(newCourseName.getText().toString(), currentTime.getTime());
                         courseDAO.insertCourse(courses);
                         for(Item item:listA){
-                            if(!item.getTerm().isEmpty()){
+                            if(!item.getTerm().getQuestionName().isEmpty()){
                                 courses= courseDAO.getLastCourse();
-                                courseDAO.insertQuestion(new Question(item.getTerm(), courses.getId()));
+                                courseDAO.insertQuestion(new Question(item.getTerm().getQuestionName(), courses.getId()));
                                 Question addQuestion=courseDAO.getLastQuestion();
                                 List<Answers> tempA= new ArrayList<>();
                                 for(Answers answer:item.getDefinition()){
@@ -126,9 +126,9 @@ public class ghepTheChiTietActivity extends AppCompatActivity {
                             }
                         }
                         for(Item item:listB){
-                            if(!item.getTerm().isEmpty()){
+                            if(!item.getTerm().getQuestionName().isEmpty()){
                                 courses= courseDAO.getLastCourse();
-                                courseDAO.insertQuestion(new Question(item.getTerm(), courses.getId()));
+                                courseDAO.insertQuestion(new Question(item.getTerm().getQuestionName(), courses.getId()));
                                 Question addQuestion=courseDAO.getLastQuestion();
                                 List<Answers> tempB= new ArrayList<>();
                                 for(Answers answer:item.getDefinition()){

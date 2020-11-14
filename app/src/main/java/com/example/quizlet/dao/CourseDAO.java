@@ -1,8 +1,10 @@
 package com.example.quizlet.dao;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Courses;
@@ -23,6 +25,21 @@ public interface CourseDAO {
 
     @Insert
     public void insertAnswer(Answers course);
+
+    @Update
+    public int updateCourse(Courses courses);
+
+    @Update
+    public int updateQuestion(Question question);
+
+    @Update
+    public int updateAnswer(Answers answers);
+
+    @Delete
+    public int deleteQuestion(Question question);
+
+    @Delete
+    public int deleteCourse(Courses courses);
 
     @Query("SELECT * FROM Courses")
     public List<Courses> getCourses();
@@ -57,6 +74,9 @@ public interface CourseDAO {
 
     @Query("SELECT * FROM Courses Where Courses.id=:id;")
     public Courses getCourseByID(long id);
+
+    @Query("DELETE FROM Courses Where Courses.id=:id;")
+    public int delCourseByID(long id);
 
     @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id Group by Question.courseId")
     public List<Course_AnswerCount> getCoursesSearchView();

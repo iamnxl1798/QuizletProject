@@ -43,7 +43,7 @@ public class StudyAdapter extends RecyclerView.Adapter<StudyAdapter.ViewHolder> 
         final Item item = items.get(position);
 
         List<Answers> answers = item.getDefinition();
-        String quesstionName = item.getTerm();
+        String quesstionName = item.getTerm().getQuestionName();
         String s = "";
         String anwserTrue = "";
         int a = 97;

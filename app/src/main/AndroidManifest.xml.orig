@@ -10,13 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 <<<<<<< HEAD
+        <activity android:name=".ghepTheChiTietActivity"></activity>
+        <activity android:name=".ghepTheActivity" />
+        <activity android:name=".TheGhiNhoActivity" />
+=======
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".TheGhiNhoActivity" />
         <activity android:name=".RegisterActivity" />
-=======
-        <activity android:name=".TheGhiNhoActivity"></activity>
->>>>>>> 0adb233e701e5da9fee7db7b480ddabc4f457fad
+>>>>>>> efb4a71efe1d83458b793af7054423833f60fbdd
         <activity android:name=".HocPhanDaJoinActivity" />
         <activity android:name=".HocPhanActivity" />
         <activity android:name=".StudyActivity" />

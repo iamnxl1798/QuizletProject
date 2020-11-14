@@ -19,17 +19,13 @@ import android.widget.ViewFlipper;
 
 import com.example.quizlet.COMMON;
 import com.example.quizlet.HocPhanActivity;
-import com.example.quizlet.HocPhanDaJoinActivity;
 import com.example.quizlet.adapter.CourseAdapter;
 import com.example.quizlet.dao.CourseDAO;
 import com.example.quizlet.database.MyDatabase;
-import com.example.quizlet.model.Courses;
 import com.example.quizlet.model.ThuMucHoc;
 import com.example.quizlet.R;
 import com.example.quizlet.StudyActivity;
-import com.example.quizlet.adapter.HomeAdapter;
 import com.example.quizlet.model.customModel.Course_AnswerCount;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,31 +61,8 @@ public class HomeFragment extends Fragment {
         thuMucHocDaJoin.add(new ThuMucHoc("SWR201123", "Cuongnv2", R.drawable.cuong2));
         thuMucHocDaJoin.add(new ThuMucHoc("SWR2023211", "Cuongnv2", R.drawable.cuong));
         thuMucHocDaJoin.add(new ThuMucHoc("SWR202311", "Cuongnv2", R.drawable.cuong2));
-        coursesList = new ArrayList<>();
-        coursesList = courseDAO.getCoursesSearchView();
 
-        courseAdapter = new CourseAdapter(coursesList, getActivity(), new CourseAdapter.OnItemClickListener() {
-            @Override
-            public void OnClickMore(Course_AnswerCount course_AnswerCount) {
-                Intent intent = new Intent(getContext(), StudyActivity.class);
-                intent.putExtra("idCourse", course_AnswerCount.getId());
-                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum());
-                startActivity(intent);
-                Toast.makeText(getContext(), "" + course_AnswerCount.getAnswerNum(), Toast.LENGTH_SHORT).show();
-            }
-        });
         AnhXa(view);
-        LinearLayoutManager layoutManager =
-                new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        layoutManager.scrollToPosition(0);
-        recyView_Home.setLayoutManager(layoutManager);
-        recyView_Home.setAdapter(courseAdapter);
-
-        LinearLayoutManager layoutManager1 =
-                new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        layoutManager1.scrollToPosition(0);
-        recyView_Home2.setLayoutManager(layoutManager1);
-        recyView_Home2.setAdapter(courseAdapter);
 
 
         in = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
@@ -110,11 +83,40 @@ public class HomeFragment extends Fragment {
         xemtat2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), HocPhanDaJoinActivity.class);
+                Intent intent = new Intent(getActivity(), HocPhanActivity.class);
                 startActivity(intent);
             }
         });
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        coursesList = new ArrayList<>();
+        coursesList = courseDAO.getCoursesSearchView();
+
+        courseAdapter = new CourseAdapter(coursesList, getActivity(), new CourseAdapter.OnItemClickListener() {
+            @Override
+            public void OnClickMore(Course_AnswerCount course_AnswerCount) {
+                Intent intent = new Intent(getContext(), StudyActivity.class);
+                intent.putExtra("idCourse", course_AnswerCount.getId());
+                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum());
+                startActivity(intent);
+                Toast.makeText(getContext(), "" + course_AnswerCount.getAnswerNum(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager.scrollToPosition(0);
+        recyView_Home.setLayoutManager(layoutManager);
+        recyView_Home.setAdapter(courseAdapter);
+
+        LinearLayoutManager layoutManager1 =
+                new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager1.scrollToPosition(0);
+        recyView_Home2.setLayoutManager(layoutManager1);
+        recyView_Home2.setAdapter(courseAdapter);
     }
 
     public void AnhXa(View view) {

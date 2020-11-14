@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Item {
-    private String term;
+    private Question term;
     private List<Answers> definition;
 
-    public String getTerm() {
+    public Question getTerm() {
         return term;
     }
 
-    public void setTerm(String term) {
+    public void setTerm(Question term) {
         this.term = term;
     }
 
@@ -23,7 +23,7 @@ public class Item {
         this.definition = definition;
     }
 
-    public Item(String term, List<Answers> definition) {
+    public Item(Question term, List<Answers> definition) {
         this.term = term;
         this.definition = definition;
     }

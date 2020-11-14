@@ -96,7 +96,7 @@ public class AddCourseFragment extends Fragment {
         items = new ArrayList<>();
         final List<Answers> listDef = new ArrayList();
         listDef.add(new Answers());
-        items.add(new Item("", listDef));
+        items.add(new Item(new Question(), listDef));
         recyclerView = view.findViewById(R.id.rcl_view);
         adapter = new ItemAdapter(items, getContext());
         recyclerView.setAdapter(adapter);
@@ -135,9 +135,9 @@ public class AddCourseFragment extends Fragment {
                         Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
                         addCourseDAO.insertCourse(courses);
                         for(Item item:items){
-                            if(!item.getTerm().isEmpty()){
+                            if(!item.getTerm().getQuestionName().isEmpty()){
                                 courses= addCourseDAO.getLastCourse();
-                                addCourseDAO.insertQuestion(new Question(item.getTerm(), courses.getId()));
+                                addCourseDAO.insertQuestion(new Question(item.getTerm().getQuestionName(), courses.getId()));
                                 Question addQuestion=addCourseDAO.getLastQuestion();
                                 List<Answers> temp= new ArrayList<>();
                                 for(Answers answer:item.getDefinition()){
@@ -178,7 +178,7 @@ public class AddCourseFragment extends Fragment {
                 items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
                 List<Answers> tempString = new ArrayList<>();
                 tempString.add(new Answers());
-                items.add(new Item("", tempString));
+                items.add(new Item(new Question(), tempString));
                 recyclerView.setAdapter(adapter);
                 recyclerView.smoothScrollToPosition(items.size()-1);
 

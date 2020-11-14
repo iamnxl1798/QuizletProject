@@ -138,7 +138,7 @@
                     android:layout_width="70px"
                     android:layout_height="70px"
                     android:layout_weight="2"
-
+                    android:id="@+id/btnEditCourse"
                     android:src="@drawable/edit" />
 
             </LinearLayout>

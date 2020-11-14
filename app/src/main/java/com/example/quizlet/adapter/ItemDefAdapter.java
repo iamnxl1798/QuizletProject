@@ -55,7 +55,10 @@ public class ItemDefAdapter extends RecyclerView.Adapter<ItemDefAdapter.Holder> 
 
             @Override
             public void afterTextChanged(Editable s) {
-                items.set(position,new Answers(txtDef.getText().toString(),isTrue.isChecked()));
+                Answers answers = items.get(position);
+                answers.setAnswer(txtDef.getText().toString());
+                answers.setTrue(isTrue.isChecked());
+                items.set(position,answers);
             }
         });
         isTrue.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

@@ -1,5 +1,6 @@
 package com.example.quizlet;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -8,6 +9,7 @@ import androidx.room.Room;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -39,12 +41,13 @@ public class StudyActivity extends AppCompatActivity {
     StudyAdapter studyAdapter;
     List<Question> questions;
     private RecyclerView recyView_Study;
-    ImageView back, henGio, closeHenGio, acceptHenGio;
+    ImageView back, henGio, closeHenGio, acceptHenGio, btnEditCourse,btnDelCourse;
     LinearLayout checkAll, checkSao, theghinho, ghepThe;
     View view1, view2;
     MyDatabase myDatabase;
     private QuesstionDAO quesstionDAO;
     AnswerDAO answerDAO;
+    private CourseDAO courseDAO;
     TextView totalQuestion, displayTime;
     private int lastSelectedHour = -1;
     private int lastSelectedMinute = -1;
@@ -90,19 +93,19 @@ public class StudyActivity extends AppCompatActivity {
         answers.add(new Answers("b", false));
         answers.add(new Answers("c", false));
         answers.add(new Answers("d", true));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
-
-        items.add(new Item(question.getQuestionName(), answers));
-
-        items.add(new Item(question.getQuestionName(), answers));
-
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
-        items.add(new Item(question.getQuestionName(), answers));
+//        items.add(new Item(question.getQuestionName(), answers));
+//        items.add(new Item(question.getQuestionName(), answers));
+//
+//        items.add(new Item(question.getQuestionName(), answers));
+//
+//        items.add(new Item(question.getQuestionName(), answers));
+//
+//        items.add(new Item(question.getQuestionName(), answers));
+//        items.add(new Item(question.getQuestionName(), answers));
+//        items.add(new Item(question.getQuestionName(), answers));
+//        items.add(new Item(question.getQuestionName(), answers));
+//        items.add(new Item(question.getQuestionName(), answers));
+//        items.add(new Item(question.getQuestionName(), answers));
 
 
         studyAdapter = new StudyAdapter(this, items, new StudyAdapter.OnItemClickListener() {
@@ -157,6 +160,41 @@ public class StudyActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnEditCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudyActivity.this, EditCourseActivity.class);
+                if(idCourse!=-1){
+                    intent.putExtra("idCourse",idCourse);
+                    intent.putExtra("totalQuestion",totalQuestion);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        btnDelCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(idCourse!=-1){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(StudyActivity.this);
+                    builder.setTitle("Delete course");
+                    builder.setMessage("Do you really want to delete this course?");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            int resultDel=courseDAO.delCourseByID(idCourse);
+                            finish();
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+            }
+        });
         closeHenGio.setVisibility(View.INVISIBLE);
         acceptHenGio.setVisibility(View.INVISIBLE);
 
@@ -179,7 +217,10 @@ public class StudyActivity extends AppCompatActivity {
         acceptHenGio = findViewById(R.id.accep_Hen_Gio);
         calendar = Calendar.getInstance();
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
+        btnEditCourse=findViewById(R.id.btnEditCourse);
+        btnDelCourse=findViewById(R.id.btnDelCourse);
+        myDatabase = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
+        courseDAO = myDatabase.createCourseDAO();
     }
 
     public void HenGio() {
