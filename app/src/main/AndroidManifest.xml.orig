@@ -10,16 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 <<<<<<< HEAD
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".TheGhiNhoActivity" />
+        <activity android:name=".RegisterActivity" />
 =======
         <activity android:name=".TheGhiNhoActivity"></activity>
-        <activity android:name=".MainActivity2"></activity>
->>>>>>> origin/Cuong-Dev-3
+>>>>>>> 0adb233e701e5da9fee7db7b480ddabc4f457fad
         <activity android:name=".HocPhanDaJoinActivity" />
         <activity android:name=".HocPhanActivity" />
         <activity android:name=".StudyActivity" />
         <activity android:name=".HomeActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".NewHomeActivity"
             android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
