@@ -114,7 +114,7 @@ public class AddCourseFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!edit_category.getText().toString().isEmpty()){
+                if (!edit_category.getText().toString().isEmpty()) {
                     edit_category.setBackgroundColor(Color.WHITE);
                 }
             }
@@ -125,7 +125,7 @@ public class AddCourseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
-                    if(!edit_category.getText().toString().isEmpty()){
+                    if (!edit_category.getText().toString().isEmpty()) {
                         edit_category.setBackgroundColor(Color.WHITE);
                         items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
                         myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
@@ -134,9 +134,9 @@ public class AddCourseFragment extends Fragment {
                         Date currentTime = Calendar.getInstance().getTime();
                         Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
                         addCourseDAO.insertCourse(courses);
-                        for(Item item:items){
+                        for (Item item : items) {
                             if(!item.getTerm().getQuestionName().isEmpty()){
-                                courses= addCourseDAO.getLastCourse();
+                                courses = addCourseDAO.getLastCourse();
                                 addCourseDAO.insertQuestion(new Question(item.getTerm().getQuestionName(), courses.getId()));
                                 Question addQuestion=addCourseDAO.getLastQuestion();
                                 List<Answers> temp= new ArrayList<>();
@@ -154,7 +154,7 @@ public class AddCourseFragment extends Fragment {
                                 }
                             }
                         }
-                        if(addCourseDAO.getQuestionOfLastCourse().size()==0){
+                        if (addCourseDAO.getQuestionOfLastCourse().size() == 0) {
                             addCourseDAO.delLastCourse();
                             throw new Exception("Course cannot be blank");
                         }

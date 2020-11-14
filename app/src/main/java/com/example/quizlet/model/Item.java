@@ -3,7 +3,7 @@ package com.example.quizlet.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Item {
+public class Item implements Serializable {
     private Question term;
     private List<Answers> definition;
 

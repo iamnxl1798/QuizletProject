@@ -20,4 +20,13 @@ public interface UserDAO {
 
     @Query("SELECT * FROM User")
     public List<User> getUsers();
+
+    @Query("SELECT * FROM User where username =:userName and  password =:pass")
+    public User checkAccountUser(String userName, String pass);
+
+    @Query("SELECT * FROM User where username =:userName")
+    public User checkAccountExist(String userName);
+
+    @Query("SELECT * FROM User where id =:id ")
+    public User getUser(long id);
 }

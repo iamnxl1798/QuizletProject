@@ -4,62 +4,128 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="50px"
+    android:background="#A6A6A3"
     tools:context=".TheGhiNhoActivity">
 
     <LinearLayout
-        android:padding="50px"
+        android:id="@+id/action_bar_ghinho"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/NavBar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/back_home"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:id="@+id/titleCourse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60px"
+            android:text="Thẻ ghi nhớ"
+            android:textColor="@color/White"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/theghinhohihi"
         android:layout_width="match_parent"
-        android:layout_height="1200px"
+        android:layout_height="1000px"
+        android:layout_marginLeft="50px"
         android:layout_marginTop="50px"
-        android:background="@drawable/custom"
-        android:orientation="vertical"
+        android:layout_marginRight="50px"
+        android:background="@drawable/dobong_vien"
+        android:orientation="horizontal"
+        android:padding="50px"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar">
 
         <TextView
             android:id="@+id/hienthiganthe"
-            android:layout_width="match_parent"
+            android:layout_width="770px"
             android:layout_height="wrap_content"
-            android:text="aaa"
-            android:textSize="18sp" />
+            android:text="aaaaaaaaaaaaaaaaaaa"
+            android:textColor="#040404"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_marginLeft="20px"
+            android:background="#000000"
+            android:src="@drawable/saovangtheghinho" />
     </LinearLayout>
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switch_gansao"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="120px"
+        android:layout_height="150px"
+        android:layout_marginLeft="230px"
         android:layout_marginTop="50px"
+        android:background="@drawable/dobong_vien"
+
+
         android:text="Gắn sao"
+
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/theghinhohihi"
         tools:layout_editor_absoluteX="61dp"
         tools:layout_editor_absoluteY="60dp" />
 
+    <EditText
+        android:id="@+id/et_nhap_sl"
+        android:layout_width="250px"
+        android:layout_height="100px"
+        android:layout_marginLeft="100px"
+        android:layout_marginTop="70px"
+        android:background="@drawable/dobong_vien"
+        android:hint="số câu"
+        android:paddingLeft="50px"
+        android:inputType="numberDecimal"
+        app:layout_constraintLeft_toRightOf="@+id/switch_gansao"
+        app:layout_constraintTop_toBottomOf="@+id/theghinhohihi" />
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/bat_dau"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30px"
-        android:layout_marginRight="220px"
+        android:layout_height="150px"
+        android:background="@drawable/dobong_vien"
         android:text="Bắt đầu"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20px"
+        app:layout_constraintTop_toBottomOf="@+id/switch_gansao"
         tools:layout_editor_absoluteX="241dp"
         tools:layout_editor_absoluteY="52dp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="700px"
-        android:layout_height="wrap_content"
+        android:layout_width="800px"
+        android:layout_height="50px"
         android:layout_marginTop="50px"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@drawable/dobong_vien"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/action_bar_ghinho"
         tools:layout_editor_absoluteX="42dp"
         tools:layout_editor_absoluteY="92dp" />
+
+    <TextView
+        android:id="@+id/sttghinho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30px"
+        android:text="6/7"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/progressBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
