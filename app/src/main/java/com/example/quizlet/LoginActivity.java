@@ -1,6 +1,7 @@
 package com.example.quizlet;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.quizlet.dao.UserDAO;
+import com.example.quizlet.database.MyDatabase;
+import com.example.quizlet.model.User;
 
 public class LoginActivity extends AppCompatActivity {
     private TextView textViewEmail;
@@ -21,7 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button buttonGG;
     private Button buttonFB;
     private Button buttonApple;
-
+    MyDatabase myDatabase;
+    UserDAO userDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +61,26 @@ public class LoginActivity extends AppCompatActivity {
                     edit.putBoolean("checked", false);
                 }
                 edit.commit();
+
+                myDatabase = Room.databaseBuilder(LoginActivity.this, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
+                userDAO = myDatabase.createUserDAO();
+
+                if (textViewEmail.getText().toString().equals("")) {
+                    Toast.makeText(LoginActivity.this, "Vui lòng điền tài khoản", Toast.LENGTH_SHORT).show();
+                } else if (textViewPass.getText().toString().equals("")) {
+                    Toast.makeText(LoginActivity.this, "Vui lòng điền mật khẩu", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    User user = userDAO.checkAccountUser(textViewEmail.getText().toString(), textViewPass.getText().toString());
+                    if (user != null) {
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("idUser", user.getId()+"");
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(LoginActivity.this, "Tài khoản hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
             }
         });
         textViewNewRegister.setOnClickListener(new View.OnClickListener() {

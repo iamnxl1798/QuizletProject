@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -18,6 +19,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     private ActionBar toolbar;
+    long idUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigationView = findViewById(R.id.naviboton);
         navigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         loadFragment(new HomeFragment());
+        Intent intent = getIntent();
+        idUser = Long.parseLong(intent.getStringExtra("idUser"));
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
@@ -48,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.navi_account:
-                    fragment = new AccountFragment();
+                    fragment = new AccountFragment(idUser);
                     loadFragment(fragment);
                     return true;
             }

@@ -1537,6 +1537,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable accept1
 drawable add
 drawable avatar
 drawable avd_hide_password
@@ -1553,12 +1554,17 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable chat
+drawable clock
+drawable closeeee
 drawable cuong
 drawable cuong2
 drawable custom
 drawable custom_avatar
 drawable custom_button
 drawable custom_linear
+drawable delete
+drawable delete2
+drawable deleteee
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -1566,6 +1572,8 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable duongvien_goctron
+drawable edit
+drawable ghepthe
 drawable hoc
 drawable home
 drawable ic_back
@@ -1576,6 +1584,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_remove
 drawable icon_add_fill
 drawable icon_add_item
 drawable icon_apple
@@ -1615,6 +1624,9 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable profile
+drawable quiz
+drawable quiz2
+drawable saogim
 drawable search
 drawable star
 drawable star_click
@@ -1636,6 +1648,7 @@ id SYM
 id TOP_END
 id TOP_START
 id accelerate
+id accep_Hen_Gio
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
 id accessibility_custom_action_1
@@ -1675,6 +1688,7 @@ id action_bar_activity_content
 id action_bar_container
 id action_bar_root
 id action_bar_spinner
+id action_bar_study
 id action_bar_subtitle
 id action_bar_title
 id action_container
@@ -1755,6 +1769,7 @@ id chronometer
 id clear_text
 id clip_horizontal
 id clip_vertical
+id close_Hen_Gio
 id collapseActionView
 id confirm_button
 id container
@@ -1784,6 +1799,7 @@ id direct
 id disableHome
 id disablePostScroll
 id disableScroll
+id display_time
 id dragDown
 id dragEnd
 id dragLeft
@@ -1821,6 +1837,7 @@ id floating
 id forever
 id frameLayout
 id frame_home
+id ghepthe
 id ghost_view
 id ghost_view_holder
 id gim
@@ -1830,6 +1847,7 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
+id hengio
 id hideable
 id hienthiganthe
 id hocphan
@@ -1849,6 +1867,7 @@ id info
 id invisible
 id isTrue
 id italic
+id item_course
 id item_ryce
 id item_touch_helper_previous_elevation
 id jumpToEnd
@@ -1939,6 +1958,7 @@ id ratio
 id rcl_view
 id re_hocphan
 id rectangles
+id removeBtn
 id reverseSawtooth
 id reviewHome
 id reviewHome2
@@ -2054,6 +2074,7 @@ id title_template
 id toggle
 id top
 id topPanel
+id total_question
 id touch_outside
 id transitionToEnd
 id transitionToStart
@@ -2245,6 +2266,7 @@ menu navigation
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
+raw baothuc
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

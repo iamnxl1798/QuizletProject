@@ -2,6 +2,7 @@ package com.example.quizlet;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -14,6 +15,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.quizlet.dao.UserDAO;
+import com.example.quizlet.database.MyDatabase;
+import com.example.quizlet.model.User;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -32,7 +38,9 @@ public class RegisterActivity extends AppCompatActivity {
     private ImageView imageViewAvatar;
     private Button buttonCamera;
     private Button buttonTakeAPicture;
-
+    private COMMON common;
+    MyDatabase myDatabase;
+    UserDAO userDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         buttonFB = findViewById(R.id.buttonFb_register);
         buttonGG = findViewById(R.id.buttonGG_register);
         buttonRegister = findViewById(R.id.buttonRegister);
-
+        common = new COMMON();
         imageViewAvatar = findViewById(R.id.imageViewAvatar2);
         textViewSwichScreenLogin = findViewById(R.id.textViewSwichLogin);
         textViewSwichScreenLogin.setOnClickListener(new View.OnClickListener() {
@@ -84,8 +92,44 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
+        dangKy();
 
+    }
 
+    public void dangKy() {
+        buttonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDatabase = Room.databaseBuilder(RegisterActivity.this, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
+                userDAO = myDatabase.createUserDAO();
+                if (textViewAccount.getText().toString().equals("")) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng điền tên tài khoản", Toast.LENGTH_SHORT).show();
+                } else if (textViewAccount.getText().toString().length() < 6) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng điền tên tài khoản lớn hơn 6 ký tự", Toast.LENGTH_SHORT).show();
+                } else if (userDAO.checkAccountExist(textViewAccount.getText().toString()) != null) {
+                    Toast.makeText(RegisterActivity.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+                } else if (textEmail.getText().toString().equals("") || !common.validateEmail(textEmail.getText().toString())) {
+                    Toast.makeText(RegisterActivity.this, "Email để trống hoặc không đúng định dạng", Toast.LENGTH_SHORT).show();
+                } else if (textViewPass.getText().toString().equals("") || textViewPassAgain.getText().toString().equals("")) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng điền mật khẩu", Toast.LENGTH_SHORT).show();
+                } else if (textViewPass.getText().toString().length() < 6) {
+                    Toast.makeText(RegisterActivity.this, "Vui lòng điền mật khẩu lớn hơn 6 ký tự", Toast.LENGTH_SHORT).show();
+                } else if (!textViewPass.getText().toString().equals(textViewPassAgain.getText().toString())) {
+                    Toast.makeText(RegisterActivity.this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
+                } else {
+                    User user = new User(textViewAccount.getText().toString(), textViewPass.getText().toString(), textEmail.getText().toString());
+                    try {
+                        userDAO.insert(user);
+                        Toast.makeText(RegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+
+                }
+            }
+        });
     }
 
     @Override
@@ -111,9 +155,10 @@ public class RegisterActivity extends AppCompatActivity {
         intent.setType("image/*");
         startActivityForResult(intent, 321);
     }
-    private void Chup_Hinh(){
+
+    private void Chup_Hinh() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent,123);
+        startActivityForResult(intent, 123);
     }
 
 }

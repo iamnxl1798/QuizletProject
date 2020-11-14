@@ -112,7 +112,7 @@ public class AddCourseFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(!edit_category.getText().toString().isEmpty()){
+                if (!edit_category.getText().toString().isEmpty()) {
                     edit_category.setBackgroundColor(Color.WHITE);
                 }
             }
@@ -122,7 +122,7 @@ public class AddCourseFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 try {
-                    if(!edit_category.getText().toString().isEmpty()){
+                    if (!edit_category.getText().toString().isEmpty()) {
                         edit_category.setBackgroundColor(Color.WHITE);
                         items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
                         myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
@@ -131,31 +131,30 @@ public class AddCourseFragment extends Fragment {
                         Date currentTime = Calendar.getInstance().getTime();
                         Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
                         addCourseDAO.insertCourse(courses);
-                        for(Item item:items){
-                            if(!item.getTerm().isEmpty()){
-                                courses= addCourseDAO.getLastCourse();
+                        for (Item item : items) {
+                            if (!item.getTerm().isEmpty()) {
+                                courses = addCourseDAO.getLastCourse();
                                 addCourseDAO.insertQuestion(new Question(item.getTerm(), courses.getId()));
-                                Question addQuestion=addCourseDAO.getLastQuestion();
-                                for(Answers answer:item.getDefinition()){
-                                    if(answer.getAnswer()==null||answer.getAnswer().isEmpty()){
+                                Question addQuestion = addCourseDAO.getLastQuestion();
+                                for (Answers answer : item.getDefinition()) {
+                                    if (answer.getAnswer() == null || answer.getAnswer().isEmpty()) {
                                         item.getDefinition().remove(answer);
-                                    }
-                                    else {
+                                    } else {
                                         answer.setQuestionId(addQuestion.getId());
                                         addCourseDAO.insertAnswer(answer);
                                     }
                                 }
-                                if(item.getDefinition().size()==0){
+                                if (item.getDefinition().size() == 0) {
                                     addCourseDAO.delLastQuestion();
                                 }
                             }
                         }
-                        if(addCourseDAO.getQuestionOfLastCourse().size()==0){
+                        if (addCourseDAO.getQuestionOfLastCourse().size() == 0) {
                             addCourseDAO.delLastCourse();
                         }
                         Toast.makeText(getActivity(), "Add " + courses.getName() + " course success!", Toast.LENGTH_LONG).show();
-                    }else{
-                        edit_category.setBackgroundColor(Color.rgb(251,227,228));
+                    } else {
+                        edit_category.setBackgroundColor(Color.rgb(251, 227, 228));
                         Toast.makeText(getActivity(), "Add course failed!", Toast.LENGTH_LONG).show();
                     }
                 } catch (Exception e) {
