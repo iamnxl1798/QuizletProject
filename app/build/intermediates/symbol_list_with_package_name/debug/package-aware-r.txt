@@ -1698,6 +1698,8 @@ id addItemBtn
 id alertTitle
 id aligned
 id all
+id allCourse
+id allCourseRcl
 id always
 id animateToEnd
 id animateToStart
@@ -1720,6 +1722,7 @@ id blocking
 id bottom
 id bounce
 id bt_searchHocPhan
+id btnDelCourse
 id button
 id buttonPanel
 id cache_measures
@@ -1754,6 +1757,8 @@ id content
 id contentPanel
 id coordinator
 id cos
+id courseA
+id courseB
 id custom
 id customPanel
 id cut
@@ -1884,6 +1889,8 @@ id mtrl_picker_text_input_range_end
 id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
+id myCourse
+id myCourseRcl
 id nameQuestion
 id nameUser
 id navi_chat
@@ -1892,6 +1899,7 @@ id navi_search
 id naviboton
 id navigation_header_container
 id never
+id newCourseName
 id noScroll
 id none
 id normal
@@ -1921,6 +1929,8 @@ id progress_horizontal
 id quangcao
 id radio
 id ratio
+id rclA
+id rclB
 id rcl_view
 id re_hocphan
 id rectangles
@@ -1944,8 +1954,10 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchAllCourse
 id searchBar
 id searchCouseRecycle
+id searchMyCourse
 id search_badge
 id search_bar
 id search_button
@@ -2119,6 +2131,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_ghep_the
+layout activity_ghep_the_chi_tiet
 layout activity_hoc_phan
 layout activity_hoc_phan_da_join
 layout activity_home
@@ -2147,6 +2161,7 @@ layout fragment_chat
 layout fragment_home
 layout fragment_search
 layout item
+layout item2
 layout item_def
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions

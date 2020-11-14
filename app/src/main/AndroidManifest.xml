@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".TheGhiNhoActivity"></activity>
+        <activity android:name=".ghepTheChiTietActivity"></activity>
+        <activity android:name=".ghepTheActivity" />
+        <activity android:name=".TheGhiNhoActivity" />
         <activity android:name=".HocPhanDaJoinActivity" />
         <activity android:name=".HocPhanActivity" />
         <activity android:name=".StudyActivity" />

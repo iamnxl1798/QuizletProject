@@ -17,24 +17,25 @@ import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Item;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>  {
 
-    ArrayList<Item> items;
+    List<Item> items;
     Context context;
 
-    public ItemAdapter(ArrayList<Item> items, Context context) {
+    public ItemAdapter(List<Item> items, Context context) {
         this.items = items;
         this.context = context;
     }
-    public ArrayList<Item> getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new Holder(LayoutInflater.from(context).inflate(R.layout.item,parent, false));
+        return new Holder(LayoutInflater.from(context).inflate(R.layout.item2,parent, false));
     }
 
     @Override
@@ -65,7 +66,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>  {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<Answers> listDef=((ItemDefAdapter)defRecycle.getAdapter()).getItems();
+                List<Answers> listDef=((ItemDefAdapter)defRecycle.getAdapter()).getItems();
                 listDef.add(new Answers());
                 items.get(position).setDefinition(listDef);
                 defRecycle.setAdapter(adapterr);

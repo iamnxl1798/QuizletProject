@@ -48,6 +48,16 @@ public interface CourseDAO {
     @Query("SELECT * FROM Courses ORDER BY Courses.id DESC LIMIT 1;")
     public Courses getLastCourse();
 
+    @Query("SELECT * FROM Question Where Question.courseId=:id;")
+    public List<Question> getQuestionByCourseID(long id);
+
+    @Query("SELECT * FROM Answers Where Answers.questionId=:id;")
+    public List<Answers> getAnswerByQuestionID(long id);
+
+
+    @Query("SELECT * FROM Courses Where Courses.id=:id;")
+    public Courses getCourseByID(long id);
+
     @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id Group by Question.courseId")
     public List<Course_AnswerCount> getCoursesSearchView();
 
