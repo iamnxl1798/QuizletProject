@@ -154,6 +154,7 @@
                 android:weightSum="4">
 
                 <LinearLayout
+                    android:id="@+id/learn"
                     android:layout_width="match_parent"
                     android:layout_height="150px"
                     android:layout_weight="1"
@@ -181,6 +182,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/kiemtra"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="10px"
                     android:layout_marginRight="10px"

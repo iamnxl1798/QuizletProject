@@ -13,7 +13,7 @@ import com.example.quizlet.model.ImportantQuestions;
 import com.example.quizlet.model.JoinedCourses;
 import com.example.quizlet.model.Question;
 import com.example.quizlet.model.User;
-
+import com.example.quizlet.dao.TestDAO;
 
 @Database(entities = {User.class, Question.class, JoinedCourses.class, Courses.class, Answers.class, ImportantQuestions.class}, version = 1)
 public abstract class MyDatabase extends RoomDatabase {
@@ -22,6 +22,8 @@ public abstract class MyDatabase extends RoomDatabase {
     public abstract CourseDAO createCourseDAO();
 
     public abstract QuesstionDAO createQuesstionDAO();
+
+    public abstract TestDAO createTestDAO();
 
     public abstract AnswerDAO createAnswerDAO();
 

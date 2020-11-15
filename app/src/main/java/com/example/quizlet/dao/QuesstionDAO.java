@@ -11,4 +11,7 @@ import java.util.List;
 public interface QuesstionDAO {
     @Query("SELECT * FROM Question where courseId = :idCourse")
     public List<Question> getAllQuesstionByCourseId(long idCourse);
+
+    @Query(("SELECT * FROM Question"))
+    List<Question> listAll();
 }

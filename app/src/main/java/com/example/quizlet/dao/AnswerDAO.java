@@ -11,4 +11,7 @@ import java.util.List;
 public interface AnswerDAO {
     @Query("Select * from Answers where questionId =:idQuestion")
     public List<Answers> getAnswerByQuestion(long idQuestion);
+
+    @Query("SELECT * FROM Answers")
+    List<Answers> getAnswersList();
 }

@@ -41,7 +41,7 @@ public class StudyActivity extends AppCompatActivity {
     List<Question> questions;
     private RecyclerView recyView_Study;
     ImageView back, henGio, closeHenGio, acceptHenGio;
-    LinearLayout checkAll, checkSao, theghinho, ghepThe;
+    LinearLayout checkAll, checkSao, theghinho, ghepThe,kiemtra , learn;
     View view1, view2;
     MyDatabase myDatabase;
     private QuesstionDAO quesstionDAO;
@@ -123,6 +123,21 @@ public class StudyActivity extends AppCompatActivity {
             }
         });
 
+        kiemtra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudyActivity.this, TestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        learn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudyActivity.this, LearnActivity.class);
+                startActivity(intent);
+            }
+        });
 //        ghepThe.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -156,7 +171,8 @@ public class StudyActivity extends AppCompatActivity {
         acceptHenGio = findViewById(R.id.accep_Hen_Gio);
         calendar = Calendar.getInstance();
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
+        kiemtra = findViewById(R.id.kiemtra);
+        learn = findViewById(R.id.learn);
     }
 
     public void HenGio() {

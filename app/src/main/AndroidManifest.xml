@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".LearnActivity"></activity>
+        <activity android:name=".TestActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".ghepTheChiTietActivity"></activity>
+        <activity android:name=".ghepTheChiTietActivity" />
         <activity android:name=".ghepTheActivity" />
         <activity android:name=".TheGhiNhoActivity" />
         <activity android:name=".RegisterActivity" />
@@ -28,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
