@@ -135,27 +135,28 @@ public class AddCourseFragment extends Fragment {
                         Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
                         addCourseDAO.insertCourse(courses);
                         for (Item item : items) {
-                            if(!item.getTerm().getQuestionName().isEmpty()){
-                                courses = addCourseDAO.getLastCourse();
-                                addCourseDAO.insertQuestion(new Question(item.getTerm().getQuestionName(), courses.getId()));
-                                Question addQuestion=addCourseDAO.getLastQuestion();
-                                List<Answers> temp= new ArrayList<>();
-                                for(Answers answer:item.getDefinition()){
-                                    if(answer.getAnswer()==null||answer.getAnswer().isEmpty()){
-                                        temp.add(answer);
+                            if(!(item.getTerm().getQuestionName()==null)){
+                                if(!item.getTerm().getQuestionName().isEmpty()){
+                                    courses = addCourseDAO.getLastCourse();
+                                    addCourseDAO.insertQuestion(new Question(item.getTerm().getQuestionName(), courses.getId()));
+                                    Question addQuestion=addCourseDAO.getLastQuestion();
+                                    List<Answers> temp= new ArrayList<>();
+                                    for(Answers answer:item.getDefinition()){
+                                        if(answer.getAnswer()==null||answer.getAnswer().isEmpty()){
+                                            temp.add(answer);
+                                        }
+                                        else {
+                                            answer.setQuestionId(addQuestion.getId());
+                                            addCourseDAO.insertAnswer(answer);
+                                        }
                                     }
-                                    else {
-                                        answer.setQuestionId(addQuestion.getId());
-                                        addCourseDAO.insertAnswer(answer);
+                                    if(item.getDefinition().size()==temp.size()){
+                                        addCourseDAO.delLastQuestion();
                                     }
-                                }
-                                if(item.getDefinition().size()==temp.size()){
-                                    addCourseDAO.delLastQuestion();
                                 }
                             }
                         }
                         if (addCourseDAO.getQuestionOfLastCourse().size() == 0) {
-                            addCourseDAO.delLastCourse();
                             throw new Exception("Course cannot be blank");
                         }
                         Toast.makeText(getActivity(), "Add " + courses.getName() + " course success!", Toast.LENGTH_LONG).show();
@@ -168,6 +169,7 @@ public class AddCourseFragment extends Fragment {
                     }
                 } catch (Exception e) {
                     Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    addCourseDAO.delLastCourse();
                 }
             }
         });

@@ -39,6 +39,9 @@ public interface CourseDAO {
     public int deleteQuestion(Question question);
 
     @Delete
+    public int deleteAnswer(Answers answers);
+
+    @Delete
     public int deleteCourse(Courses courses);
 
     @Query("SELECT * FROM Courses")

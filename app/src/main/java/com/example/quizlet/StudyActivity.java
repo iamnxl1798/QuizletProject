@@ -68,7 +68,7 @@ public class StudyActivity extends AppCompatActivity {
 //
         Intent intent = this.getIntent();
         String totalQ = intent.getStringExtra("totalQuestion");
-        final long courseId = Long.parseLong(intent.getStringExtra("idCourse"));
+        final long courseId = intent.getLongExtra("idCourse",-1);
 //
         questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
 //        items.add(new Item(question.getQuestionName(), answers));
@@ -126,52 +126,50 @@ public class StudyActivity extends AppCompatActivity {
             }
         });
 
-//        ghepThe.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(StudyActivity.this, ghepTheActivity.class);
-//                if(idCourse!=-1){
-//                    intent.putExtra("idCourse",idCourse);
-//                    intent.putExtra("totalQuestion",totalQuestion);
-//                    startActivity(intent);
-//                }
-//            }
-//        });
+        ghepThe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudyActivity.this, ghepTheActivity.class);
+                if(courseId!=-1){
+                    intent.putExtra("idCourse",courseId);
+                    startActivity(intent);
+                }
+            }
+        });
 
-//        btnEditCourse.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(StudyActivity.this, EditCourseActivity.class);
-//                if(idCourse!=-1){
-//                    intent.putExtra("idCourse",idCourse);
-//                    intent.putExtra("totalQuestion",totalQuestion);
-//                    startActivity(intent);
-//                }
-//            }
-//        });
+        btnEditCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StudyActivity.this, EditCourseActivity.class);
+                if(courseId!=-1){
+                    intent.putExtra("idCourse",courseId);
+                    startActivity(intent);
+                }
+            }
+        });
 
-//        btnDelCourse.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if(idCourse!=-1){
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(StudyActivity.this);
-//                    builder.setTitle("Delete course");
-//                    builder.setMessage("Do you really want to delete this course?");
-//                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int id) {
-//                            int resultDel=courseDAO.delCourseByID(idCourse);
-//                            finish();
-//                        }
-//                    });
-//                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int id) {
-//                        }
-//                    });
-//                    AlertDialog alert = builder.create();
-//                    alert.show();
-//                }
-//            }
-//        });
+        btnDelCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(courseId!=-1){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(StudyActivity.this);
+                    builder.setTitle("Delete course");
+                    builder.setMessage("Do you really want to delete this course?");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            int resultDel=courseDAO.delCourseByID(courseId);
+                            finish();
+                        }
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+            }
+        });
         closeHenGio.setVisibility(View.INVISIBLE);
         acceptHenGio.setVisibility(View.INVISIBLE);
 

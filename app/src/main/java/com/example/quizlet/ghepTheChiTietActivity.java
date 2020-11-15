@@ -106,7 +106,7 @@ public class ghepTheChiTietActivity extends AppCompatActivity {
                         Courses courses = new Courses(newCourseName.getText().toString(), currentTime.getTime());
                         courseDAO.insertCourse(courses);
                         for(Item item:listA){
-                            if(!item.getTerm().getQuestionName().isEmpty()){
+                            if(!(item.getTerm().getQuestionName()==null)||!item.getTerm().getQuestionName().isEmpty()){
                                 courses= courseDAO.getLastCourse();
                                 courseDAO.insertQuestion(new Question(item.getTerm().getQuestionName(), courses.getId()));
                                 Question addQuestion=courseDAO.getLastQuestion();
