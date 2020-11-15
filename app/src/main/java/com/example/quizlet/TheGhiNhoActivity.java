@@ -65,13 +65,13 @@ public class TheGhiNhoActivity extends AppCompatActivity {
         final List<Item> items = new ArrayList<>();
         final List<Item> items1 = new ArrayList<>();
 
-        for (int i = 0; i < questions.size(); i++) {
-            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
-
-            items.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
-            items1.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
-
-        }
+//        for (int i = 0; i < questions.size(); i++) {
+//            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
+//
+//            items.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
+//            items1.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
+//
+//        }
 
         back_home.setOnClickListener(new View.OnClickListener() {
             @Override

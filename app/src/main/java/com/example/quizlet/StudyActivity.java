@@ -77,12 +77,12 @@ public class StudyActivity extends AppCompatActivity {
 
         final List<Item> items = new ArrayList<>();
 
-        for (int i = 0; i < questions.size(); i++) {
-            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
-
-            items.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
-
-        }
+//        for (int i = 0; i < questions.size(); i++) {
+//            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
+//
+////            items.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
+//
+//        }
 
         studyAdapter = new StudyAdapter(this, items, new StudyAdapter.OnItemClickListener() {
             @Override
@@ -138,40 +138,40 @@ public class StudyActivity extends AppCompatActivity {
 //            }
 //        });
 
-        btnEditCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(StudyActivity.this, EditCourseActivity.class);
-                if(idCourse!=-1){
-                    intent.putExtra("idCourse",idCourse);
-                    intent.putExtra("totalQuestion",totalQuestion);
-                    startActivity(intent);
-                }
-            }
-        });
+//        btnEditCourse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(StudyActivity.this, EditCourseActivity.class);
+//                if(idCourse!=-1){
+//                    intent.putExtra("idCourse",idCourse);
+//                    intent.putExtra("totalQuestion",totalQuestion);
+//                    startActivity(intent);
+//                }
+//            }
+//        });
 
-        btnDelCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(idCourse!=-1){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(StudyActivity.this);
-                    builder.setTitle("Delete course");
-                    builder.setMessage("Do you really want to delete this course?");
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            int resultDel=courseDAO.delCourseByID(idCourse);
-                            finish();
-                        }
-                    });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                        }
-                    });
-                    AlertDialog alert = builder.create();
-                    alert.show();
-                }
-            }
-        });
+//        btnDelCourse.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if(idCourse!=-1){
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(StudyActivity.this);
+//                    builder.setTitle("Delete course");
+//                    builder.setMessage("Do you really want to delete this course?");
+//                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            int resultDel=courseDAO.delCourseByID(idCourse);
+//                            finish();
+//                        }
+//                    });
+//                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                        }
+//                    });
+//                    AlertDialog alert = builder.create();
+//                    alert.show();
+//                }
+//            }
+//        });
         closeHenGio.setVisibility(View.INVISIBLE);
         acceptHenGio.setVisibility(View.INVISIBLE);
 

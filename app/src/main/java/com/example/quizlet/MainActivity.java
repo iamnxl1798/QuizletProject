@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         loadFragment(new HomeFragment());
         Intent intent = getIntent();
-        idUser = Long.parseLong(intent.getStringExtra("idUser"));
+//        idUser = Long.parseLong(intent.getStringExtra("idUser"));
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     loadFragment(fragment);
                     return true;
                 case R.id.navi_account:
-                    fragment = new AccountFragment(idUser);
+                    fragment = new AccountFragment(1);
                     loadFragment(fragment);
                     return true;
             }
