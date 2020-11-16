@@ -69,14 +69,15 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Vui lòng điền tài khoản", Toast.LENGTH_SHORT).show();
                 } else if (textViewPass.getText().toString().equals("")) {
                     Toast.makeText(LoginActivity.this, "Vui lòng điền mật khẩu", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
                     User user = userDAO.checkAccountUser(textViewEmail.getText().toString(), textViewPass.getText().toString());
                     if (user != null) {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        intent.putExtra("idUser", user.getId()+"");
+                        intent.putExtra("idUser", user.getId() + "");
+                        intent.putExtra("urlImage", user.getUriImage().toString());
+
                         startActivity(intent);
-                    }else{
+                    } else {
                         Toast.makeText(LoginActivity.this, "Tài khoản hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
                     }
                 }

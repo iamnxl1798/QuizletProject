@@ -1,6 +1,8 @@
 package com.example.quizlet.fragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.quizlet.COMMON;
@@ -28,11 +31,12 @@ import com.example.quizlet.model.User;
  */
 public class AccountFragment extends Fragment {
 
-    private TextView txtAccountLoad, txtEmailLoad;
+    private TextView txtAccountLoad, txtEmailLoad, getTxtAccountLoadAvatar;
     MyDatabase myDatabase;
     UserDAO userDAO;
     Button buttonLogOut;
     long idUser;
+    ImageView imageView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -91,14 +95,19 @@ public class AccountFragment extends Fragment {
         txtAccountLoad = view.findViewById(R.id.txtAccountLoad);
         txtEmailLoad = view.findViewById(R.id.txtEmailLoad);
         buttonLogOut = view.findViewById(R.id.buttonLogOut);
+        getTxtAccountLoadAvatar = view.findViewById(R.id.textViewAccount_register);
+        imageView = view.findViewById(R.id.imageViewAccount);
         myDatabase = Room.databaseBuilder(getActivity(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         userDAO = myDatabase.createUserDAO();
 
 
-//        User user = userDAO.getUser(idUser);
-//        txtAccountLoad.setText(user.getUsername());
-//        txtEmailLoad.setText(user.getEmail());
+        User user = userDAO.getUser(idUser);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(user.getUriImage(), 0, user.getUriImage().length);
+        imageView.setImageBitmap(bitmap);
 
+        txtAccountLoad.setText(user.getUsername());
+        txtEmailLoad.setText(user.getEmail());
+        getTxtAccountLoadAvatar.setText(user.getUsername());
         buttonLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

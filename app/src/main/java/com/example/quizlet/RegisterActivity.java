@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -21,6 +22,7 @@ import com.example.quizlet.dao.UserDAO;
 import com.example.quizlet.database.MyDatabase;
 import com.example.quizlet.model.User;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
@@ -118,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (!textViewPass.getText().toString().equals(textViewPassAgain.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
                 } else {
-                    User user = new User(textViewAccount.getText().toString(), textViewPass.getText().toString(), textEmail.getText().toString(), uriImage);
+                    User user = new User(textViewAccount.getText().toString(), textViewPass.getText().toString(), textEmail.getText().toString(), ConverttoArrayByte(imageViewAvatar));
                     try {
                         userDAO.insert(user);
                         Toast.makeText(RegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
@@ -131,6 +133,15 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public byte[] ConverttoArrayByte(ImageView img) {
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) img.getDrawable();
+        Bitmap bitmap = bitmapDrawable.getBitmap();
+
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
     }
 
     @Override

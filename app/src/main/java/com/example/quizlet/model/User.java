@@ -18,8 +18,8 @@ public class User {
     @ColumnInfo
     private String email;
 
-    @ColumnInfo
-    private String uriImage;
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
+    private byte[] uriImage;
 
     public User() {
     }
@@ -30,7 +30,7 @@ public class User {
         this.email = email;
     }
 
-    public User(String username, String password, String email, String uriImage) {
+    public User(String username, String password, String email, byte[] uriImage) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -69,11 +69,11 @@ public class User {
         this.email = email;
     }
 
-    public String getUriImage() {
+    public byte[] getUriImage() {
         return uriImage;
     }
 
-    public void setUriImage(String uriImage) {
+    public void setUriImage(byte[] uriImage) {
         this.uriImage = uriImage;
     }
 }

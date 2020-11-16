@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <!-- <activity android:name=".MainActivity"></activity> -->
+         <activity android:name=".MainActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".ghepTheChiTietActivity" />
         <activity android:name=".ghepTheActivity" />
@@ -20,7 +20,7 @@
         <activity android:name=".StudyActivity" />
         <activity android:name=".HomeActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".NewHomeActivity"
             android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
