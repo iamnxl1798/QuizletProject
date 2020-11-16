@@ -18,6 +18,9 @@ public class User {
     @ColumnInfo
     private String email;
 
+    @ColumnInfo
+    private String uriImage;
+
     public User() {
     }
 
@@ -25,6 +28,13 @@ public class User {
         this.username = username;
         this.password = password;
         this.email = email;
+    }
+
+    public User(String username, String password, String email, String uriImage) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.uriImage = uriImage;
     }
 
     public long getId() {
@@ -57,5 +67,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUriImage() {
+        return uriImage;
+    }
+
+    public void setUriImage(String uriImage) {
+        this.uriImage = uriImage;
     }
 }

@@ -95,9 +95,9 @@ public class AccountFragment extends Fragment {
         userDAO = myDatabase.createUserDAO();
 
 
-        User user = userDAO.getUser(idUser);
-        txtAccountLoad.setText(user.getUsername());
-        txtEmailLoad.setText(user.getEmail());
+//        User user = userDAO.getUser(idUser);
+//        txtAccountLoad.setText(user.getUsername());
+//        txtEmailLoad.setText(user.getEmail());
 
         buttonLogOut.setOnClickListener(new View.OnClickListener() {
             @Override

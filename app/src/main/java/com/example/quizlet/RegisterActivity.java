@@ -41,6 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
     private COMMON common;
     MyDatabase myDatabase;
     UserDAO userDAO;
+    String uriImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,7 +118,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (!textViewPass.getText().toString().equals(textViewPassAgain.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "Mật khẩu không khớp", Toast.LENGTH_SHORT).show();
                 } else {
-                    User user = new User(textViewAccount.getText().toString(), textViewPass.getText().toString(), textEmail.getText().toString());
+                    User user = new User(textViewAccount.getText().toString(), textViewPass.getText().toString(), textEmail.getText().toString(), uriImage);
                     try {
                         userDAO.insert(user);
                         Toast.makeText(RegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
@@ -138,6 +139,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (requestCode == 321) {
             try {
                 Uri imageUri = data.getData();
+                uriImage = imageUri + "";
                 InputStream is = getContentResolver().openInputStream(imageUri);
                 Bitmap bitmap = BitmapFactory.decodeStream(is);
                 imageViewAvatar.setImageBitmap(bitmap);
