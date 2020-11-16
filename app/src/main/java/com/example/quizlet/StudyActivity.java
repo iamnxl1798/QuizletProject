@@ -2,6 +2,7 @@ package com.example.quizlet;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
@@ -9,8 +10,10 @@ import androidx.room.Room;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -27,7 +30,9 @@ import com.example.quizlet.dao.CourseDAO;
 import com.example.quizlet.dao.QuesstionDAO;
 import com.example.quizlet.database.MyDatabase;
 import com.example.quizlet.model.Answers;
+import com.example.quizlet.model.Courses;
 import com.example.quizlet.model.Item;
+import com.example.quizlet.model.JoinedCourses;
 import com.example.quizlet.model.Question;
 import com.example.quizlet.adapter.StudyAdapter;
 import com.example.quizlet.receiver.AlarmReceiver;
@@ -35,6 +40,7 @@ import com.example.quizlet.receiver.AlarmReceiver;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class StudyActivity extends AppCompatActivity {
@@ -47,7 +53,7 @@ public class StudyActivity extends AppCompatActivity {
     View view1, view2;
     MyDatabase myDatabase;
     private QuesstionDAO quesstionDAO;
-    AnswerDAO answerDAO;
+    AnswerDAO answerDAO;;
     private CourseDAO courseDAO;
     TextView totalQuestion, displayTime;
     private int lastSelectedHour = -1;
@@ -55,11 +61,15 @@ public class StudyActivity extends AppCompatActivity {
     Calendar calendar;
     PendingIntent pendingIntent;
     AlarmManager alarmManager;
+    private long courseId, userID;
+    private Courses courses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study);
+        SharedPreferences sharedPreferences = getSharedPreferences("taikhoan", Context.MODE_PRIVATE);
+        userID=sharedPreferences.getLong("userID",-1);
         questions = new ArrayList<>();
         AnhXa();
 
@@ -68,8 +78,9 @@ public class StudyActivity extends AppCompatActivity {
 //
         Intent intent = this.getIntent();
         String totalQ = intent.getStringExtra("totalQuestion");
-        final long courseId = intent.getLongExtra("idCourse",-1);
-//
+        courseId = intent.getLongExtra("idCourse",-1);
+        courses=courseDAO.getCourseByID(courseId);
+
         questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
 //        items.add(new Item(question.getQuestionName(), answers));
         totalQuestion.setText(totalQ + " thuật ngữ");
@@ -136,40 +147,60 @@ public class StudyActivity extends AppCompatActivity {
                 }
             }
         });
-
-        btnEditCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(StudyActivity.this, EditCourseActivity.class);
-                if(courseId!=-1){
-                    intent.putExtra("idCourse",courseId);
-                    startActivity(intent);
+        if(courses.getCreatorID()==userID){
+            btnEditCourse.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(StudyActivity.this, EditCourseActivity.class);
+                    if(courseId!=-1){
+                        intent.putExtra("idCourse",courseId);
+                        startActivity(intent);
+                    }
                 }
-            }
-        });
+            });
 
-        btnDelCourse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(courseId!=-1){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(StudyActivity.this);
-                    builder.setTitle("Delete course");
-                    builder.setMessage("Do you really want to delete this course?");
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            int resultDel=courseDAO.delCourseByID(courseId);
-                            finish();
-                        }
-                    });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                        }
-                    });
-                    AlertDialog alert = builder.create();
-                    alert.show();
+            btnDelCourse.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(courseId!=-1){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(StudyActivity.this);
+                        builder.setTitle("Delete course");
+                        builder.setMessage("Do you really want to delete this course?");
+                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                int resultDel=courseDAO.delCourseByID(courseId);
+                                finish();
+                            }
+                        });
+                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                            }
+                        });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
                 }
+            });
+        }
+        else{
+            btnEditCourse.setImageDrawable(null);
+            if(courseDAO.checkJoined(userID,courseId).size()==0){
+                btnDelCourse.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(),R.drawable.ic_baseline_group_add_24));
+                btnDelCourse.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        courseDAO.insertJoinedCourse(new JoinedCourses(
+                                userID,
+                                courseId,
+                                Calendar.getInstance().getTime().getTime()
+                        ));
+                    }
+                });
             }
-        });
+            else{
+                btnDelCourse.setImageDrawable(null);
+            }
+        }
         closeHenGio.setVisibility(View.INVISIBLE);
         acceptHenGio.setVisibility(View.INVISIBLE);
 

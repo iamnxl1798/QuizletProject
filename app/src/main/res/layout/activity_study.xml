@@ -30,6 +30,7 @@
             android:textColor="@color/White"
             android:textSize="25dp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <!-- <activity android:name=".MainActivity"></activity> -->
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".ghepTheChiTietActivity" />
         <activity android:name=".ghepTheActivity" />
         <activity android:name=".TheGhiNhoActivity" />
@@ -20,7 +20,7 @@
         <activity android:name=".StudyActivity" />
         <activity android:name=".HomeActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +28,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
+    </application>s
 
 </manifest>

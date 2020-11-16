@@ -60,7 +60,6 @@ public class LoginActivity extends AppCompatActivity {
                     edit.putString("pass", "");
                     edit.putBoolean("checked", false);
                 }
-                edit.commit();
 
                 myDatabase = Room.databaseBuilder(LoginActivity.this, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
                 userDAO = myDatabase.createUserDAO();
@@ -73,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
                 else{
                     User user = userDAO.checkAccountUser(textViewEmail.getText().toString(), textViewPass.getText().toString());
                     if (user != null) {
+                        edit.remove("userID");
+                        edit.putLong("userID",user.getId());
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("idUser", user.getId()+"");
                         startActivity(intent);
@@ -80,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Tài khoản hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
                     }
                 }
-
+                edit.commit();
             }
         });
         textViewNewRegister.setOnClickListener(new View.OnClickListener() {

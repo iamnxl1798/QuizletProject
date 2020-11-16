@@ -14,10 +14,19 @@ public class Courses {
     @ColumnInfo
     private long createDate;
 
+    @ColumnInfo
+    private long creatorID;
+
 
     public Courses(String name, long createDate) {
         this.name = name;
         this.createDate = createDate;
+    }
+
+    public Courses(String name, long createDate, long creatorID) {
+        this.name = name;
+        this.createDate = createDate;
+        this.creatorID=creatorID;
     }
 
     public Courses() {
@@ -45,6 +54,14 @@ public class Courses {
 
     public void setCreateDate(long createDate) {
         this.createDate = createDate;
+    }
+
+    public long getCreatorID() {
+        return creatorID;
+    }
+
+    public void setCreatorID(long creatorID) {
+        this.creatorID = creatorID;
     }
 
     @Override

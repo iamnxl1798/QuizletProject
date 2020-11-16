@@ -1,5 +1,7 @@
 package com.example.quizlet.fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -25,6 +27,7 @@ import com.example.quizlet.model.Courses;
 import com.example.quizlet.model.Item;
 import com.example.quizlet.R;
 import com.example.quizlet.adapter.ItemAdapter;
+import com.example.quizlet.model.JoinedCourses;
 import com.example.quizlet.model.Question;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -94,6 +97,8 @@ public class AddCourseFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_add_course, container, false);
         items = new ArrayList<>();
+        myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
+        addCourseDAO = myDatabase.createCourseDAO();
         final List<Answers> listDef = new ArrayList();
         listDef.add(new Answers());
         items.add(new Item(new Question(), listDef));
@@ -119,60 +124,7 @@ public class AddCourseFragment extends Fragment {
                 }
             }
         });
-        checkBtn = view.findViewById(R.id.checkBtn);
-        checkBtn.setEnabled(true);
-        checkBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    if (!edit_category.getText().toString().isEmpty()) {
-                        edit_category.setBackgroundColor(Color.WHITE);
-                        items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
-                        myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
-                        addCourseDAO = myDatabase.createCourseDAO();
-                        edit_category = view.findViewById(R.id.edit_category);
-                        Date currentTime = Calendar.getInstance().getTime();
-                        Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime());
-                        addCourseDAO.insertCourse(courses);
-                        for (Item item : items) {
-                            if(!(item.getTerm().getQuestionName()==null)){
-                                if(!item.getTerm().getQuestionName().isEmpty()){
-                                    courses = addCourseDAO.getLastCourse();
-                                    addCourseDAO.insertQuestion(new Question(item.getTerm().getQuestionName(), courses.getId()));
-                                    Question addQuestion=addCourseDAO.getLastQuestion();
-                                    List<Answers> temp= new ArrayList<>();
-                                    for(Answers answer:item.getDefinition()){
-                                        if(answer.getAnswer()==null||answer.getAnswer().isEmpty()){
-                                            temp.add(answer);
-                                        }
-                                        else {
-                                            answer.setQuestionId(addQuestion.getId());
-                                            addCourseDAO.insertAnswer(answer);
-                                        }
-                                    }
-                                    if(item.getDefinition().size()==temp.size()){
-                                        addCourseDAO.delLastQuestion();
-                                    }
-                                }
-                            }
-                        }
-                        if (addCourseDAO.getQuestionOfLastCourse().size() == 0) {
-                            throw new Exception("Course cannot be blank");
-                        }
-                        Toast.makeText(getActivity(), "Add " + courses.getName() + " course success!", Toast.LENGTH_LONG).show();
-                        checkBtn.setEnabled(false);
-                        checkBtn.setBackground(null);
-                    }else{
-                        edit_category.setBackgroundColor(Color.rgb(251,227,228));
-                        Toast.makeText(getActivity(), "Add course failed!", Toast.LENGTH_LONG).show();
-                        addCourseDAO.delLastCourse();
-                    }
-                } catch (Exception e) {
-                    Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
-                    addCourseDAO.delLastCourse();
-                }
-            }
-        });
+
         addItemBtn = view.findViewById(R.id.addItemBtn);
         addItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,6 +138,76 @@ public class AddCourseFragment extends Fragment {
 
             }
         });
+        checkBtn = view.findViewById(R.id.checkBtn);
+        checkBtn.setEnabled(true);
+        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("taikhoan", Context.MODE_PRIVATE);
+        final long userID=sharedPreferences.getLong("userID",-1);
+        if(userID!=-1){
+            checkBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    try {
+                        if (!edit_category.getText().toString().isEmpty()) {
+                            edit_category.setBackgroundColor(Color.WHITE);
+                            items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
+                            edit_category = view.findViewById(R.id.edit_category);
+                            Date currentTime = Calendar.getInstance().getTime();
+                            Courses courses = new Courses(edit_category.getText().toString(), currentTime.getTime(),userID);
+                            addCourseDAO.insertCourse(courses);
+                            for (Item item : items) {
+                                if(!(item.getTerm().getQuestionName()==null)){
+                                    if(!item.getTerm().getQuestionName().isEmpty()){
+                                        courses = addCourseDAO.getLastCourse();
+                                        addCourseDAO.insertQuestion(new Question(item.getTerm().getQuestionName(), courses.getId()));
+                                        Question addQuestion=addCourseDAO.getLastQuestion();
+                                        List<Answers> temp= new ArrayList<>();
+                                        for(Answers answer:item.getDefinition()){
+                                            if(answer.getAnswer()==null||answer.getAnswer().isEmpty()){
+                                                temp.add(answer);
+                                            }
+                                            else {
+                                                answer.setQuestionId(addQuestion.getId());
+                                                addCourseDAO.insertAnswer(answer);
+                                            }
+                                        }
+                                        if(item.getDefinition().size()==temp.size()){
+                                            addCourseDAO.delLastQuestion();
+                                        }
+                                    }
+                                }
+                            }
+                            if (addCourseDAO.getQuestionOfLastCourse().size() == 0) {
+                                throw new Exception("Course cannot be blank");
+                            }
+                            Toast.makeText(getActivity(), "Add " + courses.getName() + " course success!", Toast.LENGTH_LONG).show();
+                            addCourseDAO.insertJoinedCourse(new JoinedCourses(
+                                    userID,
+                                    addCourseDAO.getLastCourse().getId(),
+                                    Calendar.getInstance().getTime().getTime()
+                            ));
+                            checkBtn.setEnabled(false);
+                            checkBtn.setBackground(null);
+                        }else{
+                            edit_category.setBackgroundColor(Color.rgb(251,227,228));
+                            Toast.makeText(getActivity(), "Add course failed!", Toast.LENGTH_LONG).show();
+                            if(addCourseDAO.getCourseCount()!=0){
+                                addCourseDAO.delLastCourse();
+                            }
+                        }
+                    } catch (Exception e) {
+                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                        if(addCourseDAO.getCourseCount()!=0){
+                            addCourseDAO.delLastCourse();
+                        }
+                    }
+                }
+            });
+        }
+        else {
+            checkBtn.setBackground(null);
+            Toast.makeText(getActivity(), "You have to login first", Toast.LENGTH_LONG).show();
+        }
+
         return view;
     }
 
