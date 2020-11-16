@@ -36,7 +36,6 @@ public class HomeFragment extends Fragment {
     ViewFlipper viewFlipper;
     Animation in, out;
     private RecyclerView recyView_Home2;
-    List<ThuMucHoc> thuMucHocDaJoin;
     TextView xemtat1, xemtat2;
     public MyDatabase myDatabase;
     public CourseDAO courseDAO;
@@ -54,15 +53,32 @@ public class HomeFragment extends Fragment {
         myDatabase = Room.databaseBuilder(getContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         courseDAO = myDatabase.createCourseDAO();
 
-        thuMucHocDaJoin = new ArrayList<>();
-        thuMucHocDaJoin.add(new ThuMucHoc("HCI301", "Cuongnv", R.drawable.cuong));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR201", "Cuongnv2", R.drawable.cuong2));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR201", "Cuongnv2", R.drawable.cuong));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR201123", "Cuongnv2", R.drawable.cuong2));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR2023211", "Cuongnv2", R.drawable.cuong));
-        thuMucHocDaJoin.add(new ThuMucHoc("SWR202311", "Cuongnv2", R.drawable.cuong2));
 
         AnhXa(view);
+        coursesList = new ArrayList<>();
+        coursesList = courseDAO.getCoursesSearchView();
+
+        courseAdapter = new CourseAdapter(coursesList, getActivity(), new CourseAdapter.OnItemClickListener() {
+            @Override
+            public void OnClickMore(Course_AnswerCount course_AnswerCount) {
+                Intent intent = new Intent(getContext(), StudyActivity.class);
+                intent.putExtra("idCourse", course_AnswerCount.getId()+"");
+                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum()+"");
+                startActivity(intent);
+                Toast.makeText(getContext(), "" + course_AnswerCount.getAnswerNum(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        LinearLayoutManager layoutManager =
+                new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager.scrollToPosition(0);
+        recyView_Home.setLayoutManager(layoutManager);
+        recyView_Home.setAdapter(courseAdapter);
+
+        LinearLayoutManager layoutManager1 =
+                new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        layoutManager1.scrollToPosition(0);
+        recyView_Home2.setLayoutManager(layoutManager1);
+        recyView_Home2.setAdapter(courseAdapter);
 
 
         in = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);

@@ -68,21 +68,21 @@ public class StudyActivity extends AppCompatActivity {
 //
         Intent intent = this.getIntent();
         String totalQ = intent.getStringExtra("totalQuestion");
-        final long courseId = Long.parseLong(intent.getStringExtra("idCourse"));
+//        final long courseId = Long.parseLong(intent.getStringExtra("idCourse"));
 //
-        questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
+        questions = quesstionDAO.getAllQuesstionByCourseId(1);
 //        items.add(new Item(question.getQuestionName(), answers));
         totalQuestion.setText(totalQ + " thuật ngữ");
         Toast.makeText(StudyActivity.this, "" + totalQ, Toast.LENGTH_SHORT).show();
 
         final List<Item> items = new ArrayList<>();
 
-//        for (int i = 0; i < questions.size(); i++) {
-//            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
-//
-////            items.add(new Item(questions.get(i).getQuestionName(), (ArrayList<Answers>) answers));
-//
-//        }
+        for (int i = 0; i < questions.size(); i++) {
+            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
+
+            items.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
+
+        }
 
         studyAdapter = new StudyAdapter(this, items, new StudyAdapter.OnItemClickListener() {
             @Override
@@ -121,7 +121,7 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StudyActivity.this, TheGhiNhoActivity.class);
-                intent.putExtra("QuestionListExtra", courseId + "");
+                intent.putExtra("QuestionListExtra", 1 + "");
                 startActivity(intent);
             }
         });
