@@ -136,10 +136,10 @@
                     android:src="@drawable/accept1" />
 
                 <ImageView
+                    android:id="@+id/btnEditCourse"
                     android:layout_width="70px"
                     android:layout_height="70px"
                     android:layout_weight="2"
-                    android:id="@+id/btnEditCourse"
                     android:src="@drawable/edit" />
 
             </LinearLayout>
@@ -185,9 +185,9 @@
                 <LinearLayout
                     android:id="@+id/kiemtra"
                     android:layout_width="match_parent"
+                    android:layout_height="150px"
                     android:layout_marginLeft="10px"
                     android:layout_marginRight="10px"
-                    android:layout_height="150px"
                     android:layout_weight="1"
                     android:background="@drawable/duongvien_goctron"
                     android:orientation="vertical"
@@ -215,8 +215,8 @@
                     android:id="@+id/theghinho"
                     android:layout_width="match_parent"
                     android:layout_height="150px"
-                    android:layout_weight="1"
                     android:layout_marginRight="10px"
+                    android:layout_weight="1"
                     android:background="@drawable/duongvien_goctron"
                     android:orientation="vertical"
                     android:padding="20px"
@@ -238,6 +238,7 @@
                         android:textColor="#117A72"
                         android:textSize="15dp" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/ghepthe"
                     android:layout_width="match_parent"
@@ -301,6 +302,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/hocsao"
                         android:layout_width="match_parent"
                         android:layout_height="90px"
                         android:gravity="center"

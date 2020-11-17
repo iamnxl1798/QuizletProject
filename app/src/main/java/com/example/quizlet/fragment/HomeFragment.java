@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void OnClickMore(Course_AnswerCount course_AnswerCount) {
                 Intent intent = new Intent(getContext(), StudyActivity.class);
-                intent.putExtra("idCourse", course_AnswerCount.getId() + "");
+                intent.putExtra("idCourse", course_AnswerCount.getId());
                 intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum() + "");
                 startActivity(intent);
                 Toast.makeText(getContext(), "" + course_AnswerCount.getAnswerNum(), Toast.LENGTH_SHORT).show();
@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment {
             public void OnClickMore(Course_AnswerCount course_AnswerCount) {
                 Intent intent = new Intent(getContext(), StudyActivity.class);
                 intent.putExtra("idCourse", course_AnswerCount.getId());
-                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum());
+                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum()+"");
                 startActivity(intent);
                 Toast.makeText(getContext(), "" + course_AnswerCount.getAnswerNum(), Toast.LENGTH_SHORT).show();
             }
@@ -135,7 +135,7 @@ public class HomeFragment extends Fragment {
             public void OnClickMore(Course_AnswerCount course_AnswerCount) {
                 Intent intent = new Intent(getContext(), StudyActivity.class);
                 intent.putExtra("idCourse", course_AnswerCount.getId());
-                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum());
+                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum()+"");
                 startActivity(intent);
                 Toast.makeText(getContext(), "" + course_AnswerCount.getAnswerNum(), Toast.LENGTH_SHORT).show();
             }
@@ -146,7 +146,7 @@ public class HomeFragment extends Fragment {
             public void OnClickMore(Course_AnswerCount course_AnswerCount) {
                 Intent intent = new Intent(getContext(), StudyActivity.class);
                 intent.putExtra("idCourse", course_AnswerCount.getId());
-                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum());
+                intent.putExtra("totalQuestion", course_AnswerCount.getAnswerNum()+"");
                 startActivity(intent);
                 Toast.makeText(getContext(), "" + course_AnswerCount.getAnswerNum(), Toast.LENGTH_SHORT).show();
             }

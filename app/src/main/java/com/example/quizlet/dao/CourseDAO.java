@@ -102,5 +102,6 @@ public interface CourseDAO {
 
     //    @Query("select * from Courses where ")
 //    public List<Courses> getAllCoursesByUser(int idUser);
-
+    @Query("Select * from Courses where id = :idCourse")
+    public Courses getUserByCourse(long idCourse);
 }

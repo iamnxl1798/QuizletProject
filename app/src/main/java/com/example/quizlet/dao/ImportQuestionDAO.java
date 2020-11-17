@@ -29,4 +29,6 @@ public interface ImportQuestionDAO {
     @Delete
     public void delete(ImportantQuestions importantQuestions);
 
+    @Query("select * from importantquestions where joinCourseId =:idJoin")
+    public List<ImportantQuestions> countQuestionImport(long idJoin);
 }

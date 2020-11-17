@@ -6,7 +6,9 @@ import androidx.room.Room;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -55,6 +57,7 @@ public class TheGhiNhoActivity extends AppCompatActivity {
     EditText et_nhap_sl;
     JoinedCouesesDAO joinedCouesesDAO;
     ImportQuestionDAO importQuestionDAO;
+    private long userID;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -67,15 +70,17 @@ public class TheGhiNhoActivity extends AppCompatActivity {
         joinedCouesesDAO = myDatabase.createJoinCourseDAO();
         importQuestionDAO = myDatabase.createImportQuestionDAO();
         answerDAO = myDatabase.createAnswerDAO();
+        SharedPreferences sharedPreferences = getSharedPreferences("taikhoan", Context.MODE_PRIVATE);
+        userID = sharedPreferences.getLong("userID", -1);
         Intent intent = this.getIntent();
         final long courseId = Long.parseLong(intent.getStringExtra("QuestionListExtra"));
+        final long idCounrJoin = Long.parseLong(intent.getStringExtra("joinCourseId"));
         questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
         final List<Item> items = new ArrayList<>();
         final List<Item> items1 = new ArrayList<>();
 
         for (int i = 0; i < questions.size(); i++) {
             List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
-
             items.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
             items1.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
 
@@ -89,7 +94,6 @@ public class TheGhiNhoActivity extends AppCompatActivity {
         });
         et_nhap_sl.setText("" + items1.size());
 
-        Toast.makeText(TheGhiNhoActivity.this, "test", Toast.LENGTH_SHORT).show();
         final int[] count = {0};
         final boolean[] check = {false};
         bat_dau.setOnClickListener(new View.OnClickListener() {
@@ -97,27 +101,28 @@ public class TheGhiNhoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 count[0] = 0;
                 int soLuong = Integer.parseInt(et_nhap_sl.getText().toString());
-                boolean check = false;
 
                 if (aSwitch.isChecked()) {
-                    JoinedCourses joinedCourss = joinedCouesesDAO.getAllJoinedCoursesByUserCourse(1, courseId);
+                    JoinedCourses joinedCourss = joinedCouesesDAO.getAllJoinedCoursesByUserCourse(userID, courseId);
 //                    List<Question> questions = new ArrayList<>();
-                    questions = importQuestionDAO.getQuestionSao(joinedCourss.getId());
+                    if(joinedCourss!=null){
+                        questions = importQuestionDAO.getQuestionSao(idCounrJoin);
+                        int a = questions.size();
+                        for (int i = items.size() - 1; i >= 0; i--) {
+                            items.remove(i);
+                        }
 
-                    for (int i = items.size() - 1; i >= 0; i--) {
-                        items.remove(i);
+                        for (int i = items1.size() - 1; i >= 0; i--) {
+                            items1.remove(i);
+                        }
 
+                        for (int i = 0; i < questions.size(); i++) {
+                            List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
+                            items.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
+                            items1.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
+                        }
                     }
 
-                    for (int i = items1.size() - 1; i >= 0; i--) {
-                        items1.remove(i);
-
-                    }
-                    for (int i = 0; i < questions.size(); i++) {
-                        List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
-                        items.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
-                        items1.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
-                    }
                 } else {
                     questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
 
@@ -127,7 +132,6 @@ public class TheGhiNhoActivity extends AppCompatActivity {
 
                     for (int i = items1.size() - 1; i >= 0; i--) {
                         items1.remove(i);
-
                     }
 
                     for (int i = 0; i < questions.size(); i++) {
@@ -174,27 +178,31 @@ public class TheGhiNhoActivity extends AppCompatActivity {
 
                     }
                 }
-                final List<Answers> answers = items1.get(count[0]).getDefinition();
-                String quesstionName = items1.get(count[0]).getTerm().getQuestionName() + "\n";
-                String s = "";
-                String anwserTrue = "";
-                int a = 97;
-                for (int i = 0; i < answers.size(); i++) {
-                    char b = (char) a;
-                    if (answers.get(i).isTrue()) {
-                        anwserTrue += b;
+                if(items1.size()>0){
+                    final List<Answers> answers = items1.get(count[0]).getDefinition();
+                    String quesstionName = items1.get(count[0]).getTerm().getQuestionName() + "\n";
+                    String s = "";
+                    String anwserTrue = "";
+                    int a = 97;
+                    for (int i = 0; i < answers.size(); i++) {
+                        char b = (char) a;
+                        if (answers.get(i).isTrue()) {
+                            anwserTrue += b;
+                        }
+                        String c = b + " : " + answers.get(i).getAnswer();
+                        a++;
+                        s += c + "\n";
                     }
-                    String c = b + " : " + answers.get(i).getAnswer();
-                    a++;
-                    s += c + "\n";
+
+                    quesstionName += "\n" + s;
+                    textView.setText(quesstionName);
+                    progressBar.setMin(0);
+                    progressBar.setMax(items1.size() - 1);
+
+                    sttghinho.setText("1/" + (items1.size()));
                 }
 
-                quesstionName += "\n" + s;
-                textView.setText(quesstionName);
-                progressBar.setMin(0);
-                progressBar.setMax(items1.size() - 1);
 
-                sttghinho.setText("1/" + (items1.size()));
 
             }
         });

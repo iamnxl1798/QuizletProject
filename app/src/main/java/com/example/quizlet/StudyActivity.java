@@ -14,6 +14,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -30,6 +32,7 @@ import com.example.quizlet.dao.CourseDAO;
 import com.example.quizlet.dao.ImportQuestionDAO;
 import com.example.quizlet.dao.JoinedCouesesDAO;
 import com.example.quizlet.dao.QuesstionDAO;
+import com.example.quizlet.dao.UserDAO;
 import com.example.quizlet.database.MyDatabase;
 import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Courses;
@@ -38,6 +41,7 @@ import com.example.quizlet.model.Item;
 import com.example.quizlet.model.JoinedCourses;
 import com.example.quizlet.model.Question;
 import com.example.quizlet.adapter.StudyAdapter;
+import com.example.quizlet.model.User;
 import com.example.quizlet.receiver.AlarmReceiver;
 
 import java.io.Serializable;
@@ -52,13 +56,13 @@ public class StudyActivity extends AppCompatActivity {
     List<Question> questions;
     private RecyclerView recyView_Study;
     ImageView back, henGio, closeHenGio, acceptHenGio, btnEditCourse, btnDelCourse;
-    LinearLayout checkAll, checkSao, theghinho, ghepThe , kiemtra , learn;
+    LinearLayout checkAll, checkSao, theghinho, ghepThe, kiemtra, learn;
     View view1, view2;
     MyDatabase myDatabase;
     private QuesstionDAO quesstionDAO;
     AnswerDAO answerDAO;
     private CourseDAO courseDAO;
-    TextView totalQuestion, displayTime;
+    TextView totalQuestion, displayTime, nameUser, hocsao;
     private int lastSelectedHour = -1;
     private int lastSelectedMinute = -1;
     Calendar calendar;
@@ -68,6 +72,8 @@ public class StudyActivity extends AppCompatActivity {
     private Courses courses;
     JoinedCouesesDAO joinedCouesesDAO;
     ImportQuestionDAO importQuestionDAO;
+    UserDAO userDAO;
+    ImageView avatarUserCourse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +88,7 @@ public class StudyActivity extends AppCompatActivity {
         answerDAO = myDatabase.createAnswerDAO();
         joinedCouesesDAO = myDatabase.createJoinCourseDAO();
         importQuestionDAO = myDatabase.createImportQuestionDAO();
+        userDAO = myDatabase.createUserDAO();
         Intent intent = this.getIntent();
         String totalQ = intent.getStringExtra("totalQuestion");
         courseId = intent.getLongExtra("idCourse", -1);
@@ -93,7 +100,13 @@ public class StudyActivity extends AppCompatActivity {
         totalQuestion.setText(totalQ + " thuật ngữ");
         Toast.makeText(StudyActivity.this, "" + totalQ, Toast.LENGTH_SHORT).show();
         final List<Item> items = new ArrayList<>();
+        Courses course = courseDAO.getUserByCourse(courseId);
+        User user = userDAO.getUser(course.getCreatorID());
+        nameUser.setText(user.getUsername() + "");
 
+        Bitmap bitmap = BitmapFactory.decodeByteArray(user.getUriImage(), 0, user.getUriImage().length);
+        avatarUserCourse.setImageBitmap(bitmap);
+        hocsao.setText("Học "+importQuestionDAO.countQuestionImport(joinedCourses.getId()).size());
         view1.setBackgroundColor(Color.BLUE);
         final boolean[] check2 = {false};
         checkAll.setOnClickListener(new View.OnClickListener() {
@@ -102,7 +115,21 @@ public class StudyActivity extends AppCompatActivity {
                 view1.setBackgroundColor(Color.BLUE);
                 view2.setBackgroundColor(Color.WHITE);
                 questions = quesstionDAO.getAllQuesstionByCourseId(courseId);
-                check2[0] = true;
+                for (int i = items.size() - 1; i >= 0; i--) {
+                    items.remove(i);
+                }
+
+                for (int i = 0; i < questions.size(); i++) {
+                    List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
+
+                    items.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
+
+                }
+
+                recyView_Study.setLayoutManager(new LinearLayoutManager(StudyActivity.this));
+                recyView_Study.setAdapter(studyAdapter);
+
+
             }
         });
 
@@ -112,7 +139,19 @@ public class StudyActivity extends AppCompatActivity {
                 view2.setBackgroundColor(Color.BLUE);
                 view1.setBackgroundColor(Color.WHITE);
                 questions = importQuestionDAO.getQuestionSao(joinedCourses.getId());
-                check2[0] = true;
+
+                for (int i = items.size() - 1; i >= 0; i--) {
+                    items.remove(i);
+                }
+
+                for (int i = 0; i < questions.size(); i++) {
+                    List<Answers> answers = answerDAO.getAnswerByQuestion(questions.get(i).getId());
+
+                    items.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
+                }
+
+                recyView_Study.setLayoutManager(new LinearLayoutManager(StudyActivity.this));
+                recyView_Study.setAdapter(studyAdapter);
 
             }
         });
@@ -122,32 +161,42 @@ public class StudyActivity extends AppCompatActivity {
 
             items.add(new Item(questions.get(i), (ArrayList<Answers>) answers));
 
+            studyAdapter = new StudyAdapter(this, items, joinedCourses.getId(), new StudyAdapter.OnItemClickListener() {
+                @Override
+                public void OnClickMore(long idQuestion) {
+                    ImportantQuestions importantQuestions = importQuestionDAO.checkQuestion(joinedCourses.getId(), idQuestion);
+                    if (importantQuestions != null) {
+                        importQuestionDAO.delete(importantQuestions);
+
+                    } else {
+                        ImportantQuestions importantQuestions1 = new ImportantQuestions(joinedCourses.getId(), idQuestion);
+                        importQuestionDAO.insert(importantQuestions1);
+                    }
+                }
+            });
         }
 
 
-        final boolean[] check = {false};
         studyAdapter = new StudyAdapter(this, items, joinedCourses.getId(), new StudyAdapter.OnItemClickListener() {
             @Override
             public void OnClickMore(long idQuestion) {
-                check[0] = true;
                 ImportantQuestions importantQuestions = importQuestionDAO.checkQuestion(joinedCourses.getId(), idQuestion);
                 if (importantQuestions != null) {
                     importQuestionDAO.delete(importantQuestions);
+                    hocsao.setText("Học "+importQuestionDAO.countQuestionImport(joinedCourses.getId()).size());
+
                     studyAdapter.notifyDataSetChanged();
 
                 } else {
                     ImportantQuestions importantQuestions1 = new ImportantQuestions(joinedCourses.getId(), idQuestion);
                     importQuestionDAO.insert(importantQuestions1);
+                    hocsao.setText("Học "+importQuestionDAO.countQuestionImport(joinedCourses.getId()).size());
+
                     studyAdapter.notifyDataSetChanged();
-
                 }
-
             }
         });
 
-        if(check2[0]){
-            studyAdapter.notifyDataSetChanged();
-        }
 
         recyView_Study.setLayoutManager(new LinearLayoutManager(this));
         recyView_Study.setAdapter(studyAdapter);
@@ -164,7 +213,8 @@ public class StudyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StudyActivity.this, TheGhiNhoActivity.class);
-                intent.putExtra("QuestionListExtra", 1 + "");
+                intent.putExtra("QuestionListExtra", courseId + "");
+                intent.putExtra("joinCourseId",joinedCourses.getId()+"");
                 startActivity(intent);
             }
         });
@@ -267,11 +317,14 @@ public class StudyActivity extends AppCompatActivity {
         calendar = Calendar.getInstance();
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
         btnEditCourse = findViewById(R.id.btnEditCourse);
+        avatarUserCourse = findViewById(R.id.avatarUserCourse);
+        nameUser = findViewById(R.id.nameUser);
         btnDelCourse = findViewById(R.id.btnDelCourse);
         myDatabase = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         courseDAO = myDatabase.createCourseDAO();
         kiemtra = findViewById(R.id.kiemtra);
-        learn  = findViewById(R.id.learn);
+        learn = findViewById(R.id.learn);
+        hocsao = findViewById(R.id.hocsao);
     }
 
     public void HenGio() {
@@ -320,8 +373,6 @@ public class StudyActivity extends AppCompatActivity {
         TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-//                calendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
-//                calendar.set(Calendar.MINUTE, minute);
                 String String_gio = hourOfDay + "";
                 String String_phut = minute + "";
                 if (minute < 10) {
