@@ -5,7 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.SearchView;
@@ -26,12 +28,15 @@ public class ghepTheActivity extends AppCompatActivity {
     private CourseAdapter myCourse,allCourse;
     public MyDatabase myDatabase;
     private List<Course_AnswerCount> myCourseList,allCourseList;
+    private long userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ghep_the);
         Intent incomeIntent=getIntent();
         final long oldCourseID=incomeIntent.getLongExtra("idCourse",-1);
+        SharedPreferences sharedPreferences = getSharedPreferences("taikhoan", Context.MODE_PRIVATE);
+        userID=sharedPreferences.getLong("userID",-1);
         myCourseRcl=findViewById(R.id.myCourseRcl);
         allCourseRcl=findViewById(R.id.allCourseRcl);
         searchAllCourse=findViewById(R.id.searchAllCourse);
@@ -39,10 +44,22 @@ public class ghepTheActivity extends AppCompatActivity {
         myDatabase = Room.databaseBuilder(getApplicationContext(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         courseDAO = myDatabase.createCourseDAO();
 
-        myCourseList = courseDAO.getCoursesSearchView();
+        if(userID!=-1){
+            myCourseList = courseDAO.getMyCourse(userID);
+        }
         allCourseList = courseDAO.getCoursesSearchView();
 
         myCourse=new CourseAdapter(myCourseList,getApplicationContext(), new CourseAdapter.OnItemClickListener() {
+            @Override
+            public void OnClickMore(Course_AnswerCount course_AnswerCount) {
+                Intent intent = new Intent(getApplicationContext(), ghepTheChiTietActivity.class);
+                intent.putExtra("idCourse", course_AnswerCount.getId());
+                intent.putExtra("oldCourseID", oldCourseID);
+                startActivity(intent);
+            }
+        });
+
+        allCourse=new CourseAdapter(allCourseList,getApplicationContext(), new CourseAdapter.OnItemClickListener() {
             @Override
             public void OnClickMore(Course_AnswerCount course_AnswerCount) {
                 Intent intent = new Intent(getApplicationContext(), ghepTheChiTietActivity.class);
@@ -68,11 +85,10 @@ public class ghepTheActivity extends AppCompatActivity {
             }
         });
 
-        allCourse=new CourseAdapter(allCourseList,getApplicationContext());
         LinearLayoutManager allCourseManager= new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         allCourseManager.scrollToPosition(0);
         allCourseRcl.setLayoutManager(allCourseManager);
-        allCourseRcl.setAdapter(myCourse);
+        allCourseRcl.setAdapter(allCourse);
         searchAllCourse.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

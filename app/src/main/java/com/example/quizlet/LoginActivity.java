@@ -60,7 +60,6 @@ public class LoginActivity extends AppCompatActivity {
                     edit.putString("pass", "");
                     edit.putBoolean("checked", false);
                 }
-                edit.commit();
 
                 myDatabase = Room.databaseBuilder(LoginActivity.this, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
                 userDAO = myDatabase.createUserDAO();
@@ -72,16 +71,22 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     User user = userDAO.checkAccountUser(textViewEmail.getText().toString(), textViewPass.getText().toString());
                     if (user != null) {
+                        edit.remove("userID");
+                        edit.putLong("userID", user.getId());
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("idUser", user.getId() + "");
                         intent.putExtra("urlImage", user.getUriImage().toString());
+                        SharedPreferences sharedPreferences2 = getSharedPreferences("userId", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor edit2 = sharedPreferences2.edit();
+                        edit2.putLong("idUser", user.getId());
+                        edit2.commit();
 
                         startActivity(intent);
                     } else {
                         Toast.makeText(LoginActivity.this, "Tài khoản hoặc mật khẩu sai", Toast.LENGTH_SHORT).show();
                     }
                 }
-
+                edit.commit();
             }
         });
         textViewNewRegister.setOnClickListener(new View.OnClickListener() {

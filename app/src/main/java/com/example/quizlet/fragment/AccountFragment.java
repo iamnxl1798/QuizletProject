@@ -1,5 +1,6 @@
 package com.example.quizlet.fragment;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,12 +15,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.quizlet.COMMON;
 import com.example.quizlet.LoginActivity;
 import com.example.quizlet.R;
+import com.example.quizlet.RegisterActivity;
 import com.example.quizlet.dao.UserDAO;
 import com.example.quizlet.database.MyDatabase;
 import com.example.quizlet.model.User;
@@ -31,12 +36,13 @@ import com.example.quizlet.model.User;
  */
 public class AccountFragment extends Fragment {
 
-    private TextView txtAccountLoad, txtEmailLoad, getTxtAccountLoadAvatar;
+    private TextView txtAccountLoad, txtEmailLoad, getTxtAccountLoadAvatar, textViewChangePass;
     MyDatabase myDatabase;
     UserDAO userDAO;
     Button buttonLogOut;
     long idUser;
     ImageView imageView;
+    LinearLayout linearLayout2;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -97,11 +103,13 @@ public class AccountFragment extends Fragment {
         buttonLogOut = view.findViewById(R.id.buttonLogOut);
         getTxtAccountLoadAvatar = view.findViewById(R.id.textViewAccount_register);
         imageView = view.findViewById(R.id.imageViewAccount);
+        linearLayout2 = view.findViewById(R.id.linearLayout2);
+        textViewChangePass = view.findViewById(R.id.textViewChangePass);
         myDatabase = Room.databaseBuilder(getActivity(), MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         userDAO = myDatabase.createUserDAO();
 
 
-        User user = userDAO.getUser(idUser);
+        final User user = userDAO.getUser(idUser);
         Bitmap bitmap = BitmapFactory.decodeByteArray(user.getUriImage(), 0, user.getUriImage().length);
         imageView.setImageBitmap(bitmap);
 
@@ -115,5 +123,81 @@ public class AccountFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        linearLayout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.edit_email);
+                final EditText enterNewEmail = dialog.findViewById(R.id.edit_email);
+                Button save = dialog.findViewById(R.id.save_editemail);
+                Button huy = dialog.findViewById(R.id.huy_editmail);
+                huy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });
+                final COMMON common = new COMMON();
+                save.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (enterNewEmail.getText().toString().equals("")) {
+                            Toast.makeText(getContext(), "Vui lòng nhập email mới", Toast.LENGTH_SHORT).show();
+                        } else if (!common.validateEmail(enterNewEmail.getText().toString())) {
+                            Toast.makeText(getContext(), "Email không đúng định dạng", Toast.LENGTH_SHORT).show();
+                        } else if (userDAO.checkEmailExist(enterNewEmail.getText().toString()) != null) {
+                            Toast.makeText(getContext(), "Email đã tồn tại", Toast.LENGTH_SHORT).show();
+                        } else {
+                            userDAO.updateUserByemail(enterNewEmail.getText().toString(), user.getId());
+                            Toast.makeText(getContext(), "Update thành công", Toast.LENGTH_SHORT).show();
+                            dialog.cancel();
+                        }
+                    }
+                });
+                dialog.show();
+            }
+        });
+        final boolean[] check = {false};
+
+        textViewChangePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.edit_password);
+                final EditText enterNewPass = dialog.findViewById(R.id.edit_pass);
+                Button save = dialog.findViewById(R.id.save_editpass);
+                Button huy = dialog.findViewById(R.id.huy_editpass);
+
+                huy.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.cancel();
+                    }
+                });
+
+                save.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (enterNewPass.getText().toString().equals("")) {
+                            Toast.makeText(getContext(), "Vui lòng nhập password mới", Toast.LENGTH_SHORT).show();
+                        } else {
+                            userDAO.updateUserBypass(enterNewPass.getText().toString(), user.getId());
+                            check[0] = true;
+                            Toast.makeText(getContext(), "Update thành công", Toast.LENGTH_SHORT).show();
+                            dialog.cancel();
+                        }
+                    }
+                });
+                dialog.show();
+
+            }
+        });
+
+        if (check[0]) {
+            final User user1 = userDAO.getUser(idUser);
+            txtEmailLoad.setText(user1.getEmail() + "");
+            check[0] = false;
+        }
     }
 }

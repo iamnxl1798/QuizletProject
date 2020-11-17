@@ -113,6 +113,8 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
                 } else if (textEmail.getText().toString().equals("") || !common.validateEmail(textEmail.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "Email để trống hoặc không đúng định dạng", Toast.LENGTH_SHORT).show();
+                } else if (userDAO.checkEmailExist(textEmail.getText().toString()) != null) {
+                    Toast.makeText(RegisterActivity.this, "Email đã tồn tại", Toast.LENGTH_SHORT).show();
                 } else if (textViewPass.getText().toString().equals("") || textViewPassAgain.getText().toString().equals("")) {
                     Toast.makeText(RegisterActivity.this, "Vui lòng điền mật khẩu", Toast.LENGTH_SHORT).show();
                 } else if (textViewPass.getText().toString().length() < 6) {

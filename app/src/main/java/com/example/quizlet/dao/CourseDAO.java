@@ -8,6 +8,7 @@ import androidx.room.Update;
 
 import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Courses;
+import com.example.quizlet.model.JoinedCourses;
 import com.example.quizlet.model.Question;
 import com.example.quizlet.model.User;
 import com.example.quizlet.model.customModel.Course_AnswerCount;
@@ -26,6 +27,9 @@ public interface CourseDAO {
     @Insert
     public void insertAnswer(Answers course);
 
+    @Insert
+    public void insertJoinedCourse(JoinedCourses joinedCourses);
+
     @Update
     public int updateCourse(Courses courses);
 
@@ -37,6 +41,9 @@ public interface CourseDAO {
 
     @Delete
     public int deleteQuestion(Question question);
+
+    @Delete
+    public int deleteAnswer(Answers answers);
 
     @Delete
     public int deleteCourse(Courses courses);
@@ -62,6 +69,9 @@ public interface CourseDAO {
     @Query("DELETE FROM Courses Where Courses.id=(Select MAX(id) from Courses);")
     public int delLastCourse();
 
+    @Query("Select Count(*) from Courses;")
+    public int getCourseCount();
+
     @Query("SELECT * FROM Courses ORDER BY Courses.id DESC LIMIT 1;")
     public Courses getLastCourse();
 
@@ -75,12 +85,22 @@ public interface CourseDAO {
     @Query("SELECT * FROM Courses Where Courses.id=:id;")
     public Courses getCourseByID(long id);
 
+    @Query("SELECT * FROM JoinedCourses Where userId=:userID AND courseId=:courseID;")
+    public List<JoinedCourses> checkJoined(long userID, long courseID);
+
     @Query("DELETE FROM Courses Where Courses.id=:id;")
     public int delCourseByID(long id);
 
     @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id Group by Question.courseId")
     public List<Course_AnswerCount> getCoursesSearchView();
 
-//    @Query("select * from Courses where ")
+    @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question, JoinedCourses where Question.courseId=Courses.id And JoinedCourses.courseId=Courses.id And JoinedCourses.userID=:userID Group by Question.courseId")
+    public List<Course_AnswerCount> getCoursesSearchViewByUserID(long userID);
+
+    @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id AND Courses.creatorID=:userID Group by Question.courseId;")
+    public List<Course_AnswerCount> getMyCourse(long userID);
+
+    //    @Query("select * from Courses where ")
 //    public List<Courses> getAllCoursesByUser(int idUser);
+
 }

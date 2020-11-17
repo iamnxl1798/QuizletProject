@@ -10,9 +10,11 @@ import java.util.List;
 
 @Dao
 public interface JoinedCouesesDAO {
-    @Query("select Courses.id,Courses.name,Courses.createDate from JoinedCourses,Courses where JoinedCourses.userId = :idUser")
+    @Query("select Courses.id,Courses.name,Courses.createDate,Courses.creatorID from JoinedCourses,Courses where JoinedCourses.userId = :idUser")
     public List<Courses> getAllJoinedCoursesByUser(long idUser);
 
     @Query("select * from JoinedCourses where JoinedCourses.userId = :idUser and courseId =:idCourse")
     public JoinedCourses getAllJoinedCoursesByUserCourse(long idUser, long idCourse);
+
+
 }

@@ -30,6 +30,7 @@
             android:textColor="@color/White"
             android:textSize="25dp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -154,6 +155,7 @@
                 android:weightSum="4">
 
                 <LinearLayout
+                    android:id="@+id/learn"
                     android:layout_width="match_parent"
                     android:layout_height="150px"
                     android:layout_weight="1"
@@ -181,6 +183,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/kiemtra"
                     android:layout_width="match_parent"
                     android:layout_marginLeft="10px"
                     android:layout_marginRight="10px"

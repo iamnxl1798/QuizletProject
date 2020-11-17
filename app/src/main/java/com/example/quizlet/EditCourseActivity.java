@@ -48,6 +48,7 @@ public class EditCourseActivity extends AppCompatActivity {
         addCourseDAO = myDatabase.createCourseDAO();
         courses=addCourseDAO.getCourseByID(idCourse);
         items = new ArrayList<>();
+        updateItems=new ArrayList<>();
         List<Question> qTemp= addCourseDAO.getQuestionByCourseID(courses.getId());
         for(Question q:qTemp){
             items.add(new Item(
@@ -55,8 +56,18 @@ public class EditCourseActivity extends AppCompatActivity {
                     addCourseDAO.getAnswerByQuestionID(q.getId())
             ));
         }
+        for(Item item:items){
+            List<Answers> ansTemp=new ArrayList<>();
+            for(Answers answers:item.getDefinition()){
+                ansTemp.add(answers);
+            }
+            updateItems.add(new Item(
+                    item.getTerm(),
+                    ansTemp
+            ));
+        }
         recyclerView = findViewById(R.id.rcl_view);
-        adapter = new ItemAdapter(items, getApplicationContext());
+        adapter = new ItemAdapter(updateItems, getApplicationContext());
         recyclerView.setAdapter(adapter);
         edit_category = findViewById(R.id.edit_category);
         edit_category.addTextChangedListener(new TextWatcher() {
@@ -86,7 +97,6 @@ public class EditCourseActivity extends AppCompatActivity {
                 try {
                     if(!edit_category.getText().toString().isEmpty()){
                         edit_category.setBackgroundColor(Color.WHITE);
-                        updateItems = ((ItemAdapter) recyclerView.getAdapter()).getItems();
                         courses.setName(edit_category.getText().toString());
                         addCourseDAO.updateCourse(courses);
                         for(Item item:updateItems){
@@ -101,34 +111,47 @@ public class EditCourseActivity extends AppCompatActivity {
                             }
 
                             if(questionExist){
-                                if(!item.getTerm().getQuestionName().isEmpty()){
-                                    addCourseDAO.updateQuestion(item.getTerm());
-                                    List<Answers> temp= new ArrayList<>();
-                                    boolean answerExist=false;
-                                    for(Answers answer:item.getDefinition()){
-                                        for(Answers a: itemExist.getDefinition()){
-                                            if(answer.getId()==a.getId()){
-                                                answerExist=true;
-                                                break;
-                                            }
-                                        }
-                                        if(answer.getAnswer()==null||answer.getAnswer().isEmpty()){
-                                            temp.add(answer);
-                                        }
-                                        else {
-                                            if(answerExist){
-                                                addCourseDAO.updateAnswer(answer);
-                                            }
-                                            else{
-                                                answer.setQuestionId(item.getTerm().getId());
-                                                addCourseDAO.insertAnswer(answer);
-                                            }
-                                        }
-                                    }
-                                    if(item.getDefinition().size()==temp.size()){
+                                    if(item.getTerm().getQuestionName().isEmpty()){
                                         addCourseDAO.deleteQuestion(item.getTerm());
                                     }
-                                }
+                                    else{
+                                        addCourseDAO.updateQuestion(item.getTerm());
+                                        List<Answers> temp= new ArrayList<>();
+                                        boolean answerExist=false;
+                                        for(Answers answer:item.getDefinition()){
+                                            if(answer.getAnswer()==null){
+                                                continue;
+                                            }
+                                            else if(answer.getAnswer().isEmpty()){
+                                                addCourseDAO.deleteAnswer(answer);
+                                                continue;
+                                            }
+                                            for(Answers a: itemExist.getDefinition()){
+                                                if(answer.getId()==a.getId()){
+                                                    answerExist=true;
+                                                    break;
+                                                }
+                                                else{
+                                                    answerExist=false;
+                                                }
+                                            }
+                                            if(answer.getAnswer()==null||answer.getAnswer().isEmpty()){
+                                                temp.add(answer);
+                                            }
+                                            else {
+                                                if(answerExist){
+                                                    addCourseDAO.updateAnswer(answer);
+                                                }
+                                                else{
+                                                    answer.setQuestionId(item.getTerm().getId());
+                                                    addCourseDAO.insertAnswer(answer);
+                                                }
+                                            }
+                                        }
+                                        if(item.getDefinition().size()==temp.size()){
+                                            addCourseDAO.deleteQuestion(item.getTerm());
+                                        }
+                                    }
                             }
                             else{
                                 if(!item.getTerm().getQuestionName().isEmpty()){
@@ -151,17 +174,24 @@ public class EditCourseActivity extends AppCompatActivity {
                                 }
                             }
                         }
-                        if(addCourseDAO.getQuestionByCourseID(courses.getId()).size()==0){
-                            addCourseDAO.deleteCourse(courses);
-                            throw new Exception("Course cannot be blank");
+                        for(Item item:items){
+                            boolean delQuestion=true;
+                            for(Item i:updateItems){
+                                if(i.getTerm().getId()==item.getTerm().getId()){
+                                    delQuestion=false;
+                                    break;
+                                }
+                            }
+                            if(delQuestion){
+                                addCourseDAO.deleteQuestion(item.getTerm());
+                            }
                         }
-                        Toast.makeText(getApplicationContext(), "Add " + courses.getName() + " course success!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Update " + courses.getName() + " course success!", Toast.LENGTH_LONG).show();
                         checkBtn.setEnabled(false);
                         checkBtn.setBackground(null);
                     }else{
                         edit_category.setBackgroundColor(Color.rgb(251,227,228));
-                        Toast.makeText(getApplicationContext(), "Add course failed!", Toast.LENGTH_LONG).show();
-                        addCourseDAO.delLastCourse();
+                        Toast.makeText(getApplicationContext(), "Update course failed!", Toast.LENGTH_LONG).show();
                     }
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -172,12 +202,12 @@ public class EditCourseActivity extends AppCompatActivity {
         addItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                items = ((ItemAdapter) recyclerView.getAdapter()).getItems();
+                updateItems = ((ItemAdapter) recyclerView.getAdapter()).getItems();
                 List<Answers> tempString = new ArrayList<>();
                 tempString.add(new Answers());
-                items.add(new Item(new Question(), tempString));
+                updateItems.add(new Item(new Question(), tempString));
                 recyclerView.setAdapter(adapter);
-                recyclerView.smoothScrollToPosition(items.size()-1);
+                recyclerView.smoothScrollToPosition(updateItems.size()-1);
 
             }
         });

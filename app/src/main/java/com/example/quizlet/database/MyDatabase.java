@@ -8,6 +8,7 @@ import com.example.quizlet.dao.CourseDAO;
 import com.example.quizlet.dao.ImportQuestionDAO;
 import com.example.quizlet.dao.JoinedCouesesDAO;
 import com.example.quizlet.dao.QuesstionDAO;
+import com.example.quizlet.dao.TestDAO;
 import com.example.quizlet.dao.UserDAO;
 import com.example.quizlet.model.Answers;
 import com.example.quizlet.model.Courses;
@@ -30,5 +31,7 @@ public abstract class MyDatabase extends RoomDatabase {
     public abstract JoinedCouesesDAO createJoinCourseDAO();
 
     public abstract ImportQuestionDAO createImportQuestionDAO();
+
+    public abstract TestDAO createTestDAO();
 
 }

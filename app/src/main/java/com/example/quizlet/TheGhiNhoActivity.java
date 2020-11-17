@@ -259,14 +259,14 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                             sttghinho.setText((count[0] + 1) + "/" + (items1.size()));
 
                             ObjectAnimator animator1 = ObjectAnimator.ofFloat(linearLayout, "translationX", 300, 0);
-                            animator1.setDuration(1000);  // set thời gian để chạy từ 0f - 1f
+                            animator1.setDuration(500);  // set thời gian để chạy từ 0f - 1f
                             animator1.setRepeatMode(ValueAnimator.REVERSE); // alpha chạy ngược lại từ 1f - 0f
                             animator1.start();
                             ObjectAnimator animator = ObjectAnimator.ofFloat(linearLayout, "alpha", 1f, 0f);
-                            animator.setDuration(1000);  // set thời gian để chạy từ 0f - 1f
+                            animator.setDuration(500);  // set thời gian để chạy từ 0f - 1f
                             animator.start();
                             ObjectAnimator animator2 = ObjectAnimator.ofFloat(linearLayout, "alpha", 0f, 1f);
-                            animator2.setDuration(1000);  // alpha chạy ngược lại từ 1f - 0f
+                            animator2.setDuration(500);  // alpha chạy ngược lại từ 1f - 0f
                             animator2.start();
                         }
                     } else if (x2 - x1 > 0) {
@@ -297,14 +297,14 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                             textView.setText(quesstionName);
                             progressBar.setProgress(count[0]);
                             ObjectAnimator animator1 = ObjectAnimator.ofFloat(linearLayout, "translationX", -300, 0);
-                            animator1.setDuration(1000);  // set thời gian để chạy từ 0f    - 1f
+                            animator1.setDuration(500);  // set thời gian để chạy từ 0f    - 1f
                             animator1.setRepeatMode(ValueAnimator.REVERSE); // alpha chạy ngược lại từ 1f - 0f
                             animator1.start();
                             ObjectAnimator animator = ObjectAnimator.ofFloat(linearLayout, "alpha", 1f, 0f);
-                            animator.setDuration(1000);  // set thời gian để chạy từ 0f - 1f
+                            animator.setDuration(500);  // set thời gian để chạy từ 0f - 1f
                             animator.start();
                             ObjectAnimator animator2 = ObjectAnimator.ofFloat(linearLayout, "alpha", 0f, 1f);
-                            animator2.setDuration(1000);  // alpha chạy ngược lại từ 1f - 0f
+                            animator2.setDuration(500);  // alpha chạy ngược lại từ 1f - 0f
                             animator2.start();
                         }
                     } else {
@@ -326,7 +326,7 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                         }
                         quesstionName += "\n" + s;
                         ObjectAnimator animator = ObjectAnimator.ofFloat(linearLayout, "alpha", 1f, 0f);
-                        animator.setDuration(1000);  // set thời gian để chạy từ 0f - 1f
+                        animator.setDuration(500);  // set thời gian để chạy từ 0f - 1f
                         animator.start();
                         if (!check[0]) {
                             textView.setText(anwserTrue);
@@ -334,7 +334,7 @@ public class TheGhiNhoActivity extends AppCompatActivity {
                             textView.setText(quesstionName);
                         }
                         ObjectAnimator animator1 = ObjectAnimator.ofFloat(linearLayout, "alpha", 0f, 1f);
-                        animator1.setDuration(1000);  // alpha chạy ngược lại từ 1f - 0f
+                        animator1.setDuration(500);  // alpha chạy ngược lại từ 1f - 0f
                         animator1.start();
                         check[0] = !check[0];
                     }

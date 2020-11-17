@@ -29,4 +29,13 @@ public interface UserDAO {
 
     @Query("SELECT * FROM User where id =:id ")
     public User getUser(long id);
+
+    @Query("UPDATE User SET password = :newPass WHERE ID = :idUser;")
+    public void updateUserBypass(String newPass, long idUser);
+
+    @Query("UPDATE User SET email = :newEmail WHERE ID = :idUser;")
+    public void updateUserByemail(String newEmail, long idUser);
+
+    @Query("SELECT * FROM User where email =:email")
+    public User checkEmailExist(String email);
 }

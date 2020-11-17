@@ -31,7 +31,6 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity {
     private ActionBar toolbar;
     long idUser;
-    ImageView test;
     MyDatabase myDatabase;
     UserDAO userDAO;
     User user;
@@ -41,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         toolbar = getSupportActionBar();
         setContentView(R.layout.activity_main);
-        test = findViewById(R.id.test);
         BottomNavigationView navigationView = findViewById(R.id.naviboton);
         navigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
         loadFragment(new HomeFragment());
@@ -51,14 +49,6 @@ public class MainActivity extends AppCompatActivity {
         myDatabase = Room.databaseBuilder(MainActivity.this, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         userDAO = myDatabase.createUserDAO();
         user = userDAO.getUser(idUser);
-//        BitmapFactory.Options options = new BitmapFactory.Options();
-//        options.inJustDecodeBounds = true;
-//        options.inSampleSize = 2;
-        Bitmap bitmap = BitmapFactory.decodeByteArray(user.getUriImage(), 0, user.getUriImage().length);
-
-        test.setImageBitmap(bitmap);
-
-//        idUser = Long.parseLong(intent.getStringExtra("idUser"));
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
@@ -68,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             Fragment fragment;
             switch (menuItem.getItemId()) {
                 case R.id.navi_home:
-                    fragment = new HomeFragment();
+                    fragment = new HomeFragment(user.getId());
                     loadFragment(fragment);
                     return true;
                 case R.id.navi_search:
