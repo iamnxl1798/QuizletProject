@@ -50,7 +50,7 @@ public class LearnActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ArrayList<AnswersOfQuestion> getAnswersOfQuestions = AnswerAdapter.answersOfQuestions;
+                ArrayList<AnswersOfQuestion> getAnswersOfQuestions = AnswerAdapter.getAnswersAreChoseOfAllQuestions;
                 ArrayList<Answers> getAnswers = (ArrayList<Answers>) myDatabase.createAnswerDAO().getAnswersList();
                 double pointsOfAllQuestions = 0;
                 double mark1111 = 0;
@@ -106,7 +106,7 @@ public class LearnActivity extends AppCompatActivity {
                 //Toast.makeText(v.getContext(), "pointAll = " + pointAll, Toast.LENGTH_SHORT).show();
                 int totalQuestion = getQuestions.size();
 
-                AnswerAdapter.answersOfQuestions.removeAll(getAnswersOfQuestions);
+                AnswerAdapter.getAnswersAreChoseOfAllQuestions.removeAll(getAnswersOfQuestions);
 
                 final Dialog dialog = new Dialog(v.getContext());
                 dialog.setContentView(R.layout.popup_result);
