@@ -1,6 +1,6 @@
 package com.example.quizlet.model;
 
-public class AnswersOfQuestion {
+public class AnswersOfQuestion {//handle when user choose answer of question
     private long answerId;
     private long questionId;
 

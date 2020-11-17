@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
@@ -48,7 +49,7 @@ public class TestAdapter extends RecyclerView.Adapter<TestAdapter.Holder> {
         myDatabase = Room.databaseBuilder(context, MyDatabase.class, COMMON.DB_NAME).allowMainThreadQueries().build();
         AnswerDAO answerDAO = myDatabase.createAnswerDAO();
         ArrayList<Answers> getAnswers = (ArrayList<Answers>) answerDAO.getAnswersList();
-
+        //take all answers of question at this position
         ArrayList<Answers> getAnswers1 = new ArrayList<>();
         for (int i = 0; i < getAnswers.size(); i++) {
             if (getAnswers.get(i).getQuestionId() == getQuestions.get(position).getId()) {

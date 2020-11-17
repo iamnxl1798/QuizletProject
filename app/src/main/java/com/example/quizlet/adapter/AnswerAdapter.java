@@ -6,11 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.quizlet.R;
@@ -21,14 +18,14 @@ import java.util.ArrayList;
 
 public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder> {
     public static int count = 0;
-    private ArrayList<Answers> getAnswers;
-    private Context getContext;
     private ArrayList<Answers> getAnswers1;
+    private Context getContext;
+    private ArrayList<Answers> getAnswers;
 
-    public AnswerAdapter(ArrayList<Answers> getAnswers, Context getContext, ArrayList<Answers> getAnswers1) {
-        this.getAnswers = getAnswers;
-        this.getContext = getContext;
+    public AnswerAdapter(ArrayList<Answers> getAnswers1, Context getContext, ArrayList<Answers> getAnswers) {
         this.getAnswers1 = getAnswers1;
+        this.getContext = getContext;
+        this.getAnswers = getAnswers;
     }
 
     @NonNull
@@ -37,59 +34,48 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
         return new ViewHolder(LayoutInflater.from(getContext).inflate(R.layout.the_answers_custom, parent, false));
     }
 
-    public static ArrayList<AnswersOfQuestion> answersOfQuestions = new ArrayList<>();
+    //All answers are chose of a question
+    public static ArrayList<AnswersOfQuestion> getAnswersAreChoseOfAllQuestions = new ArrayList<>();
 
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
-//        holder.tvAnswer.setTextColor(Color.BLACK);
-//        holder.tvAnswer.setBackgroundColor(Color.WHITE);
         final int[] markColor = {0};
-        holder.tvAnswer.setText(getAnswers.get(position).getAnswer());
+        holder.tvAnswer.setText(getAnswers1.get(position).getAnswer());
         holder.tvAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//
                 if (markColor[0] == 0) {
                     holder.tvAnswer.setTextColor(Color.WHITE);
                     holder.tvAnswer.setBackgroundColor(Color.RED);
                     markColor[0] = 1;
-
-                    // Toast.makeText(v.getContext(), "Mark = " + markColor[0], Toast.LENGTH_SHORT).show();
                 } else if (markColor[0] == 1) {
                     holder.tvAnswer.setTextColor(Color.BLACK);
                     holder.tvAnswer.setBackgroundColor(Color.WHITE);
                     markColor[0] = 0;
-                    //Toast.makeText(v.getContext(), "Mark = " + markColor[0], Toast.LENGTH_SHORT).show();
                 }
 
 
                 //handle to take id of answer by question
-                for (int i = 0; i < getAnswers1.size(); i++) {
-                    if (getAnswers1.get(i).getId() == getAnswers.get(position).getId()) {
+                for (int i = 0; i < getAnswers.size(); i++) {
+                    if (getAnswers.get(i).getId() == getAnswers1.get(position).getId()) {
                         //    Toast.makeText(getContext, "AnswerId = " + getAnswers.get(position).getId(), Toast.LENGTH_SHORT).show();
-                        int markUpdateOrAdd = 0;
-                        for (int j = 0; j < answersOfQuestions.size(); j++) {
-                            if (answersOfQuestions.get(j).getAnswerId() == getAnswers.get(position).getId()
-                                    && answersOfQuestions.get(j).getQuestionId() == getAnswers.get(position).getQuestionId()) {
-                                markUpdateOrAdd = 1;
-                                // Toast.makeText(getContext, "Update", Toast.LENGTH_SHORT).show();
+                        int markUpdate = 0;
+                        for (int j = 0; j < getAnswersAreChoseOfAllQuestions.size(); j++) {
+                            if ( getAnswersAreChoseOfAllQuestions.get(j).getQuestionId() == getAnswers1.get(position).getQuestionId()
+                                    && getAnswersAreChoseOfAllQuestions.get(j).getAnswerId() == getAnswers1.get(position).getId()) {
+                                markUpdate= 1; // update
                                 break;
                             }
                         }
-                        if (markUpdateOrAdd == 0) {
+                        if (markUpdate == 0) { // add
                             AnswersOfQuestion a = new AnswersOfQuestion();
-                            a.setAnswerId(getAnswers.get(position).getId());
-                            a.setQuestionId(getAnswers.get(position).getQuestionId());
-                            answersOfQuestions.add(a);
+                            a.setAnswerId(getAnswers1.get(position).getId());
+                            a.setQuestionId(getAnswers1.get(position).getQuestionId());
+                            getAnswersAreChoseOfAllQuestions.add(a);
                         }
                         break;
                     }
-                }
-                //Toast.makeText(getContext, "Answer " + (position + 1), Toast.LENGTH_SHORT).show();
-                boolean isTrue = getAnswers.get(position).isTrue();
-                if (isTrue) {
-                    count++;
                 }
             }
         });
@@ -97,7 +83,7 @@ public class AnswerAdapter extends RecyclerView.Adapter<AnswerAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return getAnswers.size();
+        return getAnswers1.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

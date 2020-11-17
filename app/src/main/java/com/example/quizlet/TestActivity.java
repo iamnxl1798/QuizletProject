@@ -49,65 +49,67 @@ public class TestActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ArrayList<AnswersOfQuestion> getAnswersOfQuestions = AnswerAdapter.answersOfQuestions;
+                //All answers are chose of a question
+                ArrayList<AnswersOfQuestion> getAnswersAreChoseOfQuestion = AnswerAdapter.getAnswersAreChoseOfAllQuestions;
+                //get all answers
                 ArrayList<Answers> getAnswers = (ArrayList<Answers>) myDatabase.createAnswerDAO().getAnswersList();
-                double pointsOfAllQuestions = 0;
-                double mark1111 = 0;
-                double mark2222 = 0;
-                int k = 0;
 
+//                double mark1111 = 0;
+//                double mark2222 = 0;
+//                int k = 0;
+                double pointsOfAllQuestions = 0;
                 for (Question q : getQuestions) {
+
                     double numberOfAnswerIsTrue = 0;
                     double numberOfAnswerIsTrueIsChose = 0;
                     double numberOfAnswerIsChose = 0;
-                    ArrayList<Answers> getA1 = new ArrayList<>();
+                    ArrayList<Answers> getAllAnswersOfOneQuestion = new ArrayList<>();
 
+                    //all answers of a question e.g: 4 answers
                     for (int i = 0; i < getAnswers.size(); i++) {
                         if (q.getId() == getAnswers.get(i).getQuestionId()) {
-                            getA1.add(getAnswers.get(i));
+                            getAllAnswersOfOneQuestion.add(getAnswers.get(i));
                         }
                     }
 
-                    for (Answers a : getA1) {
+                    for (Answers a : getAllAnswersOfOneQuestion) { // getAllAnswersOfOneQuestion has 4 answers
                         if (a.isTrue()) {
                             numberOfAnswerIsTrue++;
 
                             //get numberOfAnswerIsTrueIsChose
-                            for (int j = 0; j < getAnswersOfQuestions.size(); j++) {
-                                if (a.getQuestionId() == getAnswersOfQuestions.get(j).getQuestionId()
-                                        && a.getId() == getAnswersOfQuestions.get(j).getAnswerId()) {
+                            for (int j = 0; j < getAnswersAreChoseOfQuestion.size(); j++) { //getAnswersAreChoseOfQuestion: 2 answers are chose
+                                if (a.getQuestionId() == getAnswersAreChoseOfQuestion.get(j).getQuestionId()
+                                        && a.getId() == getAnswersAreChoseOfQuestion.get(j).getAnswerId()) {
                                     numberOfAnswerIsTrueIsChose++;
                                 }
                             }
 
                             //get numberOfAnswerIsChose
-                            ArrayList<AnswersOfQuestion> answersOfQuestions = new ArrayList<>();
-                            for (int i = 0; i < getAnswersOfQuestions.size(); i++) {
-                                if (a.getQuestionId() == getAnswersOfQuestions.get(i).getQuestionId()) {
-                                    answersOfQuestions.add(getAnswersOfQuestions.get(i));
+                            ArrayList<AnswersOfQuestion> getAnswersAreChoseOfQuestion1 = new ArrayList<>();
+                            for (int i = 0; i < getAnswersAreChoseOfQuestion.size(); i++) {
+                                if (a.getQuestionId() == getAnswersAreChoseOfQuestion.get(i).getQuestionId()) {
+                                    getAnswersAreChoseOfQuestion1.add(getAnswersAreChoseOfQuestion.get(i));
                                 }
                             }
-                            numberOfAnswerIsChose = answersOfQuestions.size();
+                            numberOfAnswerIsChose = getAnswersAreChoseOfQuestion1.size();
                         }
                     }
-                    if (k == 0) {
-                        mark1111 = numberOfAnswerIsTrue;
-                        mark2222 = numberOfAnswerIsTrueIsChose;
-                        k = 1;
-                    }
+//                    if (k == 0) {
+//                        mark1111 = numberOfAnswerIsTrue;
+//                        mark2222 = numberOfAnswerIsTrueIsChose;
+//                        k = 1;
+//                    }
                     if (numberOfAnswerIsTrue >= numberOfAnswerIsChose) {
                         pointsOfAllQuestions += (numberOfAnswerIsTrueIsChose / numberOfAnswerIsTrue);
                     }
                 }
-                //Toast.makeText(TestActivity.this, "numberOfAnswerIsTrue = " + mark1111, Toast.LENGTH_SHORT).show();
-                //Toast.makeText(TestActivity.this, "numberOfAnswerIsTrueIsChose = " + mark2222, Toast.LENGTH_SHORT).show();
+
 
                 double pointAll = pointsOfAllQuestions / getQuestions.size() * 10;
-                //Toast.makeText(v.getContext(), "pointAll = " + pointAll, Toast.LENGTH_SHORT).show();
+
                 int totalQuestion = getQuestions.size();
 
-                AnswerAdapter.answersOfQuestions.removeAll(getAnswersOfQuestions);
+                AnswerAdapter.getAnswersAreChoseOfAllQuestions.removeAll(getAnswersAreChoseOfQuestion);
 
                 final Dialog dialog = new Dialog(v.getContext());
                 dialog.setContentView(R.layout.popup_result);
