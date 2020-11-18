@@ -11,6 +11,25 @@ public class Course_AnswerCount {
     private String username;
     private String password;
     private String email;
+    private byte[] uriImage;
+
+    public Course_AnswerCount(String courseName, int answerNum, long creatorDate, String username, String password, String email, byte[] uriImage) {
+        this.courseName = courseName;
+        this.answerNum = answerNum;
+        this.creatorDate = creatorDate;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.uriImage = uriImage;
+    }
+
+    public byte[] getUriImage() {
+        return uriImage;
+    }
+
+    public void setUriImage(byte[] uriImage) {
+        this.uriImage = uriImage;
+    }
 
     public String getUsername() {
         return username;
@@ -74,12 +93,4 @@ public class Course_AnswerCount {
 //        this.creatorDate = creatorDate;
 //    }
 
-    public Course_AnswerCount(String courseName, int answerNum, long creatorDate, String username, String password, String email) {
-        this.courseName = courseName;
-        this.answerNum = answerNum;
-        this.creatorDate = creatorDate;
-        this.username = username;
-        this.password = password;
-        this.email = email;
-    }
 }

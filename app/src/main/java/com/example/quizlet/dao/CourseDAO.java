@@ -91,13 +91,13 @@ public interface CourseDAO {
     @Query("DELETE FROM Courses Where Courses.id=:id;")
     public int delCourseByID(long id);
 
-    @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id Group by Question.courseId")
+    @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum, User.uriImage as uriImage, User.username as username FROM Courses, Question, User where Question.courseId=Courses.id AND User.id=Courses.creatorID Group by Question.courseId")
     public List<Course_AnswerCount> getCoursesSearchView();
 
-    @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question, JoinedCourses where Question.courseId=Courses.id And JoinedCourses.courseId=Courses.id And JoinedCourses.userID=:userID Group by Question.courseId")
+    @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum, User.uriImage as uriImage, User.username as username FROM Courses, Question, JoinedCourses, User where Question.courseId=Courses.id AND User.id=Courses.creatorID And JoinedCourses.courseId=Courses.id And JoinedCourses.userID=:userID Group by Question.courseId")
     public List<Course_AnswerCount> getCoursesSearchViewByUserID(long userID);
 
-    @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum FROM Courses, Question where Question.courseId=Courses.id AND Courses.creatorID=:userID Group by Question.courseId;")
+    @Query("SELECT Courses.id as id,Courses.name as courseName, Courses.createDate as creatorDate, Count(Question.id) as answerNum, User.uriImage as uriImage, User.username as username FROM Courses, Question, User where Question.courseId=Courses.id AND User.id=Courses.creatorID AND Courses.creatorID=:userID Group by Question.courseId;")
     public List<Course_AnswerCount> getMyCourse(long userID);
 
     //    @Query("select * from Courses where ")

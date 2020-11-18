@@ -1,6 +1,8 @@
 package com.example.quizlet.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -65,10 +68,14 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> im
         TextView course = holder.getCourse();
         TextView term = holder.getTerm();
         TextView creator = holder.getCreator();
+        TextView txtUserName = holder.getTxtUserName();
+        ImageView imgCourse= holder.getImgCourse();
         course.setText(items.get(position).getCourseName());
         term.setText("Terms: " + items.get(position).getAnswerNum());
         creator.setText("Created date: " + df.format(new Date(items.get(position).getCreatorDate())));
-
+        Bitmap bitmap = BitmapFactory.decodeByteArray(items.get(position).getUriImage(), 0, items.get(position).getUriImage().length);
+        imgCourse.setImageBitmap(bitmap);
+        txtUserName.setText(items.get(position).getUsername());
         holder.getLine().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,8 +127,9 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> im
     };
 
     public class Holder extends RecyclerView.ViewHolder {
-        TextView courseName, termNumber, creatorName;
+        TextView courseName, termNumber, creatorName, txtUserName;
         LinearLayout linearLayout;
+        ImageView imgCourse;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
@@ -129,6 +137,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> im
             termNumber = itemView.findViewById(R.id.tv_TermNumber);
             creatorName = itemView.findViewById(R.id.tv_creatorName);
             linearLayout = itemView.findViewById(R.id.item_course);
+            txtUserName = itemView.findViewById(R.id.txtUserName);
+            imgCourse = itemView.findViewById(R.id.imgCourse);
         }
 
         public LinearLayout getLine() {
@@ -145,6 +155,14 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.Holder> im
 
         public TextView getCreator() {
             return creatorName;
+        }
+
+        public TextView getTxtUserName() {
+            return txtUserName;
+        }
+
+        public ImageView getImgCourse() {
+            return imgCourse;
         }
     }
 
